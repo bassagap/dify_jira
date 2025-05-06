@@ -1,0 +1,27 @@
+{
+    "name": "Dify Development Environment",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "api",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-azuretools.vscode-docker",
+                "redhat.vscode-yaml"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.formatting.provider": "black"
+            }
+        }
+    },
+    "forwardPorts": [
+        3000,
+        5001
+    ],
+    "postCreateCommand": "pip install -r requirements.txt",
+    "remoteUser": "root"
+}
