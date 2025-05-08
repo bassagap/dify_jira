@@ -3,56 +3,52 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "jira-rag"
+name = "dify-jira"
 version = "0.1.0"
-description = "Jira to Dify RAG Integration"
+description = "Integration between Jira and Dify RAG system"
+readme = "README.md"
 requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "Your Name", email = "your.email@example.com" }
+]
 dependencies = [
     "jira==3.5.2",
     "python-dotenv==1.0.0",
     "requests==2.31.0",
-    "pydantic==2.6.1"
+    "urllib3==2.0.7",
+    "pydantic==2.5.2"
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.0",
-    "pytest-cov>=4.1.0",
-    "black>=24.2.0",
-    "isort>=5.13.2",
-    "mypy>=1.8.0",
-    "ruff>=0.3.0",
-    "pre-commit>=3.6.0",
-    "types-requests>=2.31.0.20240125"
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "isort>=5.0",
+    "mypy>=1.0",
+    "pylint>=3.0",
+    "pre-commit>=3.0"
 ]
 
 [tool.black]
 line-length = 88
-target-version = ['py39']
+target-version = ["py39"]
+include = '\.pyi?$'
 
 [tool.isort]
 profile = "black"
 multi_line_output = 3
-
-[tool.ruff]
-line-length = 88
-target-version = "py39"
-select = ["E", "F", "I", "UP"]
-ignore = []
-
-[tool.ruff.per-file-ignores]
-"__init__.py" = ["F401"]
+line_length = 88
 
 [tool.mypy]
 python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
-check_untyped_defs = true
+disallow_incomplete_defs = true
 
 [tool.pytest.ini_options]
-minversion = "8.0"
-addopts = "-ra -q --cov=jira_rag --cov-report=term-missing"
-testpaths = [
-    "tests",
-] 
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "--cov=jira_rag --cov-report=term-missing" 

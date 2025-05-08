@@ -2,14 +2,23 @@
 
 This project provides tools to fetch issues from Jira and ingest them into a Dify RAG (Retrieval-Augmented Generation) system.
 
-## Setup
+## Development with GitHub Codespaces
 
-1. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-```
+This repository is configured for development with GitHub Codespaces. To get started:
 
-2. Create a `.env` file in the project root with your credentials:
+1. Click the "Code" button in this repository
+2. Select the "Codespaces" tab
+3. Click "Create codespace on main"
+
+The development container will be automatically configured with:
+- Python 3.9
+- All required dependencies
+- Git
+- Common Python development tools
+
+### Environment Setup
+
+1. Create a `.env` file in the project root with your credentials:
 ```env
 # Jira credentials
 JIRA_SERVER_URL=https://your-domain.atlassian.net
@@ -20,6 +29,47 @@ JIRA_API_TOKEN=your-api-token
 DIFY_API_KEY=your-dify-api-key
 DIFY_BASE_URL=https://api.dify.ai/v1  # Optional, defaults to this value
 ```
+
+## Local Development
+
+If you prefer to develop locally, you have two options:
+
+### Option 1: Using Docker Compose
+
+1. Make sure you have Docker and Docker Compose installed
+2. Run the development environment:
+```bash
+docker-compose up -d
+```
+3. Access the container:
+```bash
+docker-compose exec app bash
+```
+
+### Option 2: Direct Installation
+
+1. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+pip install -e ".[dev]"  # Install development dependencies
+```
+
+2. Create a `.env` file as described above
+
+3. Set up pre-commit hooks:
+```bash
+pre-commit install
+```
+
+## Project Structure
+
+- `.devcontainer/`: Configuration for GitHub Codespaces and VS Code Remote Containers
+- `.pre-commit-config.yaml`: Pre-commit hooks for code quality
+- `docker-compose.yaml`: Local development environment
+- `pyproject.toml`: Project metadata and dependencies
+- `requirements.txt`: Core dependencies
+- `jira_rag/`: Main package code
+- `tests/`: Test files
 
 ## Usage
 
@@ -54,9 +104,11 @@ response = dify.ingest_issues(issues)
 - Delete documents from Dify RAG
 - Environment variable configuration
 - Type hints and documentation
+- Automated code quality checks with pre-commit hooks
+- Docker-based development environment
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.9+
 - Jira API access
 - Dify API access 
