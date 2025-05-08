@@ -22,6 +22,5 @@
         3000,
         5001
     ],
-    "postCreateCommand": "pip install -r requirements.txt",
-    "remoteUser": "root"
+    "postCreateCommand": "pip install -r requirements.txt"
 }
