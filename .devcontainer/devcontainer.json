@@ -1,86 +1,40 @@
 {
     "name": "Dify Jira Integration",
+    "dockerFile": "Dockerfile",
     "dockerComposeFile": "docker-compose.yml",
     "service": "app",
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "workspaceFolder": "/workspace",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "version": "latest",
+            "moby": true,
+            "dockerDashComposeVersion": "v2"
+        }
+    },
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-azuretools.vscode-docker",
-                "ms-python.black-formatter",
-                "ms-python.flake8",
-                "ms-python.isort",
-                "njpwerner.autodocstring",
-                "streetsidesoftware.code-spell-checker",
-                "eamodio.gitlens",
-                "ms-python.debugpy",
-                "visualstudioexptteam.vscodeintellicode"
+                "ms-azuretools.vscode-docker"
             ],
             "settings": {
-                "python.defaultInterpreterPath": "/opt/venv/bin/python",
-                "python.pythonPath": "/opt/venv/bin/python",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
                 "python.formatting.provider": "black",
                 "editor.formatOnSave": true,
                 "editor.codeActionsOnSave": {
                     "source.organizeImports": true
-                },
-                "files.trimTrailingWhitespace": true,
-                "files.trimFinalNewlines": true,
-                "editor.rulers": [88],
-                "python.testing.pytestEnabled": true,
-                "python.testing.unittestEnabled": false,
-                "python.testing.nosetestsEnabled": false,
-                "python.testing.pytestArgs": ["tests"],
-                "[python]": {
-                    "editor.defaultFormatter": "ms-python.black-formatter",
-                    "editor.formatOnSave": true,
-                    "editor.codeActionsOnSave": {
-                        "source.organizeImports": true
-                    }
-                },
-                "autoDocstring.docstringFormat": "google",
-                "autoDocstring.startOnNewLine": true,
-                "debug.internalConsoleOptions": "neverOpen",
-                "debug.toolBarLocation": "docked",
-                "debug.showInStatusBar": "always"
-            }
-        },
-        "codespaces": {
-            "repositories": {
-                "${localWorkspaceFolderBasename}": {
-                    "permissions": {
-                        "ports": [
-                            {
-                                "port": 3000,
-                                "label": "Dify Web Interface",
-                                "protocol": "http",
-                                "visibility": "public",
-                                "onAutoForward": "notify"
-                            }
-                        ]
-                    }
                 }
             }
         }
     },
     "forwardPorts": [3000],
-    "portsAttributes": {
-        "3000": {
-            "label": "Dify Web Interface",
-            "onAutoForward": "notify",
-            "protocol": "http"
-        }
-    },
-    "postCreateCommand": "pip install -e .[dev] && pre-commit install && mkdir -p dify/docker/data",
-    "features": {
-        "ghcr.io/devcontainers/features/docker:1": {
-            "version": "latest",
-            "moby": true
-        }
-    },
-    "remoteUser": "vscode"
+    "postCreateCommand": "pip install -e .[dev] && pre-commit install",
+    "remoteUser": "vscode",
+    "privileged": true,
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ]
 } 

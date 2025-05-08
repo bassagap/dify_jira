@@ -7,7 +7,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
       target: development
     volumes:
-      - ..:/workspaces:cached
+      - ..:/workspace:cached
       - ~/.gitconfig:/home/vscode/.gitconfig
       - venv:/opt/venv
     command: sleep infinity
@@ -15,11 +15,13 @@ services:
       - "3000:3000"
     user: vscode
     environment:
-      - PYTHONPATH=/workspaces/dify-jira
+      - PYTHONPATH=/workspace
       - VIRTUAL_ENV=/opt/venv
       - PATH=/opt/venv/bin:$PATH
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
+      - CODESPACES=${CODESPACES}
+      - CODESPACE_NAME=${CODESPACE_NAME}
     depends_on:
       - dify
 
@@ -33,9 +35,9 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=development
-      - CONSOLE_URL=http://localhost:3000
-      - API_URL=http://localhost:5001
-      - APP_URL=http://localhost:3000
+      - CONSOLE_URL=${CODESPACES:+https://${CODESPACE_NAME}-3000.preview.app.github.dev}${CODESPACES:-http://localhost:3000}
+      - API_URL=${CODESPACES:+https://${CODESPACE_NAME}-5001.preview.app.github.dev}${CODESPACES:-http://localhost:5001}
+      - APP_URL=${CODESPACES:+https://${CODESPACE_NAME}-3000.preview.app.github.dev}${CODESPACES:-http://localhost:3000}
       - STORAGE_TYPE=local
       - STORAGE_LOCAL_PATH=/app/data
       - REDIS_HOST=redis

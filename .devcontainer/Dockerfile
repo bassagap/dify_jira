@@ -15,6 +15,8 @@ RUN apt-get update \
         gnupg \
         lsb-release \
         apt-transport-https \
+        build-essential \
+        python3-dev \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
@@ -42,10 +44,14 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 # Install Python tools
 RUN pip install --upgrade pip \
-    && pip install pylint autopep8 black yapf bandit flake8 mypy pycodestyle pydocstyle
+    && pip install pylint autopep8 black yapf bandit flake8 mypy pycodestyle pydocstyle pre-commit
 
 # Set the default shell to bash
 ENV SHELL=/bin/bash
+
+# Create virtual environment
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 
 # Switch to the non-root user
 USER $USERNAME
