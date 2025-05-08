@@ -3,7 +3,7 @@
     "dockerFile": "Dockerfile",
     "dockerComposeFile": "docker-compose.yml",
     "service": "app",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "/workspaces/dify_jira",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest",

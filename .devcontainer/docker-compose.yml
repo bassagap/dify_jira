@@ -7,7 +7,7 @@ services:
       dockerfile: .devcontainer/Dockerfile
       target: development
     volumes:
-      - ..:/workspace:cached
+      - ..:/workspaces:cached
       - ~/.gitconfig:/home/vscode/.gitconfig
       - venv:/opt/venv
     command: sleep infinity
@@ -15,7 +15,7 @@ services:
       - "3000:3000"
     user: vscode
     environment:
-      - PYTHONPATH=/workspace
+      - PYTHONPATH=/workspaces
       - VIRTUAL_ENV=/opt/venv
       - PATH=/opt/venv/bin:$PATH
       - PYTHONDONTWRITEBYTECODE=1
@@ -23,7 +23,8 @@ services:
       - CODESPACES=${CODESPACES}
       - CODESPACE_NAME=${CODESPACE_NAME}
     depends_on:
-      - dify
+      - redis
+      - mysql
 
   dify:
     build:

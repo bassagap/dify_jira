@@ -57,4 +57,4 @@ ENV PATH="/opt/venv/bin:$PATH"
 USER $USERNAME
 
 # Set the working directory
-WORKDIR /workspace 
+WORKDIR /workspaces/dify_jira 
