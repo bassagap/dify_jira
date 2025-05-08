@@ -1,14 +1,13 @@
 {
     "name": "Dify Jira Integration",
-    "dockerFile": "Dockerfile",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
-    "workspaceFolder": "/workspaces/dify_jira",
+    "image": "mcr.microsoft.com/devcontainers/python:3.9",
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {
             "version": "latest",
             "moby": true,
-            "dockerDashComposeVersion": "v2"
+            "dockerDashComposeVersion": "v2",
+            "enableNonRootDocker": true,
+            "startDockerDaemon": false
         }
     },
     "customizations": {
@@ -30,11 +29,13 @@
             }
         }
     },
-    "forwardPorts": [3000],
-    "postCreateCommand": "pip install -e .[dev] && pre-commit install",
+    "forwardPorts": [
+        3000
+    ],
+    "postCreateCommand": "sudo chown root:docker /var/run/docker.sock && sudo chmod 666 /var/run/docker.sock && pip install -e .[dev] && pre-commit install",
     "remoteUser": "vscode",
     "privileged": true,
     "mounts": [
-        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind,consistency=cached"
     ]
-} 
+}

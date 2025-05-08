@@ -24,9 +24,10 @@ check_requirements() {
         exit 1
     fi
     
-    # Check for Docker Compose
-    if ! docker compose version &> /dev/null && ! command -v docker-compose &> /dev/null; then
-        echo -e "${RED}Docker Compose is not installed. Please install Docker Compose first.${NC}"
+    # Check for Docker Compose v2
+    if ! docker compose version &> /dev/null; then
+        echo -e "${RED}Docker Compose v2 is not available. Please ensure Docker Compose v2 is installed.${NC}"
+        echo -e "${YELLOW}In Codespaces, make sure the Docker feature is enabled in devcontainer.json${NC}"
         exit 1
     fi
     
@@ -46,9 +47,15 @@ setup_dify_submodule() {
     branch = main" > .gitmodules
     fi
 
-    # Check if dify directory exists
+    # Check if dify directory exists and is not empty
+    if [ -d "dify" ] && [ "$(ls -A dify)" ]; then
+        echo -e "${GREEN}Dify directory already exists and is not empty. Skipping clone...${NC}"
+        return 0
+    fi
+
+    # If directory exists but is empty, remove it
     if [ -d "dify" ]; then
-        echo -e "${YELLOW}Removing existing dify directory...${NC}"
+        echo -e "${YELLOW}Removing empty dify directory...${NC}"
         rm -rf dify
     fi
 
@@ -106,7 +113,7 @@ check_docker() {
 
 # Function to start Docker containers
 start_containers() {
-    local compose_file="docker-compose.yml"
+    local compose_file="docker-compose.yaml"
     echo -e "${YELLOW}Starting Docker containers using $compose_file...${NC}"
 
     # Check if compose file exists
@@ -115,25 +122,14 @@ start_containers() {
         return 1
     fi
 
-    # Try docker compose v2 first
-    if docker compose version &> /dev/null; then
-        echo -e "${YELLOW}Using Docker Compose V2...${NC}"
-        docker compose -f "$compose_file" up -d
-        if [ $? -eq 0 ]; then
-            return 0
-        fi
+    # Use docker compose v2
+    echo -e "${YELLOW}Using Docker Compose V2...${NC}"
+    docker compose -f "$compose_file" up -d
+    if [ $? -eq 0 ]; then
+        return 0
     fi
 
-    # Try docker-compose v1 as fallback
-    if command -v docker-compose &> /dev/null; then
-        echo -e "${YELLOW}Using Docker Compose V1...${NC}"
-        docker-compose -f "$compose_file" up -d
-        if [ $? -eq 0 ]; then
-            return 0
-        fi
-    fi
-
-    echo -e "${RED}Failed to start containers. Neither docker compose v2 nor docker-compose v1 is available.${NC}"
+    echo -e "${RED}Failed to start containers. Please check the error messages above.${NC}"
     return 1
 }
 
@@ -174,28 +170,28 @@ fi
 
 # Check if containers are running
 echo -e "${YELLOW}Checking container status...${NC}"
-if docker compose version &> /dev/null; then
-    docker compose -f docker-compose.yml ps
-else
-    docker-compose -f docker-compose.yml ps
-fi
+docker compose -f docker-compose.yaml ps
 
 echo -e "${GREEN}Dify setup completed!${NC}"
-echo -e "${YELLOW}Next steps:${NC}"
 
-# Adjust URLs based on environment
-if [ -n "$CODESPACES" ]; then
-    echo -e "1. Access the administrator initialization page at: ${GREEN}https://$CODESPACE_NAME-80.preview.app.github.dev/install${NC}"
-    echo -e "2. Set up your admin account"
-    echo -e "3. Access the Dify web interface at: ${GREEN}https://$CODESPACE_NAME-80.preview.app.github.dev${NC}"
-    echo -e "${YELLOW}Note: If you encounter network issues, you may need to:${NC}"
-    echo -e "   - Configure your Codespace to use a proxy"
-    echo -e "   - Add necessary environment variables to your .env file"
-    echo -e "   - Check the Docker container logs for any network-related errors"
-else
-    echo -e "1. Access the administrator initialization page at: ${GREEN}http://localhost/install${NC}"
-    echo -e "2. Set up your admin account"
-    echo -e "3. Access the Dify web interface at: ${GREEN}http://localhost${NC}"
-fi
 
-echo -e "${YELLOW}Note: Make sure Docker is running and has sufficient resources allocated.${NC}" 
+# Function to open browser
+open_browser() {
+    local url=$1
+    if command -v xdg-open &> /dev/null; then
+        xdg-open "$url"
+    elif command -v open &> /dev/null; then
+        open "$url"
+    elif command -v start &> /dev/null; then
+        start "$url"
+    else
+        echo -e "${YELLOW}Could not automatically open browser. Please visit: ${GREEN}$url${NC}"
+    fi
+}
+
+
+
+url="http://localhost/install"
+
+echo -e "${YELLOW}Opening Dify in your browser...${NC}"
+open_browser "$url" 
