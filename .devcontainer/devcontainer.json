@@ -32,7 +32,7 @@
     "forwardPorts": [
         3000
     ],
-    "postCreateCommand": "sudo chown root:docker /var/run/docker.sock && sudo chmod 666 /var/run/docker.sock && pip install -e .[dev] && pre-commit install",
+    "postCreateCommand": "pip install -r requirements.txt && sudo chown root:docker /var/run/docker.sock && sudo chmod 666 /var/run/docker.sock && pip install -e .[dev] && pre-commit install",
     "remoteUser": "vscode",
     "privileged": true,
     "mounts": [
