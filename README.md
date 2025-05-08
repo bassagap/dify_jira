@@ -17,121 +17,76 @@ The development container will be automatically configured with:
 - Common Python development tools
 - Docker and Docker Compose
 
-### Environment Setup
+## Complete Setup Process
 
-1. Create a `.env` file in the project root with your credentials:
-```env
-# Jira credentials
-JIRA_SERVER_URL=https://your-domain.atlassian.net
-JIRA_EMAIL=your-email@example.com
-JIRA_API_TOKEN=your-api-token
+### 1. Initial Setup
 
-# Dify credentials
-DIFY_API_KEY=your-dify-api-key
-DIFY_BASE_URL=https://api.dify.ai/v1  # Optional, defaults to this value
-```
+1. Make the setup script executable:
+   ```bash
+   chmod +x setup-dify.sh
+   ```
 
-## Local Development
+2. Run the Dify setup script:
+   ```bash
+   ./setup-dify.sh
+   ```
+   This script will:
+   - Check for required tools (git, Docker, Docker Compose)
+   - Initialize git repository if needed
+   - Set up the Dify submodule from https://github.com/langgenius/dify.git
+   - Configure the environment
+   - Start the Docker containers
+   - Open Dify in your browser at http://localhost/install
 
-If you prefer to develop locally, you have two options:
+3. Complete Dify Installation:
+   - When the browser opens, follow the Dify installation wizard
+   - Create your admin account
+   - Note down your API keys from the Dify dashboard
 
-### Option 1: Using Docker Compose
+### 2. Environment Configuration
 
-1. Make sure you have Docker and Docker Compose installed
-2. Clone the repository:
+1. Edit `.env.example` file and fill in your credentials:
+
+   ```env
+   # Jira credentials
+   JIRA_SERVER_URL=https://your-domain.atlassian.net   
+   JIRA_EMAIL=your-email@example.com 
+   JIRA_API_TOKEN=your-api-token 
+
+   # Dify credentials
+   DIFY_API_KEY=your-dify-api-key                       
+   DIFY_BASE_URL=https://api.dify.ai/v1         # Optional, defaults to this value
+   ```
+
+   To get your credentials:
+   - **Jira API Token**: 
+     1. Go to https://id.atlassian.com/manage-profile/security/api-tokens
+     2. Click "Create API token"
+     3. Give it a name and copy the token
+   
+   - **Dify API Key**:
+     1. Log in to your Dify dashboard
+     2. Go to API Keys section
+     3. Create a new API key or use an existing one
+
+
+2. Copy the existing `.env.example` file to create your `.env` file:
+   ```bash
+   cp .env.example .env
+   ```
+
+
+### 3. Running the Example
+
+Run the example script:
 ```bash
-git clone https://github.com/yourusername/dify-jira.git
-cd dify-jira
+python example.py
 ```
-3. Run the setup script:
-```bash
-chmod +x setup-dify.sh
-./setup-dify.sh
-```
+
 The script will:
-- Initialize git repository if needed
-- Set up the Dify submodule
-- Configure the environment
-- Start the Docker containers
+- Connect to your Jira instance using the provided credentials
+- Fetch issues from the QAREF project
+- Create a new dataset in Dify if one doesn't exist
+- Ingest the Jira issues into Dify's knowledge base
+- Log the progress and any errors that occur
 
-4. Access the container:
-```bash
-docker-compose exec app bash
-```
-
-### Option 2: Direct Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/dify-jira.git
-cd dify-jira
-```
-2. Run the setup script:
-```bash
-chmod +x setup-dify.sh
-./setup-dify.sh
-```
-3. Install the required dependencies:
-```bash
-pip install -r requirements.txt
-pip install -e ".[dev]"  # Install development dependencies
-```
-4. Set up pre-commit hooks:
-```bash
-pre-commit install
-```
-
-## Project Structure
-
-- `.devcontainer/`: Configuration for GitHub Codespaces and VS Code Remote Containers
-- `.pre-commit-config.yaml`: Pre-commit hooks for code quality
-- `docker-compose.yaml`: Local development environment
-- `pyproject.toml`: Project metadata and dependencies
-- `requirements.txt`: Core dependencies
-- `setup-dify.sh`: Setup script for Dify environment
-- `jira_rag/`: Main package code
-- `tests/`: Test files
-- `dify/`: Dify submodule (RAG system)
-
-## Usage
-
-The project provides two main components:
-
-1. `JiraClient`: For fetching issues from Jira
-2. `DifyIntegration`: For ingesting issues into Dify RAG
-
-Example usage:
-
-```python
-from jira_rag.jira_client import JiraClient
-from jira_rag.dify_integration import DifyIntegration
-
-# Initialize clients
-jira_client = JiraClient()
-dify = DifyIntegration()
-
-# Fetch issues from Jira
-jql_query = "project = YOUR_PROJECT_KEY AND created >= -30d"
-issues = jira_client.get_issues(jql_query, max_results=50)
-
-# Ingest issues into Dify RAG
-response = dify.ingest_issues(issues)
-```
-
-## Features
-
-- Fetch issues from Jira using JQL queries
-- Format issues for RAG ingestion
-- Ingest issues into Dify RAG
-- Delete documents from Dify RAG
-- Environment variable configuration
-- Type hints and documentation
-- Automated code quality checks with pre-commit hooks
-- Docker-based development environment
-- Automated setup script for Dify environment
-
-## Requirements
-
-- Python 3.9+
-- Jira API access
-- Dify API access 
