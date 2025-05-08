@@ -58,6 +58,20 @@ check_git_repo() {
     fi
 }
 
+# Function to restart Docker daemon
+restart_docker() {
+    echo -e "${YELLOW}Restarting Docker daemon...${NC}"
+    if command -v systemctl &> /dev/null; then
+        sudo systemctl restart docker
+    elif command -v service &> /dev/null; then
+        sudo service docker restart
+    else
+        # Try direct Docker daemon restart
+        sudo kill -HUP $(pidof dockerd)
+    fi
+    sleep 5  # Wait for Docker to restart
+}
+
 # Check if we're in a git repository
 check_git_repo
 
@@ -96,12 +110,18 @@ if [ -n "$CODESPACES" ]; then
         }
     }' | sudo tee /etc/docker/daemon.json > /dev/null
     
-    # Restart Docker daemon to apply proxy settings
-    if command -v systemctl &> /dev/null; then
-        sudo systemctl restart docker
-    else
-        # Alternative restart method for environments without systemctl
-        sudo service docker restart
+    # Restart Docker daemon
+    restart_docker
+fi
+
+# Check if Docker is running
+echo -e "${YELLOW}Checking Docker status...${NC}"
+if ! docker info &> /dev/null; then
+    echo -e "${RED}Docker is not running. Attempting to start Docker...${NC}"
+    restart_docker
+    if ! docker info &> /dev/null; then
+        echo -e "${RED}Failed to start Docker. Please check Docker installation and try again.${NC}"
+        exit 1
     fi
 fi
 
@@ -110,11 +130,15 @@ echo -e "${YELLOW}Starting Docker containers...${NC}"
 if docker compose version &> /dev/null; then
     # Using docker compose v2
     docker compose up -d
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}Failed to start containers with docker compose v2. Trying alternative method...${NC}"
+        docker-compose up -d
+    fi
 elif command -v docker-compose &> /dev/null; then
     # Using docker-compose v1
     docker-compose up -d
 else
-    echo -e "${RED}Failed to start containers. Please try running the script again.${NC}"
+    echo -e "${RED}Neither docker compose v2 nor docker-compose v1 is available.${NC}"
     exit 1
 fi
 
