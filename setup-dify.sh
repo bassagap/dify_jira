@@ -8,15 +8,44 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}Setting up Dify project...${NC}"
 
+# Function to setup Dify submodule
+setup_dify_submodule() {
+    echo -e "${YELLOW}Setting up Dify submodule...${NC}"
+    
+    # Check if .gitmodules exists
+    if [ ! -f .gitmodules ]; then
+        echo -e "${YELLOW}Creating .gitmodules file...${NC}"
+        echo "[submodule \"dify\"]
+    path = dify
+    url = https://github.com/langgenius/dify.git" > .gitmodules
+    fi
 
-# Initialize and update submodules
-echo -e "${YELLOW}Initializing Dify submodule...${NC}"
-if git submodule update --init --recursive; then
-    echo -e "${GREEN}Successfully initialized Dify submodule!${NC}"
-else
-    echo -e "${RED}Failed to initialize Dify submodule. Please check your git configuration and try again.${NC}"
-    exit 1
-fi
+    # Check if dify directory exists and is empty
+    if [ ! -d "dify" ] || [ -z "$(ls -A dify 2>/dev/null)" ]; then
+        echo -e "${YELLOW}Initializing Dify submodule...${NC}"
+        # Remove existing dify directory if it exists but is empty
+        [ -d "dify" ] && rm -rf dify
+        
+        # Initialize and update submodule
+        git submodule add https://github.com/langgenius/dify.git dify
+        if [ $? -ne 0 ]; then
+            echo -e "${RED}Failed to add Dify submodule. Please check your git configuration and try again.${NC}"
+            exit 1
+        fi
+    else
+        echo -e "${YELLOW}Updating existing Dify submodule...${NC}"
+        git submodule update --init --recursive
+        if [ $? -ne 0 ]; then
+            echo -e "${RED}Failed to update Dify submodule. Please check your git configuration and try again.${NC}"
+            exit 1
+        fi
+    fi
+    
+    echo -e "${GREEN}Successfully set up Dify submodule!${NC}"
+}
+
+# Setup Dify submodule
+setup_dify_submodule
 
 # Navigate to Dify docker directory
 echo -e "${YELLOW}Setting up Dify environment...${NC}"
@@ -51,28 +80,33 @@ if [ -n "$CODESPACES" ]; then
     }' | sudo tee /etc/docker/daemon.json > /dev/null
     
     # Restart Docker daemon to apply proxy settings
-    sudo systemctl restart docker
+    if command -v systemctl &> /dev/null; then
+        sudo systemctl restart docker
+    else
+        # Alternative restart method for environments without systemctl
+        sudo service docker restart
+    fi
 fi
 
 # Start Docker containers
 echo -e "${YELLOW}Starting Docker containers...${NC}"
-if command -v docker-compose &> /dev/null; then
-    # Using docker-compose v1
-    docker-compose up -d
-elif command -v docker &> /dev/null && docker compose version &> /dev/null; then
+if docker compose version &> /dev/null; then
     # Using docker compose v2
     docker compose up -d
+elif command -v docker-compose &> /dev/null; then
+    # Using docker-compose v1
+    docker-compose up -d
 else
-    echo -e "${RED}Neither docker-compose nor docker compose is available. Please install Docker and Docker Compose first.${NC}"
+    echo -e "${RED}Failed to start containers. Please try running the script again.${NC}"
     exit 1
 fi
 
 # Check if containers are running
 echo -e "${YELLOW}Checking container status...${NC}"
-if command -v docker-compose &> /dev/null; then
-    docker-compose ps
-else
+if docker compose version &> /dev/null; then
     docker compose ps
+else
+    docker-compose ps
 fi
 
 echo -e "${GREEN}Dify setup completed!${NC}"

@@ -23,5 +23,18 @@
         "ms-azuretools.vscode-docker"
     ],
     "postCreateCommand": "pip install -r requirements.txt",
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "enableNonRootDocker": true,
+            "moby": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "docker.enableDockerCompose": true
+            }
+        }
+    }
 } 
