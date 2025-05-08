@@ -15,6 +15,7 @@ The development container will be automatically configured with:
 - All required dependencies
 - Git
 - Common Python development tools
+- Docker and Docker Compose
 
 ### Environment Setup
 
@@ -37,26 +38,45 @@ If you prefer to develop locally, you have two options:
 ### Option 1: Using Docker Compose
 
 1. Make sure you have Docker and Docker Compose installed
-2. Run the development environment:
+2. Clone the repository:
 ```bash
-docker-compose up -d
+git clone https://github.com/yourusername/dify-jira.git
+cd dify-jira
 ```
-3. Access the container:
+3. Run the setup script:
+```bash
+chmod +x setup-dify.sh
+./setup-dify.sh
+```
+The script will:
+- Initialize git repository if needed
+- Set up the Dify submodule
+- Configure the environment
+- Start the Docker containers
+
+4. Access the container:
 ```bash
 docker-compose exec app bash
 ```
 
 ### Option 2: Direct Installation
 
-1. Install the required dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/dify-jira.git
+cd dify-jira
+```
+2. Run the setup script:
+```bash
+chmod +x setup-dify.sh
+./setup-dify.sh
+```
+3. Install the required dependencies:
 ```bash
 pip install -r requirements.txt
 pip install -e ".[dev]"  # Install development dependencies
 ```
-
-2. Create a `.env` file as described above
-
-3. Set up pre-commit hooks:
+4. Set up pre-commit hooks:
 ```bash
 pre-commit install
 ```
@@ -68,8 +88,10 @@ pre-commit install
 - `docker-compose.yaml`: Local development environment
 - `pyproject.toml`: Project metadata and dependencies
 - `requirements.txt`: Core dependencies
+- `setup-dify.sh`: Setup script for Dify environment
 - `jira_rag/`: Main package code
 - `tests/`: Test files
+- `dify/`: Dify submodule (RAG system)
 
 ## Usage
 
@@ -106,6 +128,7 @@ response = dify.ingest_issues(issues)
 - Type hints and documentation
 - Automated code quality checks with pre-commit hooks
 - Docker-based development environment
+- Automated setup script for Dify environment
 
 ## Requirements
 

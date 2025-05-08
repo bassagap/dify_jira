@@ -17,7 +17,8 @@ setup_dify_submodule() {
         echo -e "${YELLOW}Creating .gitmodules file...${NC}"
         echo "[submodule \"dify\"]
     path = dify
-    url = https://github.com/langgenius/dify.git" > .gitmodules
+    url = https://github.com/langgenius/dify.git
+    branch = main" > .gitmodules
     fi
 
     # Check if dify directory exists and is empty
@@ -43,6 +44,22 @@ setup_dify_submodule() {
     
     echo -e "${GREEN}Successfully set up Dify submodule!${NC}"
 }
+
+# Function to check if we're in a git repository
+check_git_repo() {
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        echo -e "${YELLOW}Initializing git repository...${NC}"
+        git init
+        if [ $? -ne 0 ]; then
+            echo -e "${RED}Failed to initialize git repository. Please check your git configuration and try again.${NC}"
+            exit 1
+        fi
+        echo -e "${GREEN}Successfully initialized git repository!${NC}"
+    fi
+}
+
+# Check if we're in a git repository
+check_git_repo
 
 # Setup Dify submodule
 setup_dify_submodule
