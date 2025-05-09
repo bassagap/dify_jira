@@ -14,7 +14,7 @@ class DifyIntegration:
         self.dataset_id = dataset_id or os.getenv('DIFY_DATASET_ID')
         
         if not self.dataset_api_key:
-            raise ValueError("Missing Dify API key. Please provide it or set DIFY_API_KEY environment variable.")
+            raise ValueError("Missing Dify API key. Please provide it or set DIFY_DATASET_API_KEY environment variable.")
         self.headers = {
             'Authorization': f'Bearer {self.dataset_api_key}',
             'Content-Type': 'application/json'

@@ -54,7 +54,7 @@ The development container will be automatically configured with:
    JIRA_API_TOKEN=your-api-token 
 
    # Dify credentials
-   DIFY_API_KEY=your-dify-api-key                       
+   DIFY_DATASET_API_KEY=your-dify-api-key                      
    DIFY_BASE_URL=https://api.dify.ai/v1         # Optional, defaults to this value
    ```
 
