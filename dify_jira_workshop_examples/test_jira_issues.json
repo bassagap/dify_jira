@@ -1,0 +1,222 @@
+[
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Coffee machine fails to deliver caffeine on Mondays",
+      "description": "When the coffee machine is used on Monday mornings, it dispenses decaf instead of regular coffee. This leads to a significant drop in team productivity and an increase in sarcastic comments.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Critical" },
+      "assignee": { "name": "Alice" },
+      "labels": ["coffee", "monday", "productivity"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Rubber duck missing from pair programming station",
+      "description": "The team's rubber duck, essential for debugging, has mysteriously disappeared. Developers are now talking to their plants, with mixed results.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "High" },
+      "assignee": { "name": "Bob" },
+      "labels": ["debugging", "rubberduck", "mystery"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Test environment only works when watched",
+      "description": "Automated tests pass only when someone is staring at the Jenkins dashboard. If left unattended, tests fail with 'observer not found' error.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Medium" },
+      "assignee": { "name": "Charlie" },
+      "labels": ["jenkins", "observer", "quantum"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "QA team hamster refuses to run on the wheel",
+      "description": "The hamster powering the test server is on strike, demanding more sunflower seeds and less overtime.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Blocker" },
+      "assignee": { "name": "Dana" },
+      "labels": ["hamster", "server", "strike"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Release notes written entirely in emojis",
+      "description": "The latest release notes contain only emojis, leaving the team guessing about new features and bug fixes.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Low" },
+      "assignee": { "name": "Eve" },
+      "labels": ["release", "emojis", "documentation"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Sprint planning derailed by pizza debate",
+      "description": "Sprint planning meetings consistently go off-topic due to heated discussions about the best pizza toppings.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Medium" },
+      "assignee": { "name": "Frank" },
+      "labels": ["sprint", "pizza", "planning"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Standup bot develops existential crisis",
+      "description": "The team's standup bot has started questioning the meaning of daily updates and refuses to record any more blockers.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "High" },
+      "assignee": { "name": "Grace" },
+      "labels": ["standup", "bot", "existential"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "All test cases pass only on developer's machine",
+      "description": "Test cases mysteriously pass only on the developer's laptop, failing everywhere else. Suspected cause: 'It works on my machine' syndrome.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Critical" },
+      "assignee": { "name": "Hank" },
+      "labels": ["testcase", "developer", "environment"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Bug tracker replaced with motivational quotes",
+      "description": "Instead of bugs, the tracker now displays motivational quotes. Team morale is up, but so is the bug count.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Low" },
+      "assignee": { "name": "Ivy" },
+      "labels": ["bugtracker", "motivation", "quotes"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Automated build sings 'Never Gonna Give You Up' on failure",
+      "description": "Every failed build triggers a Rick Astley serenade, causing both frustration and spontaneous dance parties in the office.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Medium" },
+      "assignee": { "name": "Jack" },
+      "labels": ["build", "rickroll", "automation"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "WiFi only works when someone is holding the router",
+      "description": "The office WiFi signal is mysteriously strong only when a team member is physically hugging the router. Productivity spikes, but so does awkwardness.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "High" },
+      "assignee": { "name": "Liam" },
+      "labels": ["wifi", "router", "signal"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Code review tool replaced with Magic 8-Ball",
+      "description": "All code review decisions are now made by shaking a Magic 8-Ball. Merge rates are up, but so are production bugs.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Medium" },
+      "assignee": { "name": "Mia" },
+      "labels": ["code review", "magic8ball", "merge"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Keyboard randomly types in pirate speak",
+      "description": "Every third sentence typed by the team is automatically converted to pirate lingo. Arrr, debugging be a challenge!",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Low" },
+      "assignee": { "name": "Noah" },
+      "labels": ["keyboard", "pirate", "debugging"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Meeting room projector only displays cat videos",
+      "description": "No matter what is plugged in, the meeting room projector insists on showing a continuous loop of cat videos. Morale is up, but meetings are less productive.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Medium" },
+      "assignee": { "name": "Olivia" },
+      "labels": ["projector", "cat videos", "meetings"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "All passwords must include at least one emoji",
+      "description": "The new password policy requires at least one emoji, one haiku, and a reference to a classic movie. IT support tickets have tripled.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Critical" },
+      "assignee": { "name": "Paul" },
+      "labels": ["password", "emoji", "policy"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Whiteboard markers only write in invisible ink",
+      "description": "All whiteboard markers in the office now write in invisible ink. Brainstorming sessions are more imaginative, but less productive.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Low" },
+      "assignee": { "name": "Quinn" },
+      "labels": ["whiteboard", "markers", "invisible"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Automated test runner demands motivational speeches",
+      "description": "The automated test runner refuses to execute unless it receives a motivational speech from the team lead. Test pass rates are unchanged, but morale is up.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "High" },
+      "assignee": { "name": "Riley" },
+      "labels": ["test runner", "motivation", "automation"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Bug reports must be submitted in rhyme",
+      "description": "All bug reports must now be written in rhyme. Developers are spending more time on poetry than on fixing bugs.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Medium" },
+      "assignee": { "name": "Sam" },
+      "labels": ["bug report", "rhyme", "poetry"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "Sprint velocity measured in cups of coffee",
+      "description": "The team's sprint velocity is now tracked by the number of cups of coffee consumed. Burnout and caffeine intake are at all-time highs.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "High" },
+      "assignee": { "name": "Tina" },
+      "labels": ["sprint", "velocity", "coffee"]
+    }
+  },
+  {
+    "fields": {
+      "project": { "key": "FUN" },
+      "summary": "All emails must include a meme attachment",
+      "description": "A new policy requires every internal email to include a meme. Communication is more entertaining, but inboxes are overflowing.",
+      "issuetype": { "name": "Bug" },
+      "priority": { "name": "Low" },
+      "assignee": { "name": "Uma" },
+      "labels": ["email", "meme", "policy"]
+    }
+  }
+] 
