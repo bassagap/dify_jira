@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 from .jira_client import JiraIssue
 import uuid 
+import json
+from pathlib import Path
 
 class DifyIntegration:
     def __init__(self, api_key: str = None, base_url: str = None, dataset_id: str = None):
@@ -23,26 +25,50 @@ class DifyIntegration:
              self.dataset_id = self.create_dataset(str(uuid.uuid4()))
         
     
-    def _format_issue_for_text(self, issue: JiraIssue) -> Dict:
+    def _format_issue_for_text(self, issue: Dict) -> Dict:
         """Format a Jira issue into a document suitable for Dify ingestion by text"""
+        # Handle both JiraIssue objects and dictionary issues
+        if isinstance(issue, JiraIssue):
+            key = issue.key
+            project = issue.project
+            issue_type = issue.issue_type
+            status = issue.status
+            assignee = issue.assignee or 'Unassigned'
+            created = issue.created
+            updated = issue.updated
+            summary = issue.summary
+            description = issue.description or 'No description provided'
+        else:
+            key = issue['key']
+            project = issue['fields']['project']['key']
+            issue_type = issue['fields']['issuetype']['name']
+            status = issue['fields']['status']['name']
+            assignee = issue['fields'].get('assignee', {}).get('name', 'Unassigned')
+            created = issue['fields']['created']
+            updated = issue['fields']['updated']
+            summary = issue['fields']['summary']
+            description = issue['fields'].get('description', 'No description provided')
+
         return {
-            "name": f"Jira Issue {issue.key}",
+            "name": f"Jira Issue {key}",
             "text": f"""
-Jira Issue: {issue.key}
-Project: {issue.project}
-Type: {issue.issue_type}
-Status: {issue.status}
-Assignee: {issue.assignee or 'Unassigned'}
-Created: {issue.created}
-Updated: {issue.updated}
-\nSummary: {issue.summary}\n\nDescription:\n{issue.description or 'No description provided'}
+Jira Issue: {key}
+Project: {project}
+Type: {issue_type}
+Status: {status}
+Assignee: {assignee}
+Created: {created}
+Updated: {updated}
+\nSummary: {summary}\n\nDescription:\n{description}
 """,
             "indexing_technique": "economy",
             "process_rule": {"mode": "automatic"}
         }
     
-    def _format_issue_metadata(self, issue: JiraIssue, document_id: str, metadata_id:str):
-        return {"operation_data": [{"document_id": document_id, "metadata_list":[{"id": metadata_id, "value": issue.key, "name": "issue_key"}]}]}
+    def _format_issue_metadata(self, issue: Dict, document_id: str, metadata_id:str):
+        # Handle both JiraIssue objects and dictionary issues
+        issue_key = issue.key if isinstance(issue, JiraIssue) else issue['key']
+        return {"operation_data": [{"document_id": document_id, "metadata_list":[{"id": metadata_id, "value": issue_key, "name": "issue_key"}]}]}
     
     def _enable_builtin_metadata(self):
         url = f"{self.base_url}/datasets/{self.dataset_id}/metadata/built-in/enable"
@@ -54,11 +80,11 @@ Updated: {issue.updated}
         metadata= {"type": "string", "name": "issue_key"}
         return requests.post(url, headers=self.headers, json = metadata)
         
-    def ingest_issues(self, issues: List[JiraIssue]) -> List[Dict]:
+    def ingest_issues(self, issues: List[Dict]) -> List[Dict]:
         """
         Ingest Jira issues into Dify Knowledge Base (Dataset) as documents
         Args:
-            issues: List of JiraIssue objects to ingest
+            issues: List of JiraIssue objects or dictionaries to ingest
         Returns:
             List of responses from Dify API
         """
@@ -79,6 +105,21 @@ Updated: {issue.updated}
             responses.append(response.json())
 
         return responses
+
+    def ingest_json_file(self, json_file_path: str) -> List[Dict]:
+        """
+        Ingest issues from a JSON file into Dify Knowledge Base
+        Args:
+            json_file_path: Path to the JSON file containing Jira issues
+        Returns:
+            List of responses from Dify API
+        """
+        try:
+            with open(json_file_path, 'r') as f:
+                issues = json.load(f)
+            return self.ingest_issues(issues)
+        except Exception as e:
+            raise Exception(f"Error ingesting JSON file {json_file_path}: {str(e)}")
 
     def delete_documents(self, document_ids: List[str]) -> Dict:
         """

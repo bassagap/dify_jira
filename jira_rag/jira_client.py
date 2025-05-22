@@ -5,6 +5,11 @@ import os
 from dotenv import load_dotenv
 import requests
 import urllib3
+import logging
+import base64
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 # Add Jira domain to NO_PROXY
 os.environ['NO_PROXY'] = os.environ.get('NO_PROXY', '') + ',jira.biscrum.com'
@@ -32,28 +37,21 @@ class JiraClient:
         
         if not all([self.server_url, self.email, self.api_token]):
             raise ValueError("Missing required Jira credentials. Please provide them or set environment variables.")
-        
-        # Create a session with custom headers
-        session = requests.Session()
-        session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {self.api_token}'
-        })
+
         
         # Disable proxy usage
-        session.trust_env = False
+        #self.session.trust_env = False
         
         # Configure JIRA client with the session
         self.client = JIRA(
             server=self.server_url,
             token_auth=self.api_token,  # Use token-based authentication
             options={
-                'session': session,
                 'verify': False,  # Disable SSL verification
                 'headers': {
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                    'Authorization': f'Bearer {self.api_token}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 }
             }
         )
@@ -108,4 +106,35 @@ class JiraClient:
             updated=issue.fields.updated,
             project=issue.fields.project.name,
             issue_type=issue.fields.issuetype.name
-        ) 
+        )
+
+    def create_test_issue(self, project_key: str) -> JiraIssue:
+        """
+        Create a test issue with hardcoded values
+        
+        Args:
+            project_key: The Jira project key (e.g., 'PROJ')
+            
+        Returns:
+            JiraIssue object of the created issue
+        """
+        try:
+            
+            issue_dict = {
+                "project": {"key": project_key},
+                "summary": "Test Issue - Automated Creation",
+                "description": "This is a test issue created automatically for testing purposes.",
+                "issuetype": {"id": "10009"},
+                "reporter": {"name": self.email}
+                
+            }
+            logger.info(f"issue_dict: {issue_dict}")
+            logger.info(f"Creating test issue in {project_key} project...")
+            logger.info(f"Issue dict: {issue_dict}")
+            new_issue = self.client.create_issue(fields=issue_dict)
+            logger.info(f"New issue created: {new_issue.key}")
+        except Exception as e:
+            logger.error(f"Error creating test issue: {str(e)}")
+            raise
+        
+        return self.get_issue(new_issue.key) 
