@@ -1,0 +1,73 @@
+[
+  {
+    "id": "WEBHOOKS_SUMMARY",
+    "key": "WEBHOOKS-SUMMARY",
+    "fields": {
+      "summary": "The WEBHOOKS project is focused on improving and addressing issues related to webhooks. The main goals of the project are to enhance webhook functionality and address various issues that affect their reliability and performance.\n\nSome of the key features being addressed in the project include:\n\n- Upgrading JSM to perform permission checks on webhook actions.\n- Resolving failures in CICD pipelines caused by non-UTF-8 values in payload.\n- Ensuring that JQL filters created via HTTP POST are properly registered with webhooks.\n- Implementing configurable options to handle connection errors and retries for webhooks.\n- Resolving exceptions related to obtaining read locks for the WebHookRegistry.\n- Including notifyUser information in webhooks created via REST API.\n- Investigating and resolving DNS caching issues causing missing webhook deliveries.\n- Ensuring that webhook deletion is properly reflected on all JIRA nodes.\n- Fixing failures caused by parallel firing of webhooks with listener registration.\n- Implementing the ability to trigger Bamboo builds from Jira webhooks.\n\nThe project faces challenges such as addressing various issues across the webhook functionality, ensuring proper integration with other systems like CICD pipelines and Bamboo, and resolving reliability issues related to connection errors and delivery.\n\nOverall, the project is focused on improving the functionality, reliability, and performance of webhooks, ensuring a smooth and efficient experience for users and integration with other systems. Progress is being made through the resolution of specific issues and the implementation of new features.",
+      "contributors": [
+        "Alex Courtis",
+        "Andy Brook [Plugin People]",
+        "Craig Shannon",
+        "Dariusz Kordonski",
+        "Dave Meyer",
+        "Douglas Gnoato",
+        "Einar Pehrson",
+        "Filip Rogaczewski",
+        "Henry Barnett",
+        "James Hazelwood",
+        "Kenny MacLeod",
+        "Marcos Scriven",
+        "Matej Konecny",
+        "Mike Harrison",
+        "OmarA",
+        "Pawel Skierczynski",
+        "Peter Runge",
+        "Richard Atkins",
+        "Samuel Le Berrigaud",
+        "Tim Pettersen",
+        "Vinicius Fontes",
+        "William Custodio",
+        "ig",
+        "mikro egy",
+        "spuddy ಠ_ಠ"
+      ],
+      "assignees": [
+        "Peter Runge",
+        "William Custodio"
+      ],
+      "reporters": [
+        "Alex Courtis",
+        "Andy Brook [Plugin People]",
+        "Craig Shannon",
+        "Dariusz Kordonski",
+        "Dave Meyer",
+        "Douglas Gnoato",
+        "Einar Pehrson",
+        "Filip Rogaczewski",
+        "Henry Barnett",
+        "James Hazelwood",
+        "Kenny MacLeod",
+        "Marcos Scriven",
+        "Matej Konecny",
+        "Mike Harrison",
+        "OmarA",
+        "Pawel Skierczynski",
+        "Peter Runge",
+        "Richard Atkins",
+        "Samuel Le Berrigaud",
+        "Tim Pettersen",
+        "Vinicius Fontes",
+        "ig",
+        "mikro egy",
+        "spuddy ಠ_ಠ"
+      ],
+      "components": [
+        "Http Client API",
+        "Http Client, Apache Http Components Impl",
+        "WebHooks Plugin"
+      ],
+      "issue_count": 40,
+      "type": "project_summary"
+    }
+  }
+]

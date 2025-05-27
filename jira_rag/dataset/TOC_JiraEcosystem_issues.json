@@ -1,0 +1,147 @@
+[
+  {
+    "id": "85875",
+    "key": "TOC-170",
+    "fields": {
+      "summary": "Allow headings to be individually collapsableexpandable",
+      "description": "There are a number of comments on the Table of Contents Macro Documentationhttps:confluence.atlassian.comdisplayDOCTableofContentsMacro that are asking how to collapse individual headings:  example 1https:confluence.atlassian.comdisplayDOCTableofContentsMacro?focusedCommentId227414062comment-227414062  example 2https:confluence.atlassian.comdisplayDOCTableofContentsMacro?focusedCommentId329982352comment-329982352 This functionality is available in the Page Tree Macro, but not the TOC macro.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15311?size=medium"
+      },
+      "created": "2014-01-13T20:36:58.894-0600",
+      "updated": "2014-01-13T20:37:53.946-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:7fbb75c3-1cb6-472e-a69f-8790a6c57042",
+        "displayName": "Lachlan Dally",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81671",
+    "key": "TOC-166",
+    "fields": {
+      "summary": "Clicking the browser back button after clicking on a table of content link does not bring the user back to the table of contents",
+      "status": {
+        "id": "3",
+        "name": "In Progress",
+        "statusCategory": {
+          "id": 4,
+          "name": "In Progress"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-10-07T20:01:18.060-0500",
+      "updated": "2013-10-22T22:52:51.039-0500",
+      "labels": [
+        "maintenance-backlog"
+      ],
+      "components": [
+        {
+          "id": "14685",
+          "name": "{toc}",
+          "description": ""
+        },
+        {
+          "id": "14687",
+          "name": "{toc-zone}",
+          "description": ""
+        }
+      ],
+      "assignee": {
+        "accountId": "557057:046ae720-402d-4ada-9726-cffae7244bb8",
+        "displayName": "KaiA",
+        "emailAddress": null,
+        "active": false
+      },
+      "reporter": {
+        "accountId": "557057:c5a8cd92-d217-4632-a66a-d08f7f89ce1d",
+        "displayName": "DavidA",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  }
+]

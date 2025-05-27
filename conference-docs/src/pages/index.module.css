@@ -1,0 +1,292 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&family=Lato:wght@400;700&family=Caveat:wght@700&display=swap');
+
+@font-face {
+  font-family: 'HarryP';
+  src: url('/font/harrpyp.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Lato', Arial, sans-serif;
+  background: #fff;
+  color: #2d2a22;
+}
+
+.heroBanner {
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #19181b;
+  /* parchment-like */
+  font-family: 'EB Garamond', serif;
+  color: #2d2a22;
+  box-shadow: 0 4px 24px rgba(76, 3, 201, 0.981);
+  border: none;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.heroCollage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.heroCollageOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(124, 58, 237, 0.10) 0%, rgba(224, 201, 127, 0.13) 100%);
+  mix-blend-mode: lighten;
+}
+
+.heroCollage img {
+  position: absolute;
+  opacity: 0.38;
+  filter: blur(1.5px) brightness(1.08) drop-shadow(0 4px 24px #7c3aed55);
+  mix-blend-mode: lighten;
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.heroCollage .castle {
+  left: 0;
+  bottom: 0;
+  width: 60%;
+  min-width: 320px;
+  max-width: 700px;
+  z-index: 1;
+  opacity: 0.48;
+  filter: blur(0.5px) brightness(1.08) drop-shadow(0 4px 24px #7c3aed55);
+}
+
+.heroCollage .owl {
+  right: 10%;
+  top: 18%;
+  width: 90px;
+  z-index: 2;
+  opacity: 0.32;
+  filter: blur(1.5px) brightness(1.1) drop-shadow(0 2px 12px #e0c97f55);
+}
+
+.heroCollage .car {
+  right: 8%;
+  top: 8%;
+  width: 120px;
+  z-index: 2;
+  opacity: 0.32;
+  filter: blur(1.2px) brightness(1.1) drop-shadow(0 2px 12px #e0c97f55);
+}
+
+.heroCollage .newspaper {
+  left: 8%;
+  top: 12%;
+  width: 100px;
+  z-index: 2;
+  opacity: 0.22;
+  filter: blur(1.8px) brightness(1.1) drop-shadow(0 2px 12px #e0c97f55);
+  transform: rotate(-8deg);
+}
+
+.heroBanner>.container {
+  position: relative;
+  z-index: 2;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/img/sparkles.svg') repeat;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+  animation: sparkleMove 12s linear infinite;
+}
+
+.hero__title {
+  font-family: 'HarryP', 'EB Garamond', serif !important;
+  font-size: 6.4rem;
+  letter-spacing: 1px;
+  color: #f0b81e;
+  text-shadow: 0 2px 8px rgba(124, 58, 237, 0.08);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: none;
+  width: auto;
+  transition: text-shadow 0.3s, filter 0.3s;
+}
+
+.hero__title:hover {
+  text-shadow: 0 0 24px #6a5309aa, 0 2px 8px #7c3aed88;
+  filter: brightness(1.08) drop-shadow(0 0 16px #e0c97faa);
+}
+
+.hero__title::after {
+  content: '';
+  display: block;
+  margin: 0.5rem auto 0 auto;
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #e0c97f 60%, transparent);
+  opacity: 0.7;
+}
+
+.hero__magicIcon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 2.5rem;
+  color: #7c3aed;
+  filter: drop-shadow(0 0 8px #e0c97f44);
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  animation: magicPulse 2.5s infinite;
+}
+
+@keyframes magicPulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px #e0c97f44);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 18px #e0c97faa);
+  }
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  color: #eab410;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  animation: floatSubtitle 3.5s ease-in-out infinite;
+}
+
+@keyframes floatSubtitle {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.button--secondary {
+  font-family: 'HarryP', 'EB Garamond', serif !important;
+  background: #7c3aed;
+  color: #fffce7;
+  border: 2px solid #7c3aed;
+  font-size: 1.3rem;
+  padding: 0.8rem 2.5rem 0.8rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 18px 0 rgba(124, 58, 237, 0.4), 0 2px 8px rgba(124, 58, 237, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.button.button--secondary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  background: url('/img/sparkles.svg') repeat;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.1);
+  transition: opacity 0.3s;
+  z-index: 1;
+  animation: none;
+}
+
+.button.button--secondary:hover::after,
+.button.button--secondary:active::after {
+  opacity: 0.7;
+  animation: sparkleButton 1.2s linear infinite;
+}
+
+.button.button--secondary:hover,
+.button.button--secondary:active {
+  background: #7c3aed;
+  color: #fffce7;
+  box-shadow: 0 0 32px 0 rgba(124, 58, 237, 0.8), 0 4px 16px rgba(124, 58, 237, 0.4);
+  filter: brightness(1.12) drop-shadow(0 0 18px rgba(124, 58, 237, 0.8));
+  transform: translateY(-2px);
+}
+
+@keyframes sparkleButton {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+.accentMagic {
+  font-family: 'Caveat', cursive;
+  color: #7c3aed;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,78 @@
+{
+  "timestamp": "2025-04-27T22:57:27.895538",
+  "projects_processed": {
+    "JiraEcosystem": {
+      "raw_count": 41866,
+      "cleaned_count": 5341,
+      "raw_size_mb": 1966.1363620758057,
+      "cleaned_size_mb": 0.23791122436523438,
+      "reduction_percent": 99.98789955625895,
+      "projects": {
+        "WEBHOOKS": {
+          "document_count": 40,
+          "size_mb": 0.12199211120605469
+        },
+        "VOTE": {
+          "document_count": 11,
+          "size_mb": 0.05349445343017578
+        },
+        "TOC": {
+          "document_count": 2,
+          "size_mb": 0.0045909881591796875
+        },
+        "REST": {
+          "document_count": 23,
+          "size_mb": 0.05783367156982422
+        }
+      }
+    }
+  },
+  "available_collections": [
+    "JFrog",
+    "Hyperledger",
+    "Jira",
+    "Spring",
+    "Mojang",
+    "IntelDAOS",
+    "JiraEcosystem",
+    "Qt",
+    "Sonatype",
+    "Sakai",
+    "RedHat",
+    "Apache",
+    "Mindville",
+    "SecondLife",
+    "MariaDB",
+    "MongoDB"
+  ],
+  "project_categories": {
+    "databases": [
+      "MongoDB",
+      "MariaDB"
+    ],
+    "frameworks": [
+      "Spring",
+      "Qt"
+    ],
+    "devops": [
+      "JFrog",
+      "RedHat"
+    ],
+    "security": [
+      "Sonatype"
+    ],
+    "blockchain": [
+      "Hyperledger"
+    ],
+    "storage": [
+      "IntelDAOS"
+    ],
+    "ecosystem": [
+      "JiraEcosystem",
+      "Apache"
+    ],
+    "virtual_worlds": [
+      "SecondLife"
+    ]
+  }
+}

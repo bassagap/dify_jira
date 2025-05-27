@@ -1,0 +1,54 @@
+[
+  {
+    "id": "REST_SUMMARY",
+    "key": "REST-SUMMARY",
+    "fields": {
+      "summary": "Project REST is an ambitious endeavor to improve and optimize the Atlassian REST API. It encompasses a diverse range of goals, challenges, and features to enhance the functionality and overall experience of the API.\n\nOne of the primary objectives of the project is to ensure key uniqueness across the product. This involves allowing multiple plugins to expose their REST API from a single root path, enabling better organization and management of REST resources.\n\nThe project also addresses bug fixes and improvements related to specific libraries and dependencies used in the API. Recommendations are made to incorporate bug fixes from commons fileupload and jackson databind. By addressing these issues, the project aims to prevent potential problems and ensure smooth operation.\n\nRefining the scanning process for REST classes, providers, and paths is another crucial aspect of the project. This enhancement includes scanning all jars within a plugin jar, improving the detection and inclusion of necessary resources.\n\nThe performance optimization efforts of the project focus on identifying and resolving bottlenecks discovered by the Crowd team. The goal is to ensure that the REST API operates smoothly and efficiently.\n\nUpdating the plugin framework to support async servlets and filters is another critical feature of the project. This enhancement would reduce the required boilerplate code and improve the implementation of async functionality within the API.\n\nAdditionally, the project aims to improve Cross-Origin Resource Sharing (CORS) support, enabling preflighted requests and respecting the Access-Control-Request-Method header. This enhancement promotes better integration with external systems.\n\nAllowing resources to be provided using arbitrary paths is another significant feature that helps streamline the API. This update allows existing resources to have virtual subresources with customized paths, rather than being purely prefixed with the plugin key.\n\nTo improve efficiency and avoid potential bugs, the project also suggests transitioning from runtime scanning to build-time scanning for annotated Jersey resources. This change eliminates the need for runtime scanning and enhances the overall performance of the REST system.\n\nAdditional improvements involve adding configuration options to the JacksonJsonProvider, deprecating unsupported code, enhancing JSON deserialization, and addressing Xss flaws in response content-types. These enhancements aim to provide a more comprehensive and secure REST experience.\n\nOverall, the project REST is striving to enhance various aspects of the Atlassian REST API, including key uniqueness, library dependencies, scanning mechanisms, performance bottlenecks, library support, and security improvements. By addressing these issues, the project aims to provide users with a more comprehensive and robust REST experience.",
+      "contributors": [
+        "Alexey Belostotsky",
+        "Andriy Yakovlev [Atlassian]",
+        "Andy Nguyen",
+        "Brad Baker",
+        "David Black",
+        "David Ma",
+        "Krystian Brazulewicz",
+        "Luis Miranda",
+        "Marcin Kempa",
+        "Marcin Szczepanski",
+        "Marek Tokarski",
+        "Michal Samujlo",
+        "Philipp Andronov",
+        "Richard Atkins",
+        "Roman Tekhov",
+        "Stefan Saasen",
+        "raz"
+      ],
+      "assignees": [
+        "Marcin Kempa",
+        "Marek Tokarski",
+        "Richard Atkins"
+      ],
+      "reporters": [
+        "Alexey Belostotsky",
+        "Andriy Yakovlev [Atlassian]",
+        "Andy Nguyen",
+        "Brad Baker",
+        "David Black",
+        "David Ma",
+        "Krystian Brazulewicz",
+        "Luis Miranda",
+        "Marcin Szczepanski",
+        "Marek Tokarski",
+        "Michal Samujlo",
+        "Philipp Andronov",
+        "Richard Atkins",
+        "Roman Tekhov",
+        "Stefan Saasen",
+        "raz"
+      ],
+      "components": [],
+      "issue_count": 23,
+      "type": "project_summary"
+    }
+  }
+]

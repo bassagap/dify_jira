@@ -1,0 +1,1580 @@
+[
+  {
+    "id": "338991",
+    "key": "REST-433",
+    "fields": {
+      "summary": "Support the same root paths defined in different plugins",
+      "description": "Currently each rest entry defined in ??atlassian-plugin.xml?? has to define its unique key. It is then accessible from the path ??rest...??. Keys have to be unique across whole product. It means that it is not possible to have two (or more) plugins that expose their REST API from the single root. h3. Idea It should be possible to bound REST resources from multiple plugins under single root path. h3. Why Lets say we have some general plugin (for all products) with defined REST API to handle some resources. We then create another plugin which adds some functionality to operate on the same type of resources. Since we are effectively creating REST API extensions they could be accessible from the same root path.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15311?size=medium"
+      },
+      "created": "2021-03-10T06:04:34.014-0600",
+      "updated": "2021-04-14T09:58:54.133-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "5a288c88f55b675bba6152b0",
+        "displayName": "Marek Tokarski",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "336475",
+    "key": "REST-432",
+    "fields": {
+      "summary": "workaround for bug in apache.commons-fileupload 1.4",
+      "description": "commons fileupload 1.4 contains bug https:issues.apache.orgjirabrowseFILEUPLOAD-293https:issues.apache.orgjirabrowseFILEUPLOAD-293 that has simple workaround. Apply this fix to prevent problems when Atlassian Rest uses provided fileupload 1.4. See BSP-2176https:bulldog.internal.atlassian.combrowseBSP-2176?focusedCommentId3240791pagecom.atlassian.jira.plugin.system.issuetabpanels3Acomment-tabpanelcomment-3240791 for details",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Task",
+        "description": "A task that needs to be done.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15318?size=medium"
+      },
+      "created": "2021-02-17T10:05:38.944-0600",
+      "updated": "2021-04-21T04:02:47.476-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {
+        "accountId": "5a288c88f55b675bba6152b0",
+        "displayName": "Marek Tokarski",
+        "emailAddress": null,
+        "active": true
+      },
+      "reporter": {
+        "accountId": "5e7dc36b5146960c33fc626b",
+        "displayName": "Michal Samujlo",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "298332",
+    "key": "REST-430",
+    "fields": {
+      "summary": "Add a means of enabling the hardening fix implemented in our fork of jackson databind (1.9.x)",
+      "description": "Add a means of enabling the hardening fix implemented in our fork of jackson databind (1.9.x), this is related to REST-402  https:github.comatlassianjackson-1pull2 . As noted in REST-402 : quote the change from https:github.comatlassianjackson-1pull2files is backwards incompatible and might break some usages (including third party plugins). I think we should consider either releasing it as a part of a new major version of atlassian-rest (but this will slow downblock adoption, or maybe add a feature toggle for it. quote  We will likely want to feature flag the change.",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2020-05-13T20:17:51.021-0500",
+      "updated": "2020-08-28T09:57:09.598-0500",
+      "labels": [
+        "dmb-legacy-ecosystem-none",
+        "no-cvss-required",
+        "security"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:51cc8e19-f098-4cc4-8c26-24f98299b29b",
+        "displayName": "David Black",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "286109",
+    "key": "REST-429",
+    "fields": {
+      "summary": "Scan for jax-rs Provider in plugin library jars",
+      "description": "h3. Summary From https:ecosystem.atlassian.netbrowseDEVHELP-3139 quote Currently, Atlassian REST is scanning for classes annotated with Provider and Path only plugin jar, but it doesnt scan library jars that are bundled with plugin. It would be great if it would also scan all jars inside plugin jar, or jars that are specified in MANIFEST in Bundle-ClassPath quote h3. Workaround Explode library jar during build process.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2019-11-04T05:11:51.853-0600",
+      "updated": "2021-04-16T07:31:30.392-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:b8cab295-6188-41df-9a51-7bf481de8f18",
+        "displayName": "Alexey Belostotsky",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [
+        {
+          "id": "151343",
+          "type": {
+            "id": "10050",
+            "name": "Part"
+          },
+          "outwardIssue": {
+            "id": "281134",
+            "key": "ATLASSDK-188",
+            "fields": {
+              "summary": "Scan for jax-rs Provider in plugin library jars",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "284368",
+    "key": "REST-426",
+    "fields": {
+      "summary": "Monorepo atlassian-rest-examples with atlassian-rest",
+      "description": "Integrate https:bitbucket.orgatlassianatlassian-rest-examples into the atlassian-rest project as an effort to improve documentation.",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Documentation",
+        "description": "Documentation request",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/issuetypes/documentation.png"
+      },
+      "created": "2019-10-03T06:53:11.277-0500",
+      "updated": "2020-06-21T03:36:44.209-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:cbc8e67b-9cb7-4238-87d4-9d289b22b027",
+        "displayName": "Krystian Brazulewicz",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "282454",
+    "key": "REST-425",
+    "fields": {
+      "summary": "Consider providing more performant implementation of AbstractJAXBProvider",
+      "description": "Investigate if potential performance bottleneck discovered by Crowd team https:hello.atlassian.netwikispacesCROWDblog20190826536857081Tiamatstrikes-Crowd3.3.73.4.63.5.1areout?focusedCommentId538058196comment-538058196https:hello.atlassian.netwikispacesCROWDblog20190826536857081Tiamatstrikes-Crowd3.3.73.4.63.5.1areout?focusedCommentId538058196comment-538058196smart-link can be mitigated on the atlassian-rest side. More detail: https:stash.atlassian.comprojectsCWDreposcrowdpull-requests1372diffcomponentscrowd-restcrowd-rest-commonsrcmainjavacomatlassiancrowdpluginrestproviderJAXBContextResolver.javahttps:stash.atlassian.comprojectsCWDreposcrowdpull-requests1372diffcomponentscrowd-restcrowd-rest-commonsrcmainjavacomatlassiancrowdpluginrestproviderJAXBContextResolver.java and https:hello.atlassian.netwikispacesCROWDblog20190826536857081Tiamatstrikes-Crowd3.3.73.4.63.5.1areout?focusedCommentId538058196comment-538058196https:hello.atlassian.netwikispacesCROWDblog20190826536857081Tiamatstrikes-Crowd3.3.73.4.63.5.1areout?focusedCommentId538058196comment-538058196",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2019-08-27T08:01:28.989-0500",
+      "updated": "2020-06-21T03:36:44.177-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:cbc8e67b-9cb7-4238-87d4-9d289b22b027",
+        "displayName": "Krystian Brazulewicz",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "260388",
+    "key": "REST-420",
+    "fields": {
+      "summary": "Make rest compatible with new ServletModuleManager DispatcherType method",
+      "description": "Plugin framework 4.6.0 has added support for async servlets and filters, via a new method com.atlassian.plugin.servlet.ServletModuleManagergetFilters(com.atlassian.plugin.servlet.filter.FilterLocation, java.lang.String, javax.servlet.FilterConfig, javax.servlet.DispatcherType). DefaultRestServletModuleManager needs updating to implement this. At the same time, there is now less required boilerplate to install a filter, since we can now inspect the DispatcherType while filtering the current ServletRequest, using the new API added in Servlet 3.0. We can probably simplify what the rest module injects into a calling plugin to take advantage of this as well. Note that any updates made in this issue will not add support for async rest resources, since the underlying version of Jersey 1.x does not support this. Improving that will require upgrading this framework in another issue.",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2018-07-17T01:21:47.109-0500",
+      "updated": "2020-06-21T03:36:44.354-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {
+        "accountId": "557057:b345d451-4f10-4ff5-813a-97a6fd1d0b52",
+        "displayName": "Richard Atkins",
+        "emailAddress": null,
+        "active": true
+      },
+      "reporter": {
+        "accountId": "557057:b345d451-4f10-4ff5-813a-97a6fd1d0b52",
+        "displayName": "Richard Atkins",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [
+        {
+          "id": "133010",
+          "type": {
+            "id": "10000",
+            "name": "Relate"
+          },
+          "outwardIssue": {
+            "id": "248772",
+            "key": "PLUG-1218",
+            "fields": {
+              "summary": "Support async servlets and filters",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "247514",
+    "key": "REST-409",
+    "fields": {
+      "summary": "JSON schema hard codes a Jira URL for element ids",
+      "description": "The id used by com.atlassian.plugins.rest.doclet.generators.schema.SchemaGeneratorgenerateTopLevel hard-codes a URL that references Jira, even though it can be generating a schema for any product. The id prefix should be automatically derived from the host product, rather than just assumed to be Jira. Meta question: should the schema URL link to anything? Right now it will point to a part of docs.a.c that doesnt exist. This is probably a mistake - we should at least have a landing page describing what the schema URL is for, even if we dont or cant put any content there thats related to the specific REST resource for which were generating the schema URL.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2017-12-18T19:33:39.123-0600",
+      "updated": "2021-03-17T22:37:55.366-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {
+        "accountId": "557057:b345d451-4f10-4ff5-813a-97a6fd1d0b52",
+        "displayName": "Richard Atkins",
+        "emailAddress": null,
+        "active": true
+      },
+      "reporter": {
+        "accountId": "557057:b345d451-4f10-4ff5-813a-97a6fd1d0b52",
+        "displayName": "Richard Atkins",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "215552",
+    "key": "REST-404",
+    "fields": {
+      "summary": "WADL for JIRA REST API is Invalid",
+      "description": "Note: I wanted to create this in the Atlassian REST project, but it appears that i do not have the authority to do so. The documentation for the REST API: https:docs.atlassian.comjiraRESTlatest refers to a WADL file: https:docs.atlassian.comjiraRESTlatestjira-rest-plugin.wadl However, this is not a valid WADL file, because it fails the XSD verification. To reproduce: 1. Go to: http:www.freeformatter.comxml-validator-xsd.html 2. for XML input: https:docs.atlassian.comjiraRESTlatestjira-rest-plugin.wadl 3. for XSD input: http:www.w3.orgSubmissionwadlwadl.xsd 4. Click Validate XML Expected Result: - The XML validates Actual Result: - Cvc-elt.1: Cannot Find The Declaration Of Element ns2:application.. Line 2, Column 58. Ideally we could have a valid WADL file... because with a valid WADL file I can create a swagger2 file, which i can then use to auto-generate a nodejs API for JIRA. Otherwise, im left to write an API by hand.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2017-06-15T07:01:02.990-0500",
+      "updated": "2021-02-17T10:49:18.842-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {
+        "accountId": "557057:22218487-264d-415a-8f71-6e31a93df066",
+        "displayName": "Marcin Kempa",
+        "emailAddress": null,
+        "active": true
+      },
+      "reporter": {
+        "accountId": "557057:5e4c1862-72c0-425e-b63f-437f55eda657",
+        "displayName": "Andy Nguyen",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [
+        {
+          "id": "108387",
+          "type": {
+            "id": "10041",
+            "name": "Cloners"
+          },
+          "outwardIssue": {
+            "id": "131768",
+            "key": "JRJC-214",
+            "fields": {
+              "summary": "WADL for JIRA REST API is Ivalid",
+              "status": {
+                "id": "1",
+                "name": "New",
+                "statusCategory": {
+                  "id": 2,
+                  "name": "To Do"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "155351",
+    "key": "REST-391",
+    "fields": {
+      "summary": "Upgrade to Jackson 1.9.14 when it is released",
+      "description": "REST-390 moves us to a forked release of Jackson 1.9 (1.9.13-atlassian-1). If and when an official 1.9.14 is released we should move off the fork and to that version.",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Task",
+        "description": "A task that needs to be done.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15318?size=medium"
+      },
+      "created": "2016-07-12T22:38:31.926-0500",
+      "updated": "2020-06-21T03:36:44.329-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:f24445fb-ac4a-4708-bdff-39f9426a4fb2",
+        "displayName": "Marcin Szczepanski",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "133328",
+    "key": "REST-372",
+    "fields": {
+      "summary": "AuthenticatedResourceFilter cleanup",
+      "description": "In jersey 2 implicit template view creates artificial resource method. Because of that filters cant recognize it - artificial resource has no methodsclasspackage annotations. That could be solved by detecting TemplateInflector from ContextRequest, how it is done in the AuthenticatedResourceFilter. However that way relays on internal details of how inflector works and could be costly as requires early template resolving. Another alternative is to take a look at entity filters. It seems that template should pass and be easier to detect",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2016-02-02T21:29:39.261-0600",
+      "updated": "2021-02-17T10:47:56.105-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:7ec25ef8-22b1-4fb2-8dc9-88d20141bda5",
+        "displayName": "Philipp Andronov",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "133327",
+    "key": "REST-371",
+    "fields": {
+      "summary": "Implement jackson fix",
+      "description": "Take a look at JsonTesttestSubClassGenericExplicitlyMeansSerializingAsChildClass test case. It is broken because of how JacksonJaxbJsonProvider is works. A proper fix should be implemented in jackson upstream for that case. If you have resource which is looks like: code public SomeParentClass resource(...)  return SomeChildClass;  code _JacksonJaxbJsonProvider_ will only serialize parent fields. As a workaround generics from return value in the method signature could be removed, like so: code public SomeParentClass resource(...)  return SomeChildClass;  code",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2016-02-02T21:23:40.078-0600",
+      "updated": "2021-02-17T10:47:31.231-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:7ec25ef8-22b1-4fb2-8dc9-88d20141bda5",
+        "displayName": "Philipp Andronov",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "133299",
+    "key": "REST-370",
+    "fields": {
+      "summary": "Inefficient loops in doclet generation",
+      "description": "AtlassianWadlGeneratorResourceDocSupportcreateResource uses double loops for each resource to see if it is in allowed packages. Simple prefix tree could reduce that complexity from resourceXpackagesXhandlers to O(resourceXhandlers). Handlers could is usually 1, so from N2 we get N",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "5",
+        "name": "Trivial",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/trivial.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2016-02-02T03:56:52.029-0600",
+      "updated": "2020-06-21T03:36:44.428-0500",
+      "labels": [
+        "bootcamp"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:7ec25ef8-22b1-4fb2-8dc9-88d20141bda5",
+        "displayName": "Philipp Andronov",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "133292",
+    "key": "REST-369",
+    "fields": {
+      "summary": "Use jackson2 guava support module instead of our own",
+      "description": "Jackson2 has official module to support guava type. Unfortunately it doesnt provide a support for fluent interators. We could commit our fluent iterators support to upstream module and reuse it instead of our type limited inmplementation",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2016-02-01T21:52:00.152-0600",
+      "updated": "2021-02-17T10:46:17.074-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:7ec25ef8-22b1-4fb2-8dc9-88d20141bda5",
+        "displayName": "Philipp Andronov",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "131847",
+    "key": "REST-366",
+    "fields": {
+      "summary": "JIRA doesnt support preflighted requests for CORS",
+      "description": "h3. Summary JIRA doesnt support preflighted requests for CORS. It doesnt respect content of Access-Control-Request-Method header h3. Steps to Reproduce  Configure CORS at JIRA for domain http:mysite.com  Fire the OPTIONS REST call with Origin and Access-Control-Request-Method headers. code curl -v -X OPTIONS -u admin:1 -H Content-Type: applicationjson; charsetUTF-8 -H Origin: http:mysite.com -H Access-Control-Request-Method: POST http:127.0.0.1:8080restapi2issueDRA-2properties10000 -o devnul  Origin: http:mysite.com  Access-Control-Request-Method: PUT code Please note that performing certain types of cross-domain AJAX requests, modern browsers that support CORS will insert an extra preflight request to determine whether they have permission to perform the action. Eg. Firefox uses preflight request for methods other than GET, HEAD or POST. h3. Expected Results Response has header with following content: code Access-Control-Allow-Methods: OPTIONS, GET, PUT, DELETE code h3. Actual Results Response has header with following content (note: no PUT): code  HTTP1.1 200 OK  Server: Apache-Coyote1.1 ....  X-ASESSIONID: qszqfh  X-AUSERNAME: admin  Access-Control-Allow-Origin: http:mysite.com  Access-Control-Allow-Credentials: true  Access-Control-Allow-Headers: Content-Type  Access-Control-Allow-Methods: OPTIONS code And the leads to error message in browser: _Method PUT is not allowed by Access-Control-Allow-Methods in preflight response._ h3. Notes Please see specification for details:  https:developer.mozilla.orgen-USdocsWebHTTPAccess_control_CORS  http:www.w3.orgTRaccess-controlpreflight-request h3.Workaround Setup a proxy and rewrite Access-Control-Request-Method header",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2015-12-22T18:38:57.821-0600",
+      "updated": "2021-02-17T10:45:09.182-0600",
+      "labels": [
+        "pse-request"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:5b52f1e5-d4f6-4f97-8362-5cadb51c31c7",
+        "displayName": "Andriy Yakovlev [Atlassian]",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "78049",
+    "key": "REST-354",
+    "fields": {
+      "summary": "Allow plugins to enrich existing REST resources by amending existing URLs",
+      "description": "REST resources provided by a plugin are currently prefixed with the plugin key (e.g. restbranch-permissions1.0...). To provide a consistent API it would be beneficial if the plugin could provide resources using arbitrary paths so that existing resources have virtual subresources. E.g. The current Stash API plugin provides the following branches resource: code restapi1.0projectsprojectKeyreposrepositorySlugbranches code The branch permissions plugin provides the following resource: code restbranch-permissions1.0projectsprojectKeyreposrepositorySlugrestrictedid code From a consumer perspective the branch permissions should be a sub resource on the generic API URL: E.g. code restapi1.0projectsprojectKeyreposrepositorySlugbranchesrefNamepermissions code instead of a separate URL. This is currently not possible with the default rest module type.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2013-07-02T01:50:06.120-0500",
+      "updated": "2020-06-21T03:36:44.609-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:b4a4b60c-e671-4335-8c94-12ab792eff36",
+        "displayName": "Stefan Saasen",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "118621",
+    "key": "REST-320",
+    "fields": {
+      "summary": "Stop Atlassian REST from scanning at runtime for REST resources",
+      "description": "Today the REST system scans some or all classes in a plugin to find annotated Jersey resources. This is runtime expensive (albeit lazy) and has bugs in it such as JDK 8 support. This should be done at build time. If some code puts in module then the the AMPS world should bytecode scan for Jersey resources then and make entries into the META-INF land and have REST runtime invoke them. One wrinkle on this is the idea that resources can be in libraries other than the main plugin target code. This is the same design challenge that sprig scanner has and it solves it by having the pom.xml specify the extra scanned deps.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2015-05-14T18:59:35.986-0500",
+      "updated": "2020-06-21T03:36:44.566-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:02886d0a-8d80-40f3-8085-6890ff70c990",
+        "displayName": "Brad Baker",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "111376",
+    "key": "REST-304",
+    "fields": {
+      "summary": "Allow JacksonJsonProvider to be configurable by clients",
+      "description": "Currently, the JacksonJsonProviderFactory doesnt have a way to configure the JacksonJsonProvider. We need a way to configure the provider so that clients can specify features such as Ignore Unknown Properties e.g. JacksonJsonProvider.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false); - One way this can be facilitated is by introducing a configurationfeature map parameter in JacksonJsonProviderFactory constructor or create method. - The second proposal is to Ignore Unknown Properties the default behaviour in the factory, unless this can potentially break a client.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2015-01-29T19:35:26.143-0600",
+      "updated": "2020-06-21T03:36:44.522-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2cfbc490-9085-4ea0-9c22-31ebab91d9bc",
+        "displayName": "raz",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "109455",
+    "key": "REST-300",
+    "fields": {
+      "summary": "Provide Joda DateTime deserialization support in Atlassian REST",
+      "description": "Confluence currently has to provide its own library to perform Joda DateTime serialization in the form of com.atlassian.confluence.rest.serialization.DateTimeSerializer We should include support for this in Atlassian REST to prevent the need to include libraries in individual products.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Task",
+        "description": "A task that needs to be done.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15318?size=medium"
+      },
+      "created": "2014-12-16T21:38:31.715-0600",
+      "updated": "2020-06-21T03:36:44.545-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:8d48d759-52fc-4ed6-85c9-ce29e5aa2b6d",
+        "displayName": "David Ma",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "96413",
+    "key": "REST-287",
+    "fields": {
+      "summary": "Deprecate the jsonp code found in atlassian-rest",
+      "description": "While jsonp is disabled by default the supporting code found in atlassian-rest has not been deprecated. IMHO we should deprecate it and schedule to remove it.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-07-09T00:00:00.801-0500",
+      "updated": "2020-06-21T03:36:44.450-0500",
+      "labels": [
+        "jsonp"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:51cc8e19-f098-4cc4-8c26-24f98299b29b",
+        "displayName": "David Black",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "85282",
+    "key": "REST-266",
+    "fields": {
+      "summary": "Default Jackson configuration is to error out on unknown properties",
+      "description": "When deserialising JSON into Java objects we should be as lenient as possible in what we accept. This makes it much easier to evolve APIs. If a client sends extra JSON properties they should be ignored (see Jackson How-To: Ignoring Unknown Propertieshttp:wiki.fasterxml.comJacksonHowToIgnoreUnknown) unless a plugin has overridden that behaviour on a per-bean basis. We can fix this by adding a line to DefaultJaxbJsonMarshaller. accountid:557057:9f7f1792-947a-40d4-9ce4-50e79ec8f4e5 do you think there are any backward compatibility issues with this?",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-12-19T17:24:03.392-0600",
+      "updated": "2020-06-21T03:36:44.500-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:9ee0e6de-4af5-4c68-93a3-2176698f2155",
+        "displayName": "Luis Miranda",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "85170",
+    "key": "REST-265",
+    "fields": {
+      "summary": "For browser executable content-types send responses as attachments",
+      "description": "In a future version of atlassian-rest we want to reduce the possible xss flaws by sending responses with browser executable content-types with a content-disposition: attachment header by default. As part of this change a mechanism to use the old behaviour will be implemented.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2013-12-16T20:00:56.802-0600",
+      "updated": "2020-08-28T09:58:03.674-0500",
+      "labels": [
+        "dmb-legacy-ecosystem-none",
+        "no-cvss-required",
+        "security",
+        "xss"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:51cc8e19-f098-4cc4-8c26-24f98299b29b",
+        "displayName": "David Black",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "83426",
+    "key": "REST-259",
+    "fields": {
+      "summary": "WebSudoResourceFilter must reset WebSudo timeout",
+      "description": "WebSudoResourceFilter.filter calls webSudoResourceContext.shouldEnforceWebSudoProtection(). SalWebSudoResourceContext. shouldEnforceWebSudoProtection() calls WebSudoManager.canExecuteRequest() It seems that after WebSudoResourceFilter has verified that the request is approved for WebSudo it should reset the WebSudo timeout by calling WebSudoManager.willExecuteWebSudoRequest Otherwise problems like this occur: https:jira.atlassian.combrowseJRA-35676. In that case the JIRA workflow designer uses REST to communicate with server and websudo timeouts occur even though we actively using the component. It is not very obvious that WebSudoManager.willExecuteWebSudoRequest resets the timeout, but that is the way its implemented (at least in JIRA), see SAL-193.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-11-20T18:55:01.457-0600",
+      "updated": "2020-06-21T03:36:44.633-0500",
+      "labels": [
+        "bootcamp"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:8b3008ee-d185-45c9-b342-482db891dc20",
+        "displayName": "Roman Tekhov",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  }
+]

@@ -1,92 +1,142 @@
-# Jira to Dify RAG Integration
+# Jira RAG Integration
 
-This project provides tools to fetch issues from Jira and ingest them into a Dify RAG (Retrieval-Augmented Generation) system.
+This project provides integration between Jira and Dify RAG (Retrieval-Augmented Generation) system, allowing you to ingest Jira issues and JSON files into a Dify knowledge base.
 
-## Development with GitHub Codespaces
+## Features
 
-This repository is configured for development with GitHub Codespaces. To get started:
+- Ingest issues directly from Jira
+- Ingest issues from JSON files
+- Support for both single JSON file and batch processing
+- Flexible command-line interface
+- Comprehensive logging
 
-1. Click the "Code" button in this repository
-2. Select the "Codespaces" tab
-3. Click "Create codespace on main"
+## Prerequisites
 
-The development container will be automatically configured with:
-- Python 3.9
-- All required dependencies
-- Git
-- Common Python development tools
-- Docker and Docker Compose
+- Python 3.7+
+- Jira account with API access
+- Dify account with API access
 
-## Complete Setup Process
+## Installation
 
-### 1. Initial Setup
-
-1. Make the setup script executable:
-   ```bash
-   chmod +x setup-dify.sh
-   ```
-
-2. Run the Dify setup script:
-   ```bash
-   ./setup-dify.sh
-   ```
-   This script will:
-   - Check for required tools (git, Docker, Docker Compose)
-   - Initialize git repository if needed
-   - Set up the Dify submodule from https://github.com/langgenius/dify.git
-   - Configure the environment
-   - Start the Docker containers
-   - Open Dify in your browser at http://localhost/install
-
-3. Complete Dify Installation:
-   - When the browser opens, follow the Dify installation wizard
-   - Create your admin account
-   - Note down your API keys from the Dify dashboard
-
-### 2. Environment Configuration
-
-1. Edit `.env.example` file and fill in your credentials:
-
-   ```env
-   # Jira credentials
-   JIRA_SERVER_URL=https://your-domain.atlassian.net   
-   JIRA_EMAIL=your-email@example.com 
-   JIRA_API_TOKEN=your-api-token 
-
-   # Dify credentials
-   DIFY_DATASET_API_KEY=your-dify-api-key                      
-   DIFY_BASE_URL=https://api.dify.ai/v1         # Optional, defaults to this value
-   ```
-
-   To get your credentials:
-   - **Jira API Token**: 
-     1. Go to https://id.atlassian.com/manage-profile/security/api-tokens
-     2. Click "Create API token"
-     3. Give it a name and copy the token
-   
-   - **Dify API Key**:
-     1. Log in to your Dify dashboard
-     2. Go to API Keys section
-     3. Create a new API key or use an existing one
-
-
-2. Copy the existing `.env.example` file to create your `.env` file:
-   ```bash
-   cp .env.example .env
-   ```
-
-
-### 3. Running the Example
-
-Run the example script:
+1. Clone the repository:
 ```bash
-python example.py
+git clone <repository-url>
+cd <repository-name>
 ```
 
-The script will:
-- Connect to your Jira instance using the provided credentials
-- Fetch issues from the QAREF project
-- Create a new dataset in Dify if one doesn't exist
-- Ingest the Jira issues into Dify's knowledge base
-- Log the progress and any errors that occur
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Create a `.env` file in the project root with the following variables:
+```env
+JIRA_SERVER_URL=https://your-jira-server.com
+JIRA_EMAIL=your-email@example.com
+JIRA_API_TOKEN=your-api-token
+DIFY_DATASET_API_KEY=your-dify-api-key
+DIFY_BASE_URL=http://localhost/v1  # or your Dify server URL
+```
+
+## Usage
+
+The script provides three main ways to ingest data:
+
+### 1. Ingest from Jira
+
+To ingest issues directly from Jira:
+```bash
+python example.py --jira --project QAREF
+```
+
+Options:
+- `--project`: Specify the Jira project key (default: QAREF)
+
+### 2. Ingest All JSON Files
+
+To ingest all JSON files from the dataset directory:
+```bash
+python example.py --all-json
+```
+
+### 3. Ingest Specific JSON File
+
+To ingest a specific JSON file:
+```bash
+python example.py --json full_quidditch_jira_issues.json
+```
+
+Additional Options:
+- `--dataset-dir`: Specify a different dataset directory (default: 'jira_rag/dataset')
+
+## JSON File Format
+
+The JSON files should follow this structure:
+```json
+[
+  {
+    "id": "issue-id",
+    "key": "PROJECT-123",
+    "fields": {
+      "summary": "Issue summary",
+      "description": "Issue description",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "PROJECT",
+        "name": "Project Name"
+      },
+      "created": "2023-01-01T00:00:00",
+      "updated": "2023-01-01T00:00:00"
+    }
+  }
+]
+```
+
+## Project Structure
+
+```
+.
+├── jira_rag/
+│   ├── __init__.py
+│   ├── jira_client.py
+│   └── dify_integration.py
+├── dataset/
+│   └── *.json
+├── example.py
+├── requirements.txt
+└── README.md
+```
+
+## Logging
+
+The script provides detailed logging of its operations. Logs include:
+- Environment variable loading status
+- Jira connection status
+- File ingestion progress
+- Success/failure of operations
+
+## Error Handling
+
+The script includes comprehensive error handling for:
+- Missing environment variables
+- Invalid JSON files
+- Jira connection issues
+- Dify API errors
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+[Your chosen license]
 
