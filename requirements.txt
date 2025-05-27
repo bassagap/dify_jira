@@ -2,8 +2,9 @@ jira==3.5.2
 python-dotenv==1.0.0
 requests==2.31.0
 urllib3==2.0.7
-pydantic==2.5.2
+pydantic==1.10.13
 Flask==3.0.3
-
+uvicorn==0.25.0
+fastapi==0.95.2
 
 
