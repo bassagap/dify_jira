@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main", "features/jira_dify_codespaces"]
+    branches: ["main", "features/jira_dify_codespace"]
   workflow_dispatch:
 
 permissions:
