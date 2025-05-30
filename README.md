@@ -1,22 +1,22 @@
-# Jira RAG Integration
+# Jira-Dify Integration API
 
-This project provides integration between Jira and Dify RAG (Retrieval-Augmented Generation) system, allowing you to ingest Jira issues and JSON files into a Dify knowledge base.
+This API service integrates Jira with Dify, allowing you to ingest Jira issues into Dify's knowledge base for enhanced search and retrieval capabilities.
 
 ## Features
 
-- Ingest issues directly from Jira
-- Ingest issues from JSON files
-- Support for both single JSON file and batch processing
-- Flexible command-line interface
-- Comprehensive logging
+- Ingest Jira issues directly from Jira into Dify
+- Ingest Jira issues from JSON files
+- Configure metadata for better search and filtering
+- Swagger documentation for easy API exploration
 
 ## Prerequisites
 
-- Python 3.7+
+- Python 3.8+
+- Docker and Docker Compose
 - Jira account with API access
-- Dify account with API access
+- Dify instance (can be set up using the provided setup script)
 
-## Installation
+## Setup
 
 1. Clone the repository:
 ```bash
@@ -24,117 +24,79 @@ git clone <repository-url>
 cd <repository-name>
 ```
 
-2. Install dependencies:
+2. Set up Dify (if not already set up):
+```bash
+./setup-dify.sh
+```
+
+3. Create a `.env` file in the root directory with the following variables:
+```env
+# Jira Configuration
+JIRA_SERVER_URL=https://your-jira-server.com
+JIRA_EMAIL=your-email@example.com
+JIRA_API_TOKEN=your-api-token
+
+# Dify Configuration
+DIFY_BASE_URL=http://localhost/v1
+DIFY_DATASET_API_KEY=your-dify-api-key
+DIFY_DATASET_ID=your-dataset-id  # Optional, will be created if not provided
+```
+
+4. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Create a `.env` file in the project root with the following variables:
-```env
-JIRA_SERVER_URL=https://your-jira-server.com
-JIRA_EMAIL=your-email@example.com
-JIRA_API_TOKEN=your-api-token
-DIFY_DATASET_API_KEY=your-dify-api-key
-DIFY_BASE_URL=http://localhost/v1  # or your Dify server URL
-```
-
-## Usage
-
-The script provides three main ways to ingest data:
-
-### 1. Ingest from Jira
-
-To ingest issues directly from Jira:
+5. Start the API server:
 ```bash
-python example.py --jira --project QAREF
+uvicorn jira_api:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-Options:
-- `--project`: Specify the Jira project key (default: QAREF)
+The API will be available at `http://localhost:8000` with Swagger documentation at `http://localhost:8000/docs`.
 
-### 2. Ingest All JSON Files
+## API Endpoints
 
-To ingest all JSON files from the dataset directory:
-```bash
-python example.py --all-json
-```
+### 1. Ingest Jira Issues
 
-### 3. Ingest Specific JSON File
+**POST** `/ingest/jira`
+- Ingest issues directly from Jira
+- Query parameters:
+  - `jql`: JQL query to fetch issues
+  - `max_results`: Maximum number of issues to fetch (default: 100)
 
-To ingest a specific JSON file:
-```bash
-python example.py --json full_quidditch_jira_issues.json
-```
+### 2. Ingest from JSON
 
-Additional Options:
-- `--dataset-dir`: Specify a different dataset directory (default: 'jira_rag/dataset')
+**POST** `/ingest/json`
+- Ingest issues from a JSON file
+- Body: JSON file path relative to the `dataset` directory
 
-## JSON File Format
+## Metadata Configuration
 
-The JSON files should follow this structure:
-```json
-[
-  {
-    "id": "issue-id",
-    "key": "PROJECT-123",
-    "fields": {
-      "summary": "Issue summary",
-      "description": "Issue description",
-      "issuetype": {
-        "name": "Story"
-      },
-      "status": {
-        "name": "To Do"
-      },
-      "project": {
-        "key": "PROJECT",
-        "name": "Project Name"
-      },
-      "created": "2023-01-01T00:00:00",
-      "updated": "2023-01-01T00:00:00"
-    }
-  }
-]
-```
+The API supports the following metadata options:
 
-## Project Structure
+1. **Built-in Metadata**
+   - Automatically enabled for all documents
+   - Includes creation date, update date, and document type
 
-```
-.
-├── jira_rag/
-│   ├── __init__.py
-│   ├── jira_client.py
-│   └── dify_integration.py
-├── dataset/
-│   └── *.json
-├── example.py
-├── requirements.txt
-└── README.md
-```
+2. **Custom Metadata**
+   - `issue_key`: The Jira issue key (e.g., "PROJ-123")
+   - Additional metadata can be added through the Dify interface
 
-## Logging
+## Architecture
 
-The script provides detailed logging of its operations. Logs include:
-- Environment variable loading status
-- Jira connection status
-- File ingestion progress
-- Success/failure of operations
+The project follows a clean architecture with the following components:
 
-## Error Handling
-
-The script includes comprehensive error handling for:
-- Missing environment variables
-- Invalid JSON files
-- Jira connection issues
-- Dify API errors
+- `jira_api.py`: FastAPI application with endpoints
+- `jira_rag/jira_client.py`: Jira client for issue operations
+- `jira_rag/dify_integration.py`: Dify integration for document ingestion
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch
+2. Create a feature branch
 3. Commit your changes
 4. Push to the branch
-5. Create a new Pull Request
+5. Create a Pull Request
 
 ## License
 
