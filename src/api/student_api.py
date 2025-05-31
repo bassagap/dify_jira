@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
-from pydantic import BaseModel
-from jira_rag.jira_client import JiraClient
-from jira_rag.dify_integration import DifyIntegration
+from src.core.models.ingest_models import IngestJiraRequest, IngestJsonRequest
+from src.core.jira_rag.jira_client import JiraClient
+from src.core.jira_rag.dify_integration import DifyIntegration
 from typing import Optional, List
 import os
 from dotenv import load_dotenv
@@ -20,15 +20,6 @@ app = FastAPI(
     description="API for students to ingest Jira issues from Jira or JSON files, and test connections.",
     version="1.0.0"
 )
-
-class IngestJiraRequest(BaseModel):
-    project: Optional[str] = None
-    jql: Optional[str] = None
-    max_results: Optional[int] = 100
-
-class IngestJsonRequest(BaseModel):
-    file_names: List[str]  # List of file names
-    dataset_dir: Optional[str] = "jira_rag/dataset"
 
 @app.on_event("startup")
 def startup_event():

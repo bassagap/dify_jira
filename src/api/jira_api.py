@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException, Request
-from jira_rag.jira_client import JiraClient
+from src.core.jira_rag.jira_client import JiraClient
 from typing import Dict, Any, List
 import uvicorn
 import logging
