@@ -48,11 +48,14 @@ class DifyIntegration:
             logger.error(f"[DIFY] Error counting tokens: {str(e)}")
             return len(text) // 4  # fallback estimate
 
-    def _get_chunk_params(self, text: str, default_max=1000, overlap_ratio=0.25):
-        char_count = len(text)
-        if char_count <= default_max:
+    def _get_chunk_params(self, text: str, default_max=2000, overlap_ratio=0.25):
+        token_count = self._get_token_count(text)
+        logger.info(f"[DIFY] Token count: {token_count}")
+        if token_count <= default_max:
+            logger.info(f"[DIFY] Token count is less than default max: {token_count} <= {default_max}")
             return default_max, 0
         else:
+            logger.info(f"[DIFY] Token count is greater than default max: {token_count} > {default_max}")
             overlap = int(default_max * overlap_ratio)
             return default_max, overlap
 
@@ -82,23 +85,31 @@ Created: {created}
 Updated: {updated}
 \nSummary: {summary}\n\nDescription:\n{description}
 """
+            # Set your desired chunking config
             max_tokens, chunk_overlap = self._get_chunk_params(text)
-            logger.info(f"[DIFY] Document '{key}': token count = {self._get_token_count(text)}, max_tokens = {max_tokens}, chunk_overlap = {chunk_overlap}")
             process_rule = {
-                "mode": "automatic",
-                "segmentation": {
-                    "separator": "\n",
-                    "max_tokens": max_tokens,
-                    "chunk_overlap": chunk_overlap
+                "mode": "custom",
+                "rules": {
+                    "pre_processing_rules": [
+                        {"id": "remove_extra_spaces", "enabled": True},
+                        {"id": "remove_urls_emails", "enabled": False}
+                    ],
+                    "segmentation": {
+                        "separator": "###CHUNK###", # This is a custom separator that will be used to split the text into chunks
+                        "max_tokens": max_tokens,
+                        "chunk_overlap": chunk_overlap
+                    }
                 }
             }
             logger.info(f"[DIFY] Document '{key}': process_rule sent to Dify: {json.dumps(process_rule)}")
-            return {
+            doc = {
                 "name": f"Jira Issue {key}",
                 "text": text,
-                "indexing_technique": "economy",
+                "indexing_technique": "high_quality",
                 "process_rule": process_rule
             }
+            logger.info(f"[DIFY] Full request body: {json.dumps(doc)}")
+            return doc
         except Exception as e:
             logger.error(f"[DIFY] Error formatting issue: {str(e)}\n{traceback.format_exc()}")
             raise
@@ -263,20 +274,27 @@ Updated: {updated}
                     text = f"{label}\n{value}"
                     max_tokens, chunk_overlap = self._get_chunk_params(text)
                     process_rule = {
-                        "mode": "automatic",
-                        "segmentation": {
-                            "separator": "\n",
-                            "max_tokens": max_tokens,
-                            "chunk_overlap": chunk_overlap
+                        "mode": "custom",
+                        "rules": {
+                            "pre_processing_rules": [
+                                {"id": "remove_extra_spaces", "enabled": True},
+                                {"id": "remove_urls_emails", "enabled": False}
+                            ],
+                            "segmentation": {
+                                "separator": "\n\n",
+                                "max_tokens": max_tokens,
+                                "chunk_overlap": chunk_overlap
+                            }
                         }
                     }
                     doc = {
                         "name": f"{label[:60]}",
                         "text": text,
-                        "indexing_technique": "economy",
+                        "indexing_technique": "high_quality",
                         "process_rule": process_rule
                     }
                     logger.info(f"[DIFY] Creating document for field '{field}': POST {url}")
+                    logger.info(f"[DIFY] Full request body: {json.dumps(doc)}")
                     response = requests.post(url, headers=self.headers, json=doc)
                     logger.debug(f"[DIFY] Create document response: {response.text}")
                     response.raise_for_status()
@@ -369,7 +387,7 @@ Updated: {updated}
             logger.error(f"[DIFY] Error deleting documents: {e}\n{traceback.format_exc()}")
             raise
 
-    def create_dataset(self, name: str, permission: str = "only_me", search_method: str = "semantic_search") -> str:
+    def create_dataset(self, name: str, permission: str = "only_me", search_method: str = "hybrid_search") -> str:
         url = f"{self.base_url}/datasets"
         data = {
             "name": name,
@@ -381,7 +399,7 @@ Updated: {updated}
                 "reranking_enable": False,
                 "top_k": 8,
                 "score_threshold_enabled": True,
-                "score_threshold": 0.7
+                "score_threshold": 0.5
             }
         }
         try:
