@@ -13,6 +13,9 @@ import tiktoken
 
 logger = logging.getLogger(__name__)
 
+class DifyConfigurationError(Exception):
+    pass
+
 class DifyIntegration:
     def __init__(self, api_key: str = None, base_url: str = None, dataset_id: str = None):
         load_dotenv()
@@ -45,9 +48,9 @@ class DifyIntegration:
             logger.error(f"[DIFY] Error counting tokens: {str(e)}")
             return len(text) // 4  # fallback estimate
 
-    def _get_chunk_params(self, text: str, default_max=1000, overlap_ratio=0.25, model="text-embedding-ada-002"):
-        tokens = self._get_token_count(text, model)
-        if tokens <= default_max:
+    def _get_chunk_params(self, text: str, default_max=1000, overlap_ratio=0.25):
+        char_count = len(text)
+        if char_count <= default_max:
             return default_max, 0
         else:
             overlap = int(default_max * overlap_ratio)
@@ -80,6 +83,7 @@ Updated: {updated}
 \nSummary: {summary}\n\nDescription:\n{description}
 """
             max_tokens, chunk_overlap = self._get_chunk_params(text)
+            logger.info(f"[DIFY] Document '{key}': token count = {self._get_token_count(text)}, max_tokens = {max_tokens}, chunk_overlap = {chunk_overlap}")
             process_rule = {
                 "mode": "automatic",
                 "segmentation": {
@@ -88,6 +92,7 @@ Updated: {updated}
                     "chunk_overlap": chunk_overlap
                 }
             }
+            logger.info(f"[DIFY] Document '{key}': process_rule sent to Dify: {json.dumps(process_rule)}")
             return {
                 "name": f"Jira Issue {key}",
                 "text": text,
@@ -364,24 +369,42 @@ Updated: {updated}
             logger.error(f"[DIFY] Error deleting documents: {e}\n{traceback.format_exc()}")
             raise
 
-    def create_dataset(self, name: str, permission: str = "only_me") -> str:
+    def create_dataset(self, name: str, permission: str = "only_me", search_method: str = "semantic_search") -> str:
         url = f"{self.base_url}/datasets"
         data = {
             "name": name,
             "permission": permission,
             "indexing_technique": "high_quality",
             "embedding_model": "text-embedding-ada-002",
-            "top_k": 10,
-            "score_threshold": 0.6
+            "retrieval_model": {
+                "search_method": search_method,
+                "reranking_enable": False,
+                "top_k": 8,
+                "score_threshold_enabled": True,
+                "score_threshold": 0.7
+            }
         }
         try:
             logger.info(f"[DIFY] Creating dataset: POST {url} {data}")
             response = requests.post(url, headers= self.headers, json=data)
             logger.info(f"[DIFY] Response {response.status_code}: {response.text}")
-            response.raise_for_status()
+            try:
+                response.raise_for_status()
+            except requests.exceptions.HTTPError as e:
+                try:
+                    error_json = response.json()
+                    if "Default model not found for ModelType.TEXT_EMBEDDING" in error_json.get("message", ""):
+                        raise DifyConfigurationError(
+                            "Dify is not properly configured. Please configure the embeddings method on your Dify server."
+                        )
+                except Exception:
+                    pass  # fallback to generic error
+                raise
             dataset_info = response.json()
             logger.info(f"[DIFY] Dataset created: id={dataset_info['id']}, name={dataset_info['name']}")
             return dataset_info["id"] 
+        except DifyConfigurationError:
+            raise
         except Exception as e:
             logger.error(f"[DIFY] Error creating dataset: {e}\n{traceback.format_exc()}")
             raise 

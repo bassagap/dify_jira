@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from src.core.models.ingest_models import IngestJiraRequest, IngestJsonRequest
 from src.core.jira_rag.jira_client import JiraClient
-from src.core.jira_rag.dify_integration import DifyIntegration
+from src.core.jira_rag.dify_integration import DifyIntegration, DifyConfigurationError
 from typing import Optional, List
 import os
 from dotenv import load_dotenv
@@ -57,39 +57,45 @@ def ingest_from_json(request: IngestJsonRequest):
     """
     results = []
     errors = []
-    dify = DifyIntegration()  # <-- Create once, before the loop!
-    dataset_dir = Path(request.dataset_dir)
-    for file_name in request.file_names:
-        try:
-            logger.info(f"Starting JSON ingestion for file: {file_name} in directory: {request.dataset_dir}")
-            file_path = dataset_dir / file_name
-
-            logger.info(f"Checking if file exists at path: {file_path}")
-            if not file_path.exists():
-                error_msg = f"File not found: {file_path}"
-                logger.error(error_msg)
-                errors.append({"file": file_name, "error": error_msg})
-                continue
-
-            logger.info(f"File found. Attempting to ingest JSON file: {file_path}")
+    try:
+        dify = DifyIntegration()  # <-- Create once, before the loop!
+        dataset_dir = Path(request.dataset_dir)
+        for file_name in request.file_names:
             try:
-                result = dify.ingest_json_file(str(file_path))
-                logger.info(f"Successfully ingested JSON file. Result: {result}")
-                results.append({"file": file_name, "result": result})
-            except json.JSONDecodeError as e:
-                error_msg = f"Invalid JSON format in file {file_path}: {str(e)}"
-                logger.error(error_msg)
-                errors.append({"file": file_name, "error": error_msg})
+                logger.info(f"Starting JSON ingestion for file: {file_name} in directory: {request.dataset_dir}")
+                file_path = dataset_dir / file_name
+
+                logger.info(f"Checking if file exists at path: {file_path}")
+                if not file_path.exists():
+                    error_msg = f"File not found: {file_path}"
+                    logger.error(error_msg)
+                    errors.append({"file": file_name, "error": error_msg})
+                    continue
+
+                logger.info(f"File found. Attempting to ingest JSON file: {file_path}")
+                try:
+                    result = dify.ingest_json_file(str(file_path))
+                    logger.info(f"Successfully ingested JSON file. Result: {result}")
+                    results.append({"file": file_name, "result": result})
+                except json.JSONDecodeError as e:
+                    error_msg = f"Invalid JSON format in file {file_path}: {str(e)}"
+                    logger.error(error_msg)
+                    errors.append({"file": file_name, "error": error_msg})
+                except Exception as e:
+                    error_msg = f"Error during Dify ingestion: {str(e)}"
+                    logger.error(f"{error_msg}\n{traceback.format_exc()}")
+                    errors.append({"file": file_name, "error": error_msg})
             except Exception as e:
-                error_msg = f"Error during Dify ingestion: {str(e)}"
+                error_msg = f"Unexpected error during JSON ingestion for file {file_name}: {str(e)}"
                 logger.error(f"{error_msg}\n{traceback.format_exc()}")
                 errors.append({"file": file_name, "error": error_msg})
-        except Exception as e:
-            error_msg = f"Unexpected error during JSON ingestion for file {file_name}: {str(e)}"
-            logger.error(f"{error_msg}\n{traceback.format_exc()}")
-            errors.append({"file": file_name, "error": error_msg})
-
-    return {"success": len(errors) == 0, "results": results, "errors": errors}
+        return {"success": len(errors) == 0, "results": results, "errors": errors}
+    except DifyConfigurationError as e:
+        logger.error(f"Dify configuration error: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+    except Exception as e:
+        logger.error(f"Error ingesting from JSON: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/test_connection")
 def test_connection():
