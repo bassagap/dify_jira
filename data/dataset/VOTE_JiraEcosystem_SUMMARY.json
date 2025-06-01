@@ -1,0 +1,33 @@
+[
+  {
+    "id": "VOTE_SUMMARY",
+    "key": "VOTE-SUMMARY",
+    "fields": {
+      "summary": "The VOTE project is a software plugin for Jira that focuses on enhancing the voting and watching functionality. The main goals of the project are to provide users with an efficient and user-friendly experience in managing voters and watchers for issues.\n\nThe plugin enables users to easily vote and watch issues, but there are several challenges that need to be addressed. Firstly, the plugin causes errors when performing advanced searches and when reindexing, requiring it to be disabled in order to resolve the issues. Additionally, errors occur when deleting watcher users from the LDAP server or Crowd server and synchronizing the directory in JIRA.\n\nAnother challenge is the lack of user autocomplete in the Issue Navigator simple mode for the Voters and Watchers custom fields. This affects the efficiency of searching and navigating through issues.\n\nUsers have expressed preferences for improvements in the bulk edit feature. The plugin currently appears in Bulk Edit but lacks an input box, so users suggest either disabling it for Bulk Edit or making it bulk editable.\n\nThere are also issues related to compatibility with different versions of Jira. Actions in the plugin that were necessary in older versions are no longer needed in Jira 4.1 and need to be recoded.\n\nThe project team is also investigating a specific issue where the plugin fails to work in a specific project and issue type, while working fine in other projects. A migration from a 3.13 install could be the cause, but there are no reported errors in the server log.\n\nPerformance improvements are needed for the built-in JQL functions watchedIssues() and votedIssues(). The Voters and Watchers custom field plugin is expected to replace these functions with a new implementation using the data in the Watchers field or Voters field.\n\nSome additional features are requested by users, such as a Watch custom field that allows for one-click watching or unwatching of issues. The plugin does provide a dashboard portlet for users to see all unresolved tickets they are watching, but each user needs to configure their own custom filter for this.\n\nFinally, there are some minor UI improvements requested, such as the plugin displaying a blank column instead of \"Can't vote on your own issues\" for issues created by a user. Additionally, the plugin should allow filtering using more common searcher options instead of hardcoding a specific user and should address a typo in the description.\n\nOverall, the VOTE project is focused on improving the voting and watching capabilities in Jira with a variety of features and improvements. The project is actively addressing bugs, compatibility issues, and user feedback to enhance the overall user experience.",
+      "contributors": [
+        "Bob Swift (Bob Swift Atlassian Apps)",
+        "Dale Miller",
+        "G",
+        "Jeff Kirby",
+        "Neal Applebaum",
+        "Ruchi Tandon"
+      ],
+      "assignees": [],
+      "reporters": [
+        "Bob Swift (Bob Swift Atlassian Apps)",
+        "Dale Miller",
+        "G",
+        "Jeff Kirby",
+        "Neal Applebaum",
+        "Ruchi Tandon"
+      ],
+      "components": [
+        "Vote",
+        "Voters",
+        "Watchers"
+      ],
+      "issue_count": 11,
+      "type": "project_summary"
+    }
+  }
+]

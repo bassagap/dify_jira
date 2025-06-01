@@ -1,0 +1,2800 @@
+[
+  {
+    "id": "391929",
+    "key": "WEBHOOKS-160",
+    "fields": {
+      "summary": "When webhooks are executed asynchronously, the Jira user context is not set",
+      "description": "When a webhook is executed async, the JiraAuthenticationContext is not set which means that JSM cannot do any permission checks on these webhook actions, e.g. access to custom fields. It appears that the user context is not being passed to the async thread. For full context, see this support issue which we had for JSM: https:getsupport.atlassian.combrowsePS-87024",
+      "status": {
+        "id": "14236",
+        "name": "Needs Triage",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2021-12-19T17:49:03.992-0600",
+      "updated": "2021-12-19T17:50:59.148-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "5e1edc70e7319c0caaf0653e",
+        "displayName": "Craig Shannon",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "356914",
+    "key": "WEBHOOKS-158",
+    "fields": {
+      "summary": "Webhook plugin tries to populate non-utf-8 values (0x00) to Postgres database.",
+      "description": "In some ocassions, CICD integrations with Bitbucket DC, will send a payload containing non-utf-8 values, such as , and the webhooks plugins will try and populate those values to the to the AO_A0B856_HIST_INVOCATION table on Postgres, but it fails causing the entire CICD pipeline to get blocked until a restart is done in Bitbucket to clear those objects from memory. The error seen in the logs is the following. noformat 2021-05-13 10:39:19,698 WARN atlassian-webhooks-scheduler:thread-1 c.a.w.i.d.AsyncInvocationHistoryDao Failed to write webhook invocation data for 99:repo:refs_changed to the database com.atlassian.activeobjects.internal.ActiveObjectsSqlException: There was a SQL exception thrown by the Active Objects library: Database: - name:PostgreSQL - version:10.15 - minor version:15 - major version:10 Driver: - name:PostgreSQL JDBC Driver - version:42.2.5 org.postgresql.util.PSQLException: ERROR: invalid byte sequence for encoding UTF8: 0x00 at com.atlassian.activeobjects.internal.EntityManagedActiveObjects.create 2021-05-13 10:39:39,680 WARN http-nio-7990-exec-279 user5046 6FPHBKx639x20557782x0 19tzalq ip8409,172.25.37.221 GET restapilatestprojectsreposwebhooks HTTP1.1 c.a.w.i.d.AsyncInvocationHistoryDao Failed to flush webhook invocation data for 99:pr:merged to the database com.atlassian.activeobjects.internal.ActiveObjectsSqlException: There was a SQL exception thrown by the Active Objects library: Database: - name:PostgreSQL - version:10.15 - minor version:15 - major version:10 Driver: - name:PostgreSQL JDBC Driver - version:42.2.5 org.postgresql.util.PSQLException: ERROR: invalid byte sequence for encoding UTF8: 0x00 noformat This happens because Postgres does not allow, null (0x00) chars to be populated to text data https:www.postgresql.orgmessage-idalpine.BSO.2.00.0906031639270.2432leary.csoft.net. Ideally the webhooks plugin should sanitizeremove this kind of non-utf-8 data accordingly to the needs and limitations of each database.",
+      "status": {
+        "id": "14238",
+        "name": "Short Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2021-06-18T16:02:20.604-0500",
+      "updated": "2021-07-19T18:15:27.265-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:57ad6ae2-bd4f-4a00-ae8d-bb1c79283bc6",
+        "displayName": "Douglas Gnoato",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "253080",
+    "key": "WEBHOOKS-151",
+    "fields": {
+      "summary": "API Webhook webhook creation ignores jqlFilter",
+      "description": "Copied from JRA-61543https:jira.atlassian.combrowseJRA-61643 --- When creating a new webhook via HTTP POST, the JQL (jqlFilter) from the POST body does not get registered with the webhook. Steps to reproduce: Create new HTTP POST request: url: https:domodev.atlassian.netrestwebhooks1.0webhook Authorization header: valid Basic encoded auth, with Admin privileges Content type header: applicationjson body: code name: Postman Test, url: http:requestb.inrmwt8qrm, events:  jira:issue_created, jira:issue_updated , jqlFilter: assigneeandy.johnson, excludeIssueDetails: false code Response: 201 Created body: code  name: Postman Test, url: http:requestb.inrmwt8qrm, excludeBody: false, filters:  issue-related-events-section:  , events:  jira:issue_updated, jira:issue_created , enabled: true, self: https:domodev.atlassian.netrestwebhooks1.0webhook20, lastUpdatedUser: admin, lastUpdatedDisplayName: Andy Administrator, lastUpdated: 1466715386920 code Signing into the Jira admin console, the JQL box is empty in the webhook, and scope is set to JQL: All issues Though the JQL supplied is valid and returns query results in Jira, it does not get registered with the Jira admin console when sending an HTTP POST as described in API documents here: https:developer.atlassian.comjiradevjira-apiswebhooks This has been validated on an Atlassian.net cloud hosted environment. I used POSTMAN HTTP client to send the request outside my application to ensure the issue is reproducible. It reproduces in both my applications webhook creation and a POSTMAN POST. Expected Behavior: When registering webhooks via HTTP POST the JQL in the body should be registered in Jira and filter event triggers accordingly to user permissions and the JQL query.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2018-03-25T23:04:51.530-0500",
+      "updated": "2021-07-28T00:07:58.055-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "5aa58865fa5ff42628b00481",
+        "displayName": "mikro egy",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [
+        {
+          "id": "127512",
+          "type": {
+            "id": "10041",
+            "name": "Cloners"
+          },
+          "outwardIssue": {
+            "id": "157172",
+            "key": "WEBHOOKS-126",
+            "fields": {
+              "summary": "API Webhook webhook creation ignores jqlFilter",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "185803",
+    "key": "WEBHOOKS-145",
+    "fields": {
+      "summary": "Implement retry logic if an error occurs",
+      "description": "h3. Problem Definition Webhooks wont retry the connection if the web server cant be contacted or it returns an error. Currently, if the web server cant contacted due to a networking issue, DNS failure or if it returns an HTTP error such as 500, the webhook fails silently (without logging anything) and wont try to connect again. h3. Suggested Solution There should be configurable options specifying number of retries (0 would indicate no retries at all -- the current behavious) and the interval between them. h3. Why this is important This is a problem because there is no way to know if the webhook call succeeded and there is no way to try again. If a webhook is being used to reach to an external paging system such as PagerDuty when an issue is created and a networking issue preventing the webhook call to succeed occurs, the plugin wont try again and PagerDuty will never notify the responsible admins. h3. Workaround None.",
+      "status": {
+        "id": "14531",
+        "name": "Not Being Considered",
+        "statusCategory": {
+          "id": 3,
+          "name": "Done"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2016-12-15T09:28:22.166-0600",
+      "updated": "2021-11-16T22:49:16.703-0600",
+      "labels": [
+        "pse-request"
+      ],
+      "components": [],
+      "assignee": {
+        "accountId": "5e1ee28f1f9cb50ca7f53637",
+        "displayName": "William Custodio",
+        "emailAddress": null,
+        "active": true
+      },
+      "reporter": {
+        "accountId": "557057:17497298-d098-4ad4-86d9-4b00dc99d694",
+        "displayName": "Vinicius Fontes",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "160968",
+    "key": "WEBHOOKS-127",
+    "fields": {
+      "summary": "There is a bug in the WebHookRegistry locking code",
+      "description": "When the WebHookRegistry tries to obtain a read lock and is either interrupted or fails due to a timeout then the finally block containing the unlock call will still run and then cause a seperate exception caused by trying to unlock when that thread doesnt have a lock. An example stack trace: code 2016-08-25 01:10:40.886148500 2016-08-25 01:10:40,882 workcontext-8188-1 ERROR anonymous 70x155589x1 1idcxws 104.192.142.149 restdev-status1.0webhooksupdate-summary c.a.event.internal.AsynchronousAbleEventDispatcher There was an exception thrown trying to dispatch event com.atlassian.jira.plugin.devstatus.provider.source.cache.analytics.RefreshDevToolEnd1a8234c from the invoker SingleParameterMethodListenerInvokermethodpublic void com.atlassian.webhooks.plugin.WebHookEventsProcessor.onEvent(java.lang.Object), listenercom.atlassian.webhooks.plugin.WebHookEventsProcessor933b26 2016-08-25 01:10:40.886178500 java.lang.RuntimeException: attempt to unlock read lock, not locked by current thread. Listener: com.atlassian.webhooks.plugin.WebHookEventsProcessor event: com.atlassian.jira.plugin.devstatus.provider.source.cache.analytics.RefreshDevToolEnd 2016-08-25 01:10:40.886180500 at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:55) 2016-08-25 01:10:40.886181500 at com.atlassian.event.internal.AsynchronousAbleEventDispatcher11.run(AsynchronousAbleEventDispatcher.java:38) 2016-08-25 01:10:40.886192500 at com.google.common.util.concurrent.MoreExecutorsDirectExecutorService.execute(MoreExecutors.java:299) 2016-08-25 01:10:40.886193500 at com.atlassian.event.internal.AsynchronousAbleEventDispatcher.dispatch(AsynchronousAbleEventDispatcher.java:88) 2016-08-25 01:10:40.886193500 at com.atlassian.event.internal.EventPublisherImpl.invokeListeners(EventPublisherImpl.java:204) 2016-08-25 01:10:40.886206500 at com.atlassian.event.internal.EventPublisherImpl.publish(EventPublisherImpl.java:115) 2016-08-25 01:10:40.886206500 ... 2 filtered 2016-08-25 01:10:40.886207500 at java.lang.reflect.Method.invoke(Method.java:498) 2016-08-25 01:10:40.886207500 at com.atlassian.plugin.util.ContextClassLoaderSettingInvocationHandler.invoke(ContextClassLoaderSettingInvocationHandler.java:26) 2016-08-25 01:10:40.886214500 at com.sun.proxy.Proxy348.publish(Unknown Source) 2016-08-25 01:10:40.886215500 ... 2 filtered 2016-08-25 01:10:40.886215500 at java.lang.reflect.Method.invoke(Method.java:498) 2016-08-25 01:10:40.886215500 at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302) 2016-08-25 01:10:40.886216500 at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.doInvoke(ServiceInvoker.java:56) 2016-08-25 01:10:40.886223500 at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.invoke(ServiceInvoker.java:60) 2016-08-25 01:10:40.886231500 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 2016-08-25 01:10:40.886231500 at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133) 2016-08-25 01:10:40.886232500 at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121) 2016-08-25 01:10:40.886239500 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 2016-08-25 01:10:40.886240500 at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invokeUnprivileged(ServiceTCCLInterceptor.java:70) 2016-08-25 01:10:40.886240500 at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invoke(ServiceTCCLInterceptor.java:53) 2016-08-25 01:10:40.886246500 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 2016-08-25 01:10:40.886247500 at org.eclipse.gemini.blueprint.service.importer.support.LocalBundleContextAdvice.invoke(LocalBundleContextAdvice.java:57) 2016-08-25 01:10:40.886248500 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 2016-08-25 01:10:40.886257500 at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133) 2016-08-25 01:10:40.886258500 at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121) 2016-08-25 01:10:40.886259500 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 2016-08-25 01:10:40.886266500 at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:208) 2016-08-25 01:10:40.886266500 at com.sun.proxy.Proxy3428.publish(Unknown Source) 2016-08-25 01:10:40.886267500 at com.atlassian.jira.plugin.devstatus.provider.source.cache.CachingProviderDecoratorStoreValueInCache.apply(CachingProviderDecorator.java:241) 2016-08-25 01:10:40.886268500 at com.atlassian.jira.plugin.devstatus.provider.source.cache.CachingProviderDecorator.lambdafetchSummaryData0(CachingProviderDecorator.java:202) 2016-08-25 01:10:40.886275500 at com.atlassian.workcontext.api.WorkContextFunctionWrapper.lambdawithContext7(WorkContextFunctionWrapper.java:117) 2016-08-25 01:10:40.886275500 at java.util.concurrent.CompletableFuture.uniApply(CompletableFuture.java:602) 2016-08-25 01:10:40.886284500 at java.util.concurrent.CompletableFutureUniApply.tryFire(CompletableFuture.java:577) 2016-08-25 01:10:40.886284500 at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474) 2016-08-25 01:10:40.886285500 at java.util.concurrent.CompletableFutureAsyncSupply.run(CompletableFuture.java:1595) 2016-08-25 01:10:40.886285500 at java.util.concurrent.CompletableFutureAsyncSupply.exec(CompletableFuture.java:1582) 2016-08-25 01:10:40.886291500 at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289) 2016-08-25 01:10:40.886292500 at java.util.concurrent.ForkJoinPoolWorkQueue.runTask(ForkJoinPool.java:1056) 2016-08-25 01:10:40.886293500 at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692) 2016-08-25 01:10:40.886293500 at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157) 2016-08-25 01:10:40.886303500 Caused by: java.lang.IllegalMonitorStateException: attempt to unlock read lock, not locked by current thread 2016-08-25 01:10:40.886304500 at java.util.concurrent.locks.ReentrantReadWriteLockSync.unmatchedUnlockException(ReentrantReadWriteLock.java:444) 2016-08-25 01:10:40.886305500 at java.util.concurrent.locks.ReentrantReadWriteLockSync.tryReleaseShared(ReentrantReadWriteLock.java:428) 2016-08-25 01:10:40.886315500 at java.util.concurrent.locks.AbstractQueuedSynchronizer.releaseShared(AbstractQueuedSynchronizer.java:1341) 2016-08-25 01:10:40.886316500 at java.util.concurrent.locks.ReentrantReadWriteLockReadLock.unlock(ReentrantReadWriteLock.java:881) 2016-08-25 01:10:40.886317500 at com.atlassian.webhooks.plugin.module.WebHookRegistry.getWebHooks(WebHookRegistry.java:95) 2016-08-25 01:10:40.886323500 at com.atlassian.webhooks.plugin.WebHookEventsProcessor.doOnEvent(WebHookEventsProcessor.java:39) 2016-08-25 01:10:40.886324500 at com.atlassian.webhooks.plugin.WebHookEventsProcessor.onEvent(WebHookEventsProcessor.java:34) 2016-08-25 01:10:40.886325500 ... 2 filtered 2016-08-25 01:10:40.886325500 at java.lang.reflect.Method.invoke(Method.java:498) 2016-08-25 01:10:40.886325500 at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:40) 2016-08-25 01:10:40.886333500 ... 42 more code",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2016-08-25T00:22:56.503-0500",
+      "updated": "2021-07-19T18:08:48.379-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:9bea7a23-1c4b-4c42-8644-5675590275b1",
+        "displayName": "Henry Barnett",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [
+        {
+          "id": "127514",
+          "type": {
+            "id": "10041",
+            "name": "Cloners"
+          },
+          "inwardIssue": {
+            "id": "253082",
+            "key": "WEBHOOKS-152",
+            "fields": {
+              "summary": "CLONE - There is a bug in the WebHookRegistry locking code",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "155529",
+    "key": "WEBHOOKS-124",
+    "fields": {
+      "summary": "Include notifyUsers flag in webhooks",
+      "description": "When an issue is edited using the REST API, and the notifyUsers parameter is used to supress notification, the resulting webhook does not contain this notifyUser information. Therefore, any add-on that handles notifications itself cannot behave as expected and also not notify.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2016-07-14T11:34:01.059-0500",
+      "updated": "2021-07-19T18:08:23.170-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:fe1e10e7-d931-49b4-816a-cc8517da2177",
+        "displayName": "Mike Harrison",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "152623",
+    "key": "WEBHOOKS-123",
+    "fields": {
+      "summary": "Potential HTTP pooling issue with JIRA webhooks and DNS",
+      "description": "Smartsheet is working on a Connect add-on for JIRA and was investigating why they were missing webhook deliveries. One theory was that quotethere is a DNS caching issue along the way. Occasionally the IP address will change for our hosts registered in DNS. Of course this will only happen once the published TTL for the DNS entry has elapsed. However, someone suspected that possibly JIRA Cloud or an upstream DNS server is caching those host namesIP addresses beyond the published TTL. quote I looped in accountid:557057:d7b64ca0-3007-49e1-97c5-2b3acafb53ad, who basically ruled out DNS quotewe do the resolution directly from our servers, which means that we will start with the root servers and work through each of the domains until we resolve the full name, there is NO public upstream caching resolver in the middle that you can check, our applications use the same resolution to reach several other public internet services and no other issue has been reported so I would safely rule out DNS being the core of the problem here. After speaking with one of Connect developers he mentioned that Connect does use HTTP pooling so what Im thinking now is that you might have a stale connection sitting on the pool (Im not sure how long we keep pooled connections open to the ELBs on your side - based on the DNS name you have me it seems the Connect endpoint runs on AWS) that does not see the DNS name change and could result into the failed requests you guys are experiencing.quote Based on his theory, it looks like potentially Connect HTTP pooling _could_ be the problem, but I feel like this is unlikely because (as far as Im aware) JIRA webhook URLs are a separate mechanism from the Connect HTTP pool. accountid:557057:f1c9ec08-2df7-4bf6-94c7-645a92470888 accountid:557057:3c06320f-5e43-472d-9e91-aa58c310ea0b can you confirm whether this is something we need to investigate in JIRA?",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2016-06-19T19:40:47.391-0500",
+      "updated": "2021-07-16T02:40:34.785-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:447a9061-ddcc-4b51-a765-893dd8ce579c",
+        "displayName": "Dave Meyer",
+        "emailAddress": "dmeyer@atlassian.com",
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "136460",
+    "key": "WEBHOOKS-119",
+    "fields": {
+      "summary": "CLONE - WebHook Deletion Didnt Replicate to Other Data Center Nodes",
+      "description": "Im creating this ticket on behalf of Lorraine. On March 17th, 2016, Lorraine deleted a webhook on one of their JIRA DC nodes (node 3). Even after a couple of hours the webhook was still being displayed on node 1 and 2, and only after the nodes were restarted the webhook deletion was reflected.",
+      "status": {
+        "id": "3",
+        "name": "In Progress",
+        "statusCategory": {
+          "id": 4,
+          "name": "In Progress"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2016-04-05T23:15:42.584-0500",
+      "updated": "2018-03-25T21:19:25.226-0500",
+      "labels": [
+        "premier_support"
+      ],
+      "components": [],
+      "assignee": {
+        "accountId": "557057:6e4f5ca6-6a69-4b9f-a066-9bc72b08a29b",
+        "displayName": "Peter Runge",
+        "emailAddress": null,
+        "active": false
+      },
+      "reporter": {
+        "accountId": "557057:6e4f5ca6-6a69-4b9f-a066-9bc72b08a29b",
+        "displayName": "Peter Runge",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "125415",
+    "key": "WEBHOOKS-115",
+    "fields": {
+      "summary": "ConcurrentModificationException when firing webhook during startup",
+      "description": "On system start-up, webhooks may be fired in parallel with listener registration. This fails for the legacy SPI. code 4000000055b9cf101d37ba8c 2015-07-30 17:15:18,467 localhost-startStop-1 ERROR c.a.event.internal.AsynchronousAbleEventDispatcher There was an exception thrown trying to dispatch event com.atlassian.plugin.connect.spi.event.ConnectAddonEnabledEvent167be47 from the invoker SingleParameterMethodListenerInvokermethodpublic void com.atlassian.webhooks.plugin.WebHookEventsProcessor.onEvent(java.lang.Object), listenercom.atlassian.webhooks.plugin.WebHookEventsProcessor15ea4b2 4000000055b9cf101d37c644 java.lang.RuntimeException: java.util.ConcurrentModificationException 4000000055b9cf101d37e96c at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:50) 4000000055b9cf101d37ed54 at com.atlassian.event.internal.AsynchronousAbleEventDispatcher11.run(AsynchronousAbleEventDispatcher.java:48) 4000000055b9cf101d37ed54 at com.google.common.util.concurrent.MoreExecutorsDirectExecutorService.execute(MoreExecutors.java:299) 4000000055b9cf101d37f524 at com.atlassian.event.internal.AsynchronousAbleEventDispatcher.dispatch(AsynchronousAbleEventDispatcher.java:107) 4000000055b9cf101d37f524 at com.atlassian.event.internal.EventPublisherImpl.invokeListeners(EventPublisherImpl.java:160) 4000000055b9cf101d3800dc at com.atlassian.event.internal.EventPublisherImpl.publish(EventPublisherImpl.java:79) 4000000055b9cf101d3804c4 ... 2 filtered 4000000055b9cf101d3804c4 at java.lang.reflect.Method.invoke(Method.java:497) 4000000055b9cf101d3804c4 at com.atlassian.plugin.util.ContextClassLoaderSettingInvocationHandler.invoke(ContextClassLoaderSettingInvocationHandler.java:30) 4000000055b9cf101d380c94 at com.sun.proxy.Proxy166.publish(Unknown Source) 4000000055b9cf101d380c94 ... 2 filtered 4000000055b9cf101d380c94 at java.lang.reflect.Method.invoke(Method.java:497) 4000000055b9cf101d380c94 at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:317) 4000000055b9cf101d38107c at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.doInvoke(ServiceInvoker.java:56) 4000000055b9cf101d381464 at org.eclipse.gemini.blueprint.service.importer.support.internal.aop.ServiceInvoker.invoke(ServiceInvoker.java:60) 4000000055b9cf101d38184c at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 4000000055b9cf101d38184c at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133) 4000000055b9cf101d382fbc at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121) 4000000055b9cf101d3833a4 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 4000000055b9cf101d3833a4 at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invokeUnprivileged(ServiceTCCLInterceptor.java:70) 4000000055b9cf101d383b74 at org.eclipse.gemini.blueprint.service.util.internal.aop.ServiceTCCLInterceptor.invoke(ServiceTCCLInterceptor.java:53) 4000000055b9cf101d383b74 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 4000000055b9cf101d383f5c at org.eclipse.gemini.blueprint.service.importer.support.LocalBundleContextAdvice.invoke(LocalBundleContextAdvice.java:57) 4000000055b9cf101d384344 at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 4000000055b9cf101d38472c at org.springframework.aop.support.DelegatingIntroductionInterceptor.doProceed(DelegatingIntroductionInterceptor.java:133) 4000000055b9cf101d38472c at org.springframework.aop.support.DelegatingIntroductionInterceptor.invoke(DelegatingIntroductionInterceptor.java:121) 4000000055b9cf101d384efc at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) 4000000055b9cf101d3852e4 at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:207) 4000000055b9cf101d3856cc at com.sun.proxy.Proxy2728.publish(Unknown Source) 4000000055b9cf101d3856cc at com.atlassian.plugin.connect.plugin.installer.ConnectAddonManager.enableConnectAddon(ConnectAddonManager.java:294) 4000000055b9cf101d385ab4 at com.atlassian.plugin.connect.plugin.capabilities.event.ConnectPluginEnabledHandler.enableAddons(ConnectPluginEnabledHandler.java:44)4000000055b9cf101d385e9c at com.atlassian.plugin.connect.plugin.capabilities.event.ConnectPluginEnabledHandler.finalInit(ConnectPluginEnabledHandler.java:36) 4000000055b9cf101d385e9c at com.atlassian.plugin.connect.plugin.util.AbstractInitializingComponent.onLifecycleEvent(AbstractInitializingComponent.java:79)4000000055b9cf101d38666c at com.atlassian.plugin.connect.plugin.util.AbstractInitializingComponent.onStart(AbstractInitializingComponent.java:59) 4000000055b9cf101d38666c at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager4.consume(DefaultLifecycleManager.java:310) 4000000055b9cf101d386e3c at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager4.consume(DefaultLifecycleManager.java:306) 4000000055b9cf101d387224 at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.notifyLifecyleAware(DefaultLifecycleManager.java:344)4000000055b9cf101d387224 at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.notifyOnStartIfStartedAndEnabled(DefaultLifecycleManager.java:304) 4000000055b9cf101d3879f4 at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.access300(DefaultLifecycleManager.java:50)4000000055b9cf101d3879f4 at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager3.evaluate(DefaultLifecycleManager.java:261) 4000000055b9cf101d387ddc at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager3.evaluate(DefaultLifecycleManager.java:257)4000000055b9cf101d3881c4 at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.notifyLifecycleAwares(DefaultLifecycleManager.java:286) 4000000055b9cf101d3885ac at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.notifyStartableLifecycleAwares(DefaultLifecycleManager.java:255) 4000000055b9cf101d3885ac at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.startIfApplicationSetup(DefaultLifecycleManager.java:241)4000000055b9cf101d388d7c at com.atlassian.sal.core.lifecycle.DefaultLifecycleManager.start(DefaultLifecycleManager.java:230) 4000000055b9cf101d389164 at com.atlassian.sal.jira.lifecycle.JiraLifecycleManager.onJiraStart(JiraLifecycleManager.java:68)4000000055b9cf101d389164 ... 3 filtered 4000000055b9cf101d389164 at java.lang.reflect.Method.invoke(Method.java:497) 4000000055b9cf101d389d1c at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:36) 4000000055b9cf101d38a104 at com.atlassian.event.internal.AsynchronousAbleEventDispatcher11.run(AsynchronousAbleEventDispatcher.java:48) 4000000055b9cf101d38a104 at com.google.common.util.concurrent.MoreExecutorsDirectExecutorService.execute(MoreExecutors.java:299) 4000000055b9cf101d38a4ec at com.atlassian.event.internal.AsynchronousAbleEventDispatcher.dispatch(AsynchronousAbleEventDispatcher.java:107) 4000000055b9cf101d38a8d4 at com.atlassian.event.internal.EventPublisherImpl.invokeListeners(EventPublisherImpl.java:160) 4000000055b9cf101d38acbc at com.atlassian.event.internal.EventPublisherImpl.publish(EventPublisherImpl.java:79) 4000000055b9cf101d38acbc at com.atlassian.plugin.event.impl.DefaultPluginEventManager.broadcast(DefaultPluginEventManager.java:84) 4000000055b9cf101d38b48c at com.atlassian.jira.upgrade.PluginUpgradeLauncher.start(PluginUpgradeLauncher.java:35) 4000000055b9cf101d38b874 at com.atlassian.jira.startup.ActiveServicesLauncher.start(ActiveServicesLauncher.java:57) 4000000055b9cf101d38b874 at com.atlassian.jira.startup.DefaultJiraLauncher.lambdapostDbLaunch290(DefaultJiraLauncher.java:139) 4000000055b9cf101d38bc5c at com.atlassian.jira.startup.DefaultJiraLauncherLambda1413702983.run(Unknown Source) 4000000055b9cf101d38c044 at com.atlassian.jira.config.database.DatabaseConfigurationManagerImpl.doNowOrEnqueue(DatabaseConfigurationManagerImpl.java:356) 4000000055b9cf101d38c044 at com.atlassian.jira.config.database.DatabaseConfigurationManagerImpl.doNowOrWhenDatabaseActivated(DatabaseConfigurationManagerImpl.java:226) 4000000055b9cf101d38c42c at com.atlassian.jira.startup.DefaultJiraLauncher.postDbLaunch(DefaultJiraLauncher.java:125)4000000055b9cf101d38c814 at com.atlassian.jira.startup.DefaultJiraLauncher.lambdastart288(DefaultJiraLauncher.java:91) 4000000055b9cf101d38cbfc at com.atlassian.jira.startup.DefaultJiraLauncherLambda130500604.run(Unknown Source)4000000055b9cf101d38cbfc at com.atlassian.jira.util.devspeed.JiraDevSpeedTimer.run(JiraDevSpeedTimer.java:34) 4000000055b9cf101d38d7b4 at com.atlassian.jira.startup.DefaultJiraLauncher.start(DefaultJiraLauncher.java:89) 4000000055b9cf101d38d7b4 at com.atlassian.jira.startup.LauncherContextListener.contextInitialized(LauncherContextListener.java:84) 4000000055b9cf101d38db9c ... 8 filtered4000000055b9cf101d38db9c at java.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:511) 4000000055b9cf101d38db9c at java.util.concurrent.FutureTask.run(FutureTask.java:266)4000000055b9cf101d38df84 at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) 4000000055b9cf101d38e36c at java.util.concurrent.ThreadPoolExecutorWorker.run(ThreadPoolExecutor.java:617)4000000055b9cf101d38e36c at java.lang.Thread.run(Thread.java:745) 4000000055b9cf101d38e36c Caused by: java.util.ConcurrentModificationException 4000000055b9cf101d38e754 at java.util.HashMapHashIterator.nextNode(HashMap.java:1429)4000000055b9cf101d38eb3c at java.util.HashMapKeyIterator.next(HashMap.java:1453) 4000000055b9cf101d38eb3c at com.google.common.collect.AbstractMapBasedMultimapWrappedCollectionWrappedIterator.next(AbstractMapBasedMultimap.java:486)4000000055b9cf101d38ef24 at com.atlassian.webhooks.plugin.WebHookPublisherImpl.publish(WebHookPublisherImpl.java:65) 4000000055b9cf101d38ef24 at com.atlassian.webhooks.plugin.WebHookEventsProcessor.doOnEvent(WebHookEventsProcessor.java:41)4000000055b9cf101d38fadc ... 2 filtered 4000000055b9cf101d38fadc at java.lang.reflect.Method.invoke(Method.java:497) 4000000055b9cf101d38fec4 at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:36)4000000055b9cf101d38fec4 ... 83 more code",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2015-07-30T03:16:45.699-0500",
+      "updated": "2021-07-16T02:40:35.870-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:a292cbaa-9099-4acb-b3a6-17eac0d22560",
+        "displayName": "Einar Pehrson",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "120821",
+    "key": "WEBHOOKS-113",
+    "fields": {
+      "summary": "Include Entity Properties in webhook events",
+      "description": "As a cloud addon, I want to know what allthethings are in one hit. Entity Properties require a ping back to the server, at the issue level, at the comment level. Id prefer not to have to do that! If there is an entity property related to a thing in the existing webhook payload, I want that.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2015-06-05T12:56:31.690-0500",
+      "updated": "2021-07-16T02:40:34.485-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:b74e9574-1a83-4485-bbaf-96910d8d34fe",
+        "displayName": "Andy Brook [Plugin People]",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [
+        {
+          "id": "67614",
+          "type": {
+            "id": "10000",
+            "name": "Relate"
+          },
+          "outwardIssue": {
+            "id": "111225",
+            "key": "ACJIRA-304",
+            "fields": {
+              "summary": "Enable Entity Properties to be set during issue creation",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "67613",
+          "type": {
+            "id": "10000",
+            "name": "Relate"
+          },
+          "outwardIssue": {
+            "id": "113862",
+            "key": "ACJIRA-378",
+            "fields": {
+              "summary": "Expand for issue properties",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "117835",
+    "key": "WEBHOOKS-110",
+    "fields": {
+      "summary": "remove direct dependency on osgi code from webhooks",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2015-05-08T00:01:40.595-0500",
+      "updated": "2021-07-16T02:40:36.016-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:a1a038f0-eacf-4773-8191-f40bca9c233a",
+        "displayName": "Elena Vasilyeva",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "105023",
+    "key": "WEBHOOKS-103",
+    "fields": {
+      "summary": "When editing webhook, I cant click on another webhook, I need to cancel edit first",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-10-14T03:37:25.992-0500",
+      "updated": "2021-07-27T22:29:51.236-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3a63a1d3-e9dd-4028-98cc-bca9f7f73785",
+        "displayName": "Filip Rogaczewski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "100310",
+    "key": "WEBHOOKS-102",
+    "fields": {
+      "summary": "Allow re-send of failed webhook eventspost functions from the host product",
+      "description": "In many cases, JIRA or Confluence might not be able to reach Atlassian Connect addon. In that case, data might become inconsistent, either on the host product or on the addons end. Other webhook-based solutions, such as Wufoo, try to re-send the data X times, and if failed, create some sort of XMLJSONlog entry that can point out a problem for further investigation.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2014-08-26T05:45:13.849-0500",
+      "updated": "2021-07-16T02:40:35.806-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:8b97e613-32de-42a0-b285-e1e8a2500c18",
+        "displayName": "Matej Konecny",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "104510",
+    "key": "WEBHOOKS-100",
+    "fields": {
+      "summary": "Dont send content type in header when you send no content in body",
+      "description": "Its needed to trigger Bamboo builds from Jira webhooks. Weve considered workaround on a Bamboo side but its not that simple (its in in jackson pulled in by atlassian-rest)",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "2",
+        "name": "Critical",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/critical.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-10-07T06:21:01.075-0500",
+      "updated": "2021-07-28T00:37:04.874-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2b49885f-ca7f-49f6-aa93-c5407740aefa",
+        "displayName": "Pawel Skierczynski",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [
+        {
+          "id": "64814",
+          "type": {
+            "id": "10030",
+            "name": "Blocker"
+          },
+          "outwardIssue": {
+            "id": "42632",
+            "key": "SAL-176",
+            "fields": {
+              "summary": "Cross-product LicenseAccessor",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "53984",
+          "type": {
+            "id": "10041",
+            "name": "Cloners"
+          },
+          "inwardIssue": {
+            "id": "104801",
+            "key": "ACJIRA-181",
+            "fields": {
+              "summary": "Proper content type and status should be sent for webhook requests without body",
+              "status": {
+                "id": "6",
+                "name": "Closed",
+                "statusCategory": {
+                  "id": 3,
+                  "name": "Done"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "84593",
+    "key": "WEBHOOKS-98",
+    "fields": {
+      "summary": "issue webhooks not sent for bulk operations",
+      "description": "When there is a bulk operation that creates issues like Project Import (and maybe others), no webhook is sent. We should clearly document the expectations that AC authors can expect with issue webhooks. I think it is okay if they are not sent in every situation so long as AC authors know what they are getting and how to pick up the slack. Bulk webhooks (that contain lots of issue ids) would be a useful addition, however.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-12-05T16:51:31.535-0600",
+      "updated": "2021-07-16T02:40:34.566-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:8ced1a61-fde4-4215-9ec4-3d3a799c8aa4",
+        "displayName": "spuddy ಠ_ಠ",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "99635",
+    "key": "WEBHOOKS-96",
+    "fields": {
+      "summary": "Revert from using platform pom",
+      "description": "Platform POM is causing headaches in Maven 2 builds, as it cant resolve a transitive import dependency. We tried various hacks but failed, so for now having to abandon the use of the Platform POMs",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-08-20T22:51:45.946-0500",
+      "updated": "2021-07-16T02:40:37.052-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:d6ba6ee5-fad4-44ee-ae99-5b779a6a46c9",
+        "displayName": "Marcos Scriven",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "99437",
+    "key": "WEBHOOKS-95",
+    "fields": {
+      "summary": "OsgiWebHookProviderWebHookRegistry has flawed locking logic",
+      "description": "The problem is here: code try  if (!lock.readLock().tryLock(5, TimeUnit.SECONDS))  throw new IllegalStateException(Could not acquire read lock to WebHooks registrations);   do stuff with the lock....  catch (InterruptedException e)  logger.error(There was an error while reading existing WebHooks events, e); return Collections.emptyList();  finally  lock.readLock().unlock();  code The problem is that if the tryLock fails with InterruptedException the unlock call in finally will fail because there is no lock held currently by the thread, so the effort to return an empty list is futile. Below is what happens when the InterruptedException indeed occurs (not the IllegalMonitorStateException thrown from the finally block): noformat 2014-08-15 10:23:22,936 ERROR threadpool:thread-19519 backup_user 622x254040x0 14owtfx 10.10.50.27,127.0.0.1 POST mvcadminbackups HTTP1.1 c.a.w.p.OsgiWebHookProviderWebHookRegistry There was an error while reading existing WebHooks events java.lang.InterruptedException: null at java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(AbstractQueuedSynchronizer.java:1325) na:1.7.0_55 at java.util.concurrent.locks.ReentrantReadWriteLockReadLock.tryLock(ReentrantReadWriteLock.java:873) na:1.7.0_55 at com.atlassian.webhooks.plugin.OsgiWebHookProviderWebHookRegistry.getWebHooks(OsgiWebHookProviderWebHookRegistry.java:65) atlassian-webhooks-plugin-1.0.1_1396943630000.jar:na at com.atlassian.webhooks.plugin.OsgiWebHookProviderWebHookRegistry.getWebHooks(OsgiWebHookProviderWebHookRegistry.java:37) atlassian-webhooks-plugin-1.0.1_1396943630000.jar:na at com.atlassian.webhooks.plugin.DelegatingWebHookRegistry2.apply(DelegatingWebHookRegistry.java:40) atlassian-webhooks-plugin-1.0.1_1396943630000.jar:na at com.atlassian.webhooks.plugin.DelegatingWebHookRegistry2.apply(DelegatingWebHookRegistry.java:36) atlassian-webhooks-plugin-1.0.1_1396943630000.jar:na at com.google.common.collect.Iterators8.next(Iterators.java:812) guava-11.0.2-atlassian-01.jar:na at com.google.common.collect.Iterables3.next(Iterables.java:508) guava-11.0.2-atlassian-01.jar:na at com.google.common.collect.Iterables3.next(Iterables.java:501) guava-11.0.2-atlassian-01.jar:na at com.google.common.collect.Iterators5.hasNext(Iterators.java:544) guava-11.0.2-atlassian-01.jar:na at com.atlassian.webhooks.plugin.WebHookEventsProcessor.doOnEvent(WebHookEventsProcessor.java:37) atlassian-webhooks-plugin-1.0.1_1396943630000.jar:na at com.atlassian.webhooks.plugin.WebHookEventsProcessor.onEvent(WebHookEventsProcessor.java:32) atlassian-webhooks-plugin-1.0.1_1396943630000.jar:na at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:36) atlassian-event-2.3.5.jar:na at com.atlassian.event.internal.AsynchronousAbleEventDispatcher11.run(AsynchronousAbleEventDispatcher.java:48) atlassian-event-2.3.5.jar:na at com.google.common.util.concurrent.MoreExecutorsSameThreadExecutorService.execute(MoreExecutors.java:253) guava-11.0.2-atlassian-01.jar:na at com.atlassian.event.internal.AsynchronousAbleEventDispatcher.dispatch(AsynchronousAbleEventDispatcher.java:107) atlassian-event-2.3.5.jar:na at com.atlassian.stash.internal.event.LockFreeEventPublisherPublisher.dispatch(LockFreeEventPublisher.java:201) stash-platform-3.0.4.jar:na at com.atlassian.stash.internal.event.LockFreeEventPublisher.publish(LockFreeEventPublisher.java:75) stash-platform-3.0.4.jar:na at com.atlassian.stash.internal.event.TransactionAwareEventPublisher.publish(TransactionAwareEventPublisher.java:84) stash-platform-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.DefaultMaintenanceModeHelper.unlock(DefaultMaintenanceModeHelper.java:38) stash-service-impl-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.MaintenanceModePhase.run(MaintenanceModePhase.java:29) stash-service-impl-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.backup.AbstractBackupTask.run(AbstractBackupTask.java:84) stash-service-impl-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.DefaultMaintenanceTaskMonitor.run(DefaultMaintenanceTaskMonitor.java:169) stash-service-impl-3.0.4.jar:na at java.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:471) na:1.7.0_55 at java.util.concurrent.FutureTask.run(FutureTask.java:262) na:1.7.0_55 at com.atlassian.stash.internal.concurrent.StateTransferringExecutorStateTransferringRunnable.run(StateTransferringExecutor.java:69) stash-platform-3.0.4.jar:na at java.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:471) na:1.7.0_55 at java.util.concurrent.FutureTask.run(FutureTask.java:262) na:1.7.0_55 at java.util.concurrent.ScheduledThreadPoolExecutorScheduledFutureTask.access201(ScheduledThreadPoolExecutor.java:178) na:1.7.0_55 at java.util.concurrent.ScheduledThreadPoolExecutorScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) na:1.7.0_55 at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) na:1.7.0_55 at java.lang.Thread.run(Thread.java:744) na:1.7.0_55 ... 4 frames trimmed 2014-08-15 10:23:22,941 ERROR threadpool:thread-19519 backup_user 622x254040x0 14owtfx 10.10.50.27,127.0.0.1 POST mvcadminbackups HTTP1.1 c.a.e.i.AsynchronousAbleEventDispatcher There was an exception thrown trying to dispatch event com.atlassian.johnson.event.RemoveEventsourcecom.atlassian.stash.internal.maintenance.DefaultMaintenanceModeHelper6efe63ec from the invoker SingleParameterMethodListenerInvokermethodpublic void com.atlassian.webhooks.plugin.WebHookEventsProcessor.onEvent(java.lang.Object), listenercom.atlassian.webhooks.plugin.WebHookEventsProcessor1952acf java.lang.RuntimeException: attempt to unlock read lock, not locked by current thread at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:54) atlassian-event-2.3.5.jar:na at com.atlassian.event.internal.AsynchronousAbleEventDispatcher11.run(AsynchronousAbleEventDispatcher.java:48) atlassian-event-2.3.5.jar:na at com.google.common.util.concurrent.MoreExecutorsSameThreadExecutorService.execute(MoreExecutors.java:253) guava-11.0.2-atlassian-01.jar:na at com.atlassian.event.internal.AsynchronousAbleEventDispatcher.dispatch(AsynchronousAbleEventDispatcher.java:107) atlassian-event-2.3.5.jar:na at com.atlassian.stash.internal.event.LockFreeEventPublisherPublisher.dispatch(LockFreeEventPublisher.java:201) stash-platform-3.0.4.jar:na at com.atlassian.stash.internal.event.LockFreeEventPublisher.publish(LockFreeEventPublisher.java:75) stash-platform-3.0.4.jar:na at com.atlassian.stash.internal.event.TransactionAwareEventPublisher.publish(TransactionAwareEventPublisher.java:84) stash-platform-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.DefaultMaintenanceModeHelper.unlock(DefaultMaintenanceModeHelper.java:38) stash-service-impl-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.MaintenanceModePhase.run(MaintenanceModePhase.java:29) stash-service-impl-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.backup.AbstractBackupTask.run(AbstractBackupTask.java:84) stash-service-impl-3.0.4.jar:na at com.atlassian.stash.internal.maintenance.DefaultMaintenanceTaskMonitor.run(DefaultMaintenanceTaskMonitor.java:169) stash-service-impl-3.0.4.jar:na at java.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:471) na:1.7.0_55 at java.util.concurrent.FutureTask.run(FutureTask.java:262) na:1.7.0_55 at com.atlassian.stash.internal.concurrent.StateTransferringExecutorStateTransferringRunnable.run(StateTransferringExecutor.java:69) stash-platform-3.0.4.jar:na at java.util.concurrent.ExecutorsRunnableAdapter.call(Executors.java:471) na:1.7.0_55 at java.util.concurrent.FutureTask.run(FutureTask.java:262) na:1.7.0_55 at java.util.concurrent.ScheduledThreadPoolExecutorScheduledFutureTask.access201(ScheduledThreadPoolExecutor.java:178) na:1.7.0_55 at java.util.concurrent.ScheduledThreadPoolExecutorScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292) na:1.7.0_55 at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) na:1.7.0_55 at java.lang.Thread.run(Thread.java:744) na:1.7.0_55 ... 1 frame trimmed Caused by: java.lang.IllegalMonitorStateException: attempt to unlock read lock, not locked by current thread at java.util.concurrent.locks.ReentrantReadWriteLockSync.unmatchedUnlockException(ReentrantReadWriteLock.java:447) na:1.7.0_55 at java.util.concurrent.locks.ReentrantReadWriteLockSync.tryReleaseShared(ReentrantReadWriteLock.java:431) na:1.7.0_55 at java.util.concurrent.locks.AbstractQueuedSynchronizer.releaseShared(AbstractQueuedSynchronizer.java:1340) na:1.7.0_55 at java.util.concurrent.locks.ReentrantReadWriteLockReadLock.unlock(ReentrantReadWriteLock.java:883) na:1.7.0_55 at com.atlassian.webhooks.plugin.OsgiWebHookProviderWebHookRegistry.getWebHooks(OsgiWebHookProviderWebHookRegistry.java:103) na:na at com.atlassian.webhooks.plugin.OsgiWebHookProviderWebHookRegistry.getWebHooks(OsgiWebHookProviderWebHookRegistry.java:37) na:na at com.atlassian.webhooks.plugin.DelegatingWebHookRegistry2.apply(DelegatingWebHookRegistry.java:40) na:na at com.atlassian.webhooks.plugin.DelegatingWebHookRegistry2.apply(DelegatingWebHookRegistry.java:36) na:na at com.google.common.collect.Iterators8.next(Iterators.java:812) guava-11.0.2-atlassian-01.jar:na at com.google.common.collect.Iterables3.next(Iterables.java:508) guava-11.0.2-atlassian-01.jar:na at com.google.common.collect.Iterables3.next(Iterables.java:501) guava-11.0.2-atlassian-01.jar:na at com.google.common.collect.Iterators5.hasNext(Iterators.java:544) guava-11.0.2-atlassian-01.jar:na at com.atlassian.webhooks.plugin.WebHookEventsProcessor.doOnEvent(WebHookEventsProcessor.java:37) na:na at com.atlassian.webhooks.plugin.WebHookEventsProcessor.onEvent(WebHookEventsProcessor.java:32) na:na at com.atlassian.event.internal.SingleParameterMethodListenerInvoker.invoke(SingleParameterMethodListenerInvoker.java:36) atlassian-event-2.3.5.jar:na ... 20 common frames omitted noformat",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-08-18T03:08:08.517-0500",
+      "updated": "2021-07-16T02:40:36.814-0500",
+      "labels": [
+        "bootcamp"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:9b8fde0a-82aa-4f11-9a9b-164f23574190",
+        "displayName": "Dariusz Kordonski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "98426",
+    "key": "WEBHOOKS-94",
+    "fields": {
+      "summary": "Text in successful update message is double-escaped",
+      "description": "To reproduce: go to webhooks in jira, and change a webhook name to something like Webhook name. The name will be double-escaped in the success message: !webhook-creation-double-escaped.png!",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-08-05T01:29:00.591-0500",
+      "updated": "2021-07-16T02:40:34.857-0500",
+      "labels": [
+        "bootcamp"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:d546f388-1096-4c0e-9b40-0e067eaa8cdf",
+        "displayName": "James Hazelwood",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "92190",
+    "key": "WEBHOOKS-81",
+    "fields": {
+      "summary": "Concurrency Issue In WebHookListenerCachingStore",
+      "description": "Noticed while reviewing WEBHOOKS-80: https:bitbucket.orgatlassianatlassian-webhooks-pluginpull-request20webhooks-80-instant-on-hitting-ao-toodiffcomment-1757620 What happens if two users simultaneously hit getWebHookListener post onStart while webHookRetrievalStrategy  ACTIVE_OBJECT_WEB_HOOK_RETRIEVAL_STRATEGY. Both execute the forward to the strategy. The first executes ACTIVE_OBJECT_WEB_HOOK_RETRIEVAL_STRATEGY.get() as far as after fillCache. The second executes it to just after cache.clear. The first executes CACHE_WEB_HOOK_RETRIEVAL_STRATEGY.get() and gets back an Optional::absent(), which i dont believe is correct.",
+      "status": {
+        "id": "14538",
+        "name": "In Review",
+        "statusCategory": {
+          "id": 4,
+          "name": "In Progress"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2014-04-29T01:16:38.524-0500",
+      "updated": "2021-07-16T02:40:33.826-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:1f7cf8a8-5b07-4efa-8b9a-092c969ab7ae",
+        "displayName": "Alex Courtis",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "91511",
+    "key": "WEBHOOKS-79",
+    "fields": {
+      "summary": "Expose user events as JIRA webhooks",
+      "description": "As a minimum:  group_created  group_removed  user_created  user_deactivated  user_followed  user_reactivated  user_removed For consistency with Confluence.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15311?size=medium"
+      },
+      "created": "2014-04-15T16:27:27.240-0500",
+      "updated": "2021-07-16T02:40:36.738-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:6ea56496-8c9b-4e0a-bc03-7412dedb3304",
+        "displayName": "Tim Pettersen",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "83142",
+    "key": "WEBHOOKS-67",
+    "fields": {
+      "summary": "Support for OnDemand test runner",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-11-11T21:37:54.054-0600",
+      "updated": "2021-07-16T02:40:36.979-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:798376a0-65de-40c8-8ec1-e75aafd7af83",
+        "displayName": "Arun Bhalla",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "82914",
+    "key": "WEBHOOKS-64",
+    "fields": {
+      "summary": "Webhooks should not log a warning when the POST response is successful",
+      "description": "I get this warning in the logs 2013-11-04 16:14:42,552 httpclient-callbacks:thread-4 WARN anonymous atlassian.webhooks.plugin.PublishTaskFactoryImplPublishTaskImpl Unable to post the information to http:requestb.in14j9zk91?user_idadminuser_keyadmin due to null The exception  throwable here is: Unexpected response 200 with message OK We should not be logging if the webhook consumer returns a 2xx response code.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-11-03T23:20:53.077-0600",
+      "updated": "2021-07-16T02:40:34.929-0500",
+      "labels": [
+        "log_cleanup"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:9848f9c7-a6a1-4367-a6a8-1df26c307080",
+        "displayName": "ig",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81111",
+    "key": "WEBHOOKS-60",
+    "fields": {
+      "summary": "MapEventSerializer should use Jackson rather than json.org",
+      "description": "For the last few hours Ive been trying to figure out why my custom webhook defined in a Confluence plugin wasnt serializing my event to JSOn properly, using the default ReflectionEventSerializer. It would appear it was caused by a version clash between the org.json library used by the webhooks plugin, and the one enforced by Confluence for legacy reasons. When I defined a custom EventSerializer that used Jackson instead of org.json, it worked perfectly. Id like to suggest that ReflectionEventSerializer uses Jackson to perform JSON serialization. Its more heavyweight than org.json, but its also actively maintained and a lot more flexible.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-09-29T21:21:52.351-0500",
+      "updated": "2021-07-16T02:40:35.001-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3551c836-d81f-4dba-9c8e-52b022b33fe7",
+        "displayName": "Kenny MacLeod",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81855",
+    "key": "WEBHOOKS-57",
+    "fields": {
+      "summary": "Add a way to tune HttpClientOptions at runtime",
+      "description": "It currently requires a whole lot of initialization code to change what values the HttpClientOptions uses. This makes working around any issues with the defaults require a recompile and redeploy, rather than anything more immediate. We need a way to configure it:  through an external properties file or system properties  at runtime, with flow-on changes to relevant thread pools, etc.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2013-10-09T19:36:06.210-0500",
+      "updated": "2021-07-16T02:40:37.193-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:b345d451-4f10-4ff5-813a-97a6fd1d0b52",
+        "displayName": "Richard Atkins",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81569",
+    "key": "WEBHOOKS-55",
+    "fields": {
+      "summary": "Use Connect variable substitution in WebHooks",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-10-04T07:47:12.285-0500",
+      "updated": "2021-07-16T02:40:36.533-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3a63a1d3-e9dd-4028-98cc-bca9f7f73785",
+        "displayName": "Filip Rogaczewski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81531",
+    "key": "WEBHOOKS-53",
+    "fields": {
+      "summary": "Add durability of undelivered WebHooks",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-10-03T04:42:34.709-0500",
+      "updated": "2021-07-16T02:40:36.335-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3a63a1d3-e9dd-4028-98cc-bca9f7f73785",
+        "displayName": "Filip Rogaczewski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81530",
+    "key": "WEBHOOKS-52",
+    "fields": {
+      "summary": "Implement re-try logic in WebHooks",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-10-03T04:41:54.586-0500",
+      "updated": "2021-07-16T02:40:35.520-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3a63a1d3-e9dd-4028-98cc-bca9f7f73785",
+        "displayName": "Filip Rogaczewski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "81455",
+    "key": "WEBHOOKS-51",
+    "fields": {
+      "summary": "Add param to exclude webhook body.",
+      "description": "It is possible to exclude issue details from WebHook body if WebHook is registered via REST. It should be possible to do the same for webhooks registered via descriptor.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-10-02T07:14:30.430-0500",
+      "updated": "2021-07-16T02:40:35.729-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3a63a1d3-e9dd-4028-98cc-bca9f7f73785",
+        "displayName": "Filip Rogaczewski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "79612",
+    "key": "WEBHOOKS-49",
+    "fields": {
+      "summary": "Deploy shared atlassian-uri library, instead of bundling it",
+      "description": "Currently webhooks and connect both bundle their own copies of atlassian-uri. They should share this library instead.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2013-08-26T00:41:47.176-0500",
+      "updated": "2021-07-16T02:40:36.198-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:b345d451-4f10-4ff5-813a-97a6fd1d0b52",
+        "displayName": "Richard Atkins",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "78327",
+    "key": "WEBHOOKS-42",
+    "fields": {
+      "summary": "Webhooks events wont work in case having non-ASCII characters in the JSON body representation sent",
+      "description": "Environment Plugin version: 0.16.0-m1 JIRA OnDemand version: 6.1-OD-02 Steps to produce  Use any post catcher, for example (http:postcatcher.in) and click on Start testing your POST request now to get the catcher URL.  In the OD instance, create new webhook event using the generated postcatcher URL, put All Events and JQL any project.  Create an issue with non-ASCII characters in the summary or description e.g (test Sí). Expected Results  Post catcher should populate the webhook event results Actual results  It wont receive any webhook event from the instance. Workaround  Removing the non-ASCII chars from the issue body, will cause the webhook to work as expected .",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-07-11T05:35:21.427-0500",
+      "updated": "2021-07-16T02:40:35.154-0500",
+      "labels": [
+        "ondemand"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:58f77f90-37d3-4209-a6de-b07830ced9db",
+        "displayName": "OmarA",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "78325",
+    "key": "WEBHOOKS-40",
+    "fields": {
+      "summary": "Having non-ASCII characters in the JSON body representation sent",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-07-11T05:35:18.405-0500",
+      "updated": "2021-07-16T02:40:36.266-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:58f77f90-37d3-4209-a6de-b07830ced9db",
+        "displayName": "OmarA",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "77924",
+    "key": "WEBHOOKS-34",
+    "fields": {
+      "summary": "As a product developer I want a documentation showing how to plug into cross-product webhooks",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "5",
+        "name": "Story",
+        "description": "A user story. Created by JIRA Software - do not edit or delete.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15315?size=medium"
+      },
+      "created": "2013-06-26T22:37:36.543-0500",
+      "updated": "2021-07-16T02:40:36.890-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        },
+        {
+          "id": "14062",
+          "name": "WebHooks SPI",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:3a63a1d3-e9dd-4028-98cc-bca9f7f73785",
+        "displayName": "Filip Rogaczewski",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "77485",
+    "key": "WEBHOOKS-32",
+    "fields": {
+      "summary": "Slim down bundled dependencies in webhooks plugin",
+      "description": "Webhooks plugin bundles a large number of libraries. Some of these can be provided by the platform (fugue). Others should be. Theres 1.4MB totaly of jars hidden inside the webhooks plugin (though it normally expands the dependencies) Http Client - we should be looking at whether we can use a bundled one, or bringing it into the platform such that we can use a bundled one. We dont have to worry about multiple version support in the webhooks plugin so theres nothing stopping us doing this work. https:ecosystem.atlassian.netbrowsePLUG-1013?focusedCommentId104698pagecom.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanelcomment-104698 noformat hydra:atlassian-webhooks-plugin ian du -hs tmpwebhooksMETA-INFlib 1.4M tmpwebhooksMETA-INFlib hydra:atlassian-webhooks-plugin ian l tmpwebhooksMETA-INFlib total 2912 -rw-r--r-- 1 ian wheel 57K 12 Jun 12:21 atlassian-httpclient-apache-httpcomponents-0.16.0-SNAPSHOT.jar -rw-r--r-- 1 ian wheel 34K 12 Jun 12:21 atlassian-httpclient-api-0.16.0-SNAPSHOT.jar -rw-r--r-- 1 ian wheel 3.7K 12 Jun 12:21 atlassian-httpclient-spi-0.16.0-SNAPSHOT.jar -rw-r--r-- 1 ian wheel 12K 12 Jun 12:21 atlassian-osgi-0.2.jar -rw-r--r-- 1 ian wheel 17K 12 Jun 12:21 atlassian-uri-0.3.jar -rw-r--r-- 1 ian wheel 20K 12 Jun 12:21 atlassian-webhooks-provider-spi-0.16.0-SNAPSHOT.jar -rw-r--r-- 1 ian wheel 3.4K 12 Jun 12:21 atlassian-webhooks-spi-0.16.0-SNAPSHOT.jar -rw-r--r-- 1 ian wheel 71K 12 Jun 12:21 fugue-1.1.jar -rw-r--r-- 1 ian wheel 81K 12 Jun 12:21 httpasyncclient-4.0-beta3-atlassian2.jar -rw-r--r-- 1 ian wheel 33K 12 Jun 12:21 httpasyncclient-cache-4.0-beta3-atlassian2.jar -rw-r--r-- 1 ian wheel 418K 12 Jun 12:21 httpclient-4.2.1-atlassian-2.jar -rw-r--r-- 1 ian wheel 113K 12 Jun 12:21 httpclient-cache-4.2.1-atlassian-2.jar -rw-r--r-- 1 ian wheel 218K 12 Jun 12:21 httpcore-4.2.2-atlassian1.jar -rw-r--r-- 1 ian wheel 279K 12 Jun 12:21 httpcore-nio-4.2.2-atlassian1.jar -rw-r--r-- 1 ian wheel 26K 12 Jun 12:21 httpmime-4.1.2.jar -rw-r--r-- 1 ian wheel 40K 12 Jun 12:21 org.json-chargebee-1.0.jar noformat",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2013-06-12T05:29:02.891-0500",
+      "updated": "2021-07-16T02:40:35.225-0500",
+      "labels": [
+        "bootcamp"
+      ],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:9848f9c7-a6a1-4367-a6a8-1df26c307080",
+        "displayName": "ig",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "60254",
+    "key": "WEBHOOKS-17",
+    "fields": {
+      "summary": "Add flag to disable the HTTP client caching",
+      "description": "Would be especially useful in dev. Might need to be more dynamic than a simply system property.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2012-12-04T08:14:41.126-0600",
+      "updated": "2021-07-16T02:40:35.592-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14061",
+          "name": "Http Client, Apache Http Components Impl",
+          "description": ""
+        },
+        {
+          "id": "14060",
+          "name": "Http Client API",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2b5c5103-93cb-4cc0-93cb-20ce27a8411f",
+        "displayName": "Samuel Le Berrigaud",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "60253",
+    "key": "WEBHOOKS-16",
+    "fields": {
+      "summary": "Review caching of HTTP errors",
+      "description": "It looks like HTTP errors might get cached for too long. Therefore preventing resuming normal activity when the error is only temporary.",
+      "status": {
+        "id": "3",
+        "name": "In Progress",
+        "statusCategory": {
+          "id": 4,
+          "name": "In Progress"
+        }
+      },
+      "priority": {
+        "id": "2",
+        "name": "Critical",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/critical.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2012-12-04T08:13:12.397-0600",
+      "updated": "2021-11-17T03:23:00.955-0600",
+      "labels": [],
+      "components": [
+        {
+          "id": "14061",
+          "name": "Http Client, Apache Http Components Impl",
+          "description": ""
+        }
+      ],
+      "assignee": {
+        "accountId": "5e1ee28f1f9cb50ca7f53637",
+        "displayName": "William Custodio",
+        "emailAddress": null,
+        "active": true
+      },
+      "reporter": {
+        "accountId": "557057:2b5c5103-93cb-4cc0-93cb-20ce27a8411f",
+        "displayName": "Samuel Le Berrigaud",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "60066",
+    "key": "WEBHOOKS-14",
+    "fields": {
+      "summary": "Add possibility to configure follow redirects on HttpClient requests",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15311?size=medium"
+      },
+      "created": "2012-11-28T04:12:51.408-0600",
+      "updated": "2021-07-16T02:40:37.124-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14060",
+          "name": "Http Client API",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:3ad9bfd9-6250-4cab-a6a9-e3b0f7139872",
+        "displayName": "Don Brown",
+        "emailAddress": null,
+        "active": false
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "59818",
+    "key": "WEBHOOKS-11",
+    "fields": {
+      "summary": "Should we (re)add the Tenant in the ThreadLocalContextManager for JIRA 5.2",
+      "description": "References were removed for compatibility with JIRA 6.0(-SNAPSHOT), it also works fine with JIRA 5.2, but we should consider whether having the Tenant information is necessary there.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Task",
+        "description": "A task that needs to be done.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15318?size=medium"
+      },
+      "created": "2012-11-19T07:47:40.808-0600",
+      "updated": "2021-07-16T02:40:35.659-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2b5c5103-93cb-4cc0-93cb-20ce27a8411f",
+        "displayName": "Samuel Le Berrigaud",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "59503",
+    "key": "WEBHOOKS-8",
+    "fields": {
+      "summary": "Add a new com.atlassian.webhooks.plugin.ConstructionStrategy that can leverage the plugin context",
+      "description": "The default implementation requires a default constructor for the set mapper and serializerFactory set on WebHook. Would be nice to be able to inject host components, plugin components etc.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2012-11-09T03:08:29.396-0600",
+      "updated": "2021-07-16T02:40:35.291-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2b5c5103-93cb-4cc0-93cb-20ce27a8411f",
+        "displayName": "Samuel Le Berrigaud",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "59419",
+    "key": "WEBHOOKS-4",
+    "fields": {
+      "summary": "Scan for WebHooks annotation so that WebHookSchemaFactory is more accurate",
+      "description": "Currently the com.atlassian.webhooks.plugin.AnnotationWebHookRegistrygetWebHookIds will only report on WebHook events that were already fired. We should scan all bundles (incl. the system bundle) for WebHook annotated events to report them. Unscanned events will cause plugin descriptor to probably fail validation because a webhook id is not listed in the XML schema.",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2012-11-06T06:33:49.411-0600",
+      "updated": "2021-07-16T02:40:35.359-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14063",
+          "name": "WebHooks Plugin",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2b5c5103-93cb-4cc0-93cb-20ce27a8411f",
+        "displayName": "Samuel Le Berrigaud",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "59095",
+    "key": "WEBHOOKS-1",
+    "fields": {
+      "summary": "Tranform method of ResponsePromise fails to transform exception as expected.",
+      "description": "See accountid:557057:2bf22022-db24-4e3f-aa18-a8cd5cfccaa1s comment at https:extranet.atlassian.comdisplayARA20121019IntroducingAtlassianHttpClient?focusedCommentId2044265848comment-2044265848 And his test at: https:bitbucket.orgatlassianatlassian-webhooks-pluginchangeset86239926d1ddb1b8252c22d297c01bbc Here is another test that shows the wrong behavior: code:java Test  Ignore public void testFailCanTransformException()  responseSettableFuture.setException(new Throwable(Some message)); assertEquals(Some message, newBuilder() .ok(new Function()  Override public String apply(Response input)  return Ok;  ) .fail(new Function()  Override public String apply(Throwable input)  return input.getMessage();  ).claim());  code",
+      "status": {
+        "id": "10025",
+        "name": "Long Term Backlog",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2012-10-26T02:25:19.363-0500",
+      "updated": "2021-07-16T02:40:35.426-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14060",
+          "name": "Http Client API",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:2b5c5103-93cb-4cc0-93cb-20ce27a8411f",
+        "displayName": "Samuel Le Berrigaud",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  }
+]

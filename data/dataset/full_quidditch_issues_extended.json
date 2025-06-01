@@ -1,0 +1,1535 @@
+[
+  {
+    "id": "9e36732a-71f6-4839-8de4-5d162a4efbdd",
+    "key": "QUIDAPP-56C762",
+    "fields": {
+      "summary": "[Epic] User Authentication and Access",
+      "description": "This epic covers the functionality related to user authentication and access.",
+      "issuetype": {
+        "name": "Epic"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-08-22T00:00:00",
+      "updated": "2023-04-29T00:00:00"
+    }
+  },
+  {
+    "id": "18feda22-62ac-4585-b709-e17781d2745d",
+    "key": "QUIDAPP-AA979E",
+    "fields": {
+      "summary": "As a user, I want to sign up with my email and password",
+      "description": "As a user, I want to sign up with my email and password so that I can access the Quidditch app.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-10-09T00:00:00",
+      "updated": "2023-06-29T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-56C762"
+      }
+    }
+  },
+  {
+    "id": "62c94194-f121-4aff-83da-f7ee6ff292b0",
+    "key": "QUIDAPP-CC00F8",
+    "fields": {
+      "summary": "Test case for: As a user, I want to sign up with my email and password",
+      "description": "Test case:\nGiven a new user\nWhen they enter valid email and password and click sign up\nThen the account is created and they are redirected to the dashboard",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-09-17T00:00:00",
+      "updated": "2023-04-15T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-AA979E"
+      }
+    }
+  },
+  {
+    "id": "3b75e2c7-d834-488d-9a0c-238736c3d2c0",
+    "key": "QUIDAPP-23C618",
+    "fields": {
+      "summary": "As a user, I want to reset my password",
+      "description": "As a user, I want to reset my password so that I can regain access if I forget it.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-09-02T00:00:00",
+      "updated": "2023-04-24T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-56C762"
+      }
+    }
+  },
+  {
+    "id": "c0555386-7af7-4fce-84fa-c7b2505d79b3",
+    "key": "QUIDAPP-5BBAA6",
+    "fields": {
+      "summary": "Test case for: As a user, I want to reset my password",
+      "description": "Test case:\nGiven a user has forgotten their password\nWhen they request a password reset\nThen they receive an email with a reset link",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-12-23T00:00:00",
+      "updated": "2023-04-12T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-23C618"
+      }
+    }
+  },
+  {
+    "id": "97bfb4b8-2bf8-4598-a270-4a533f7995c8",
+    "key": "QUIDAPP-CE0CFA",
+    "fields": {
+      "summary": "[Epic] Live Match Betting System",
+      "description": "This epic covers the functionality related to live match betting system.",
+      "issuetype": {
+        "name": "Epic"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-07-27T00:00:00",
+      "updated": "2023-02-01T00:00:00"
+    }
+  },
+  {
+    "id": "56215571-ef5d-4314-bdba-cc8ae9c5e1cf",
+    "key": "QUIDAPP-F13F23",
+    "fields": {
+      "summary": "As a user, I want to place a bet on a Quidditch match",
+      "description": "As a user, I want to place a bet on a Quidditch match so that I can earn rewards if my team wins.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-08-24T00:00:00",
+      "updated": "2023-11-30T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-CE0CFA"
+      }
+    }
+  },
+  {
+    "id": "8ece7753-c74f-4675-8084-967530e2853d",
+    "key": "QUIDAPP-66442D",
+    "fields": {
+      "summary": "Test case for: As a user, I want to place a bet on a Quidditch match",
+      "description": "Test case:\nGiven a logged-in user\nWhen they select a match and place a bet\nThen the bet is recorded and reflected in their profile",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-01-09T00:00:00",
+      "updated": "2023-07-25T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-F13F23"
+      }
+    }
+  },
+  {
+    "id": "82f9da79-cc39-4f14-9c65-38a210a7b1a1",
+    "key": "QUIDAPP-8AF91A",
+    "fields": {
+      "summary": "As a user, I want to view the odds of an upcoming match",
+      "description": "As a user, I want to view the odds of an upcoming match so that I can make an informed betting decision.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-01-31T00:00:00",
+      "updated": "2023-11-25T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-CE0CFA"
+      }
+    }
+  },
+  {
+    "id": "b24b1f30-5577-45f1-a9b2-1a0b23f7ab3f",
+    "key": "QUIDAPP-C3D454",
+    "fields": {
+      "summary": "Test case for: As a user, I want to view the odds of an upcoming match",
+      "description": "Test case:\nGiven a match page\nWhen a user visits it\nThen the current odds are displayed for each team",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-03-06T00:00:00",
+      "updated": "2023-09-08T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-8AF91A"
+      }
+    }
+  },
+  {
+    "id": "44485ca1-8495-4fd8-be41-e38f308995a8",
+    "key": "QUIDAPP-3A2EC1",
+    "fields": {
+      "summary": "[Epic] News Feed and Notifications",
+      "description": "This epic covers the functionality related to news feed and notifications.",
+      "issuetype": {
+        "name": "Epic"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-09-12T00:00:00",
+      "updated": "2023-04-14T00:00:00"
+    }
+  },
+  {
+    "id": "cac777a4-94b4-437a-b30c-300e0366c828",
+    "key": "QUIDAPP-ECD716",
+    "fields": {
+      "summary": "As a fan, I want to receive notifications about my favorite team",
+      "description": "As a fan, I want to receive notifications about my favorite team so that I stay updated on their matches.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-07-15T00:00:00",
+      "updated": "2023-08-25T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-3A2EC1"
+      }
+    }
+  },
+  {
+    "id": "f8a09fed-b6f1-4120-b1fe-a9c48e10e25f",
+    "key": "QUIDAPP-714F69",
+    "fields": {
+      "summary": "Test case for: As a fan, I want to receive notifications about my favorite team",
+      "description": "Test case:\nGiven a user follows a team\nWhen the team has news\nThen the user receives a notification",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-04-23T00:00:00",
+      "updated": "2023-03-23T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-ECD716"
+      }
+    }
+  },
+  {
+    "id": "14c8acdb-1f54-45e7-89db-aa3d5269205f",
+    "key": "QUIDAPP-A08F2B",
+    "fields": {
+      "summary": "As a user, I want to browse the latest match news",
+      "description": "As a user, I want to browse the latest match news so that I can follow the league updates.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-04-06T00:00:00",
+      "updated": "2023-06-08T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-3A2EC1"
+      }
+    }
+  },
+  {
+    "id": "319093ad-3e46-4a24-9323-3ec663705174",
+    "key": "QUIDAPP-6C2A77",
+    "fields": {
+      "summary": "Test case for: As a user, I want to browse the latest match news",
+      "description": "Test case:\nGiven a user opens the news tab\nWhen news is available\nThen a list of articles is shown sorted by date",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "hermione.granger"
+      },
+      "created": "2023-11-20T00:00:00",
+      "updated": "2023-07-30T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-A08F2B"
+      }
+    }
+  },
+  {
+    "id": "37e2c018-e281-4615-b6ff-fa975d6ba3b0",
+    "key": "QUIDAPP-96BE59",
+    "fields": {
+      "summary": "[Epic] Subscription and Payment Integration",
+      "description": "This epic covers the functionality related to subscription and payment integration.",
+      "issuetype": {
+        "name": "Epic"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-10-21T00:00:00",
+      "updated": "2023-09-04T00:00:00"
+    }
+  },
+  {
+    "id": "addd365f-0e00-4ff3-8da7-a0da82a55a6c",
+    "key": "QUIDAPP-E1C988",
+    "fields": {
+      "summary": "As a user, I want to subscribe to premium features",
+      "description": "As a user, I want to subscribe to premium features so that I can get access to exclusive match stats.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-10-04T00:00:00",
+      "updated": "2023-01-21T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-96BE59"
+      }
+    }
+  },
+  {
+    "id": "86bfe5fb-6bee-4ccb-b574-0c157210f0ea",
+    "key": "QUIDAPP-E85961",
+    "fields": {
+      "summary": "Test case for: As a user, I want to subscribe to premium features",
+      "description": "Test case:\nGiven a user selects a premium plan\nWhen they complete payment\nThen they get access to premium content",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-02-02T00:00:00",
+      "updated": "2023-03-06T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-E1C988"
+      }
+    }
+  },
+  {
+    "id": "93ea51a1-a1c7-4653-b6dd-d2f1df4eb41a",
+    "key": "QUIDAPP-36B438",
+    "fields": {
+      "summary": "Bug: As a user, I want to subscribe to premium features throws error on save",
+      "description": "An unexpected error occurs during operation.",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-08-10T00:00:00",
+      "updated": "2023-06-09T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-E1C988"
+      }
+    }
+  },
+  {
+    "id": "034125fa-0e75-4e29-83c3-699d501635b2",
+    "key": "QUIDAPP-FF9611",
+    "fields": {
+      "summary": "Task: Implement As a user, I want to subscribe to premium features",
+      "description": "Backend implementation required for feature delivery.",
+      "issuetype": {
+        "name": "Task"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-03-12T00:00:00",
+      "updated": "2023-05-31T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-E1C988"
+      }
+    }
+  },
+  {
+    "id": "5cbdd251-450e-40b1-8478-283d99ac26b9",
+    "key": "QUIDAPP-C3CEF5",
+    "fields": {
+      "summary": "As an admin, I want to view all active subscriptions",
+      "description": "As an admin, I want to view all active subscriptions so that I can manage billing.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-07-30T00:00:00",
+      "updated": "2023-10-19T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-96BE59"
+      }
+    }
+  },
+  {
+    "id": "5777daae-b9be-4b41-86cf-598f19304e75",
+    "key": "QUIDAPP-8CCF50",
+    "fields": {
+      "summary": "Test case for: As an admin, I want to view all active subscriptions",
+      "description": "Test case:\nGiven an admin logs in\nWhen they access the subscriptions page\nThen all active users are listed",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-12-22T00:00:00",
+      "updated": "2023-12-09T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-C3CEF5"
+      }
+    }
+  },
+  {
+    "id": "fa28bc8f-dc76-4003-aaee-26206cecf5c4",
+    "key": "QUIDAPP-ABFAEA",
+    "fields": {
+      "summary": "Bug: As an admin, I want to view all active subscriptions throws error on save",
+      "description": "An unexpected error occurs during operation.",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "hermione.granger"
+      },
+      "created": "2023-09-14T00:00:00",
+      "updated": "2023-01-16T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-C3CEF5"
+      }
+    }
+  },
+  {
+    "id": "6a0f79eb-e2ce-49bf-99f8-298094f07f91",
+    "key": "QUIDAPP-D14ADA",
+    "fields": {
+      "summary": "Task: Implement As an admin, I want to view all active subscriptions",
+      "description": "Backend implementation required for feature delivery.",
+      "issuetype": {
+        "name": "Task"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-01-11T00:00:00",
+      "updated": "2023-08-13T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-C3CEF5"
+      }
+    }
+  },
+  {
+    "id": "dc03a559-0e92-4698-af20-23ff2b7112fe",
+    "key": "QUIDAPP-4D248C",
+    "fields": {
+      "summary": "[Epic] Player Profiles and Scores",
+      "description": "This epic covers the functionality related to player profiles and scores.",
+      "issuetype": {
+        "name": "Epic"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-12-04T00:00:00",
+      "updated": "2023-07-29T00:00:00"
+    }
+  },
+  {
+    "id": "1da2ecfc-63d7-46c4-bc73-cca2f973291b",
+    "key": "QUIDAPP-90F6AA",
+    "fields": {
+      "summary": "As a user, I want to view detailed player statistics",
+      "description": "As a user, I want to view detailed player statistics so that I can evaluate their performance.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-05-15T00:00:00",
+      "updated": "2023-08-14T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-4D248C"
+      }
+    }
+  },
+  {
+    "id": "00084a71-02e6-475e-8949-5491bb667e11",
+    "key": "QUIDAPP-10FDAC",
+    "fields": {
+      "summary": "Test case for: As a user, I want to view detailed player statistics",
+      "description": "Test case:\nGiven a user views a player's profile\nWhen the profile loads\nThen the player's scores and stats are shown",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "hermione.granger"
+      },
+      "created": "2023-07-06T00:00:00",
+      "updated": "2023-05-28T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-90F6AA"
+      }
+    }
+  },
+  {
+    "id": "9ae89d0d-2854-4290-aad5-762e4957e111",
+    "key": "QUIDAPP-DB317B",
+    "fields": {
+      "summary": "Bug: As a user, I want to view detailed player statistics throws error on save",
+      "description": "An unexpected error occurs during operation.",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-08-26T00:00:00",
+      "updated": "2023-10-02T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-90F6AA"
+      }
+    }
+  },
+  {
+    "id": "17ce1e21-d0c2-4e1a-83fa-75232660bab5",
+    "key": "QUIDAPP-39FBE1",
+    "fields": {
+      "summary": "Task: Implement As a user, I want to view detailed player statistics",
+      "description": "Backend implementation required for feature delivery.",
+      "issuetype": {
+        "name": "Task"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "hermione.granger"
+      },
+      "created": "2023-09-29T00:00:00",
+      "updated": "2023-10-03T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-90F6AA"
+      }
+    }
+  },
+  {
+    "id": "b5c84772-8c7f-4011-86e8-5e7d64ee819a",
+    "key": "QUIDAPP-37FA6D",
+    "fields": {
+      "summary": "As a player, I want to update my profile picture",
+      "description": "As a player, I want to update my profile picture so that fans recognize me.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-09-17T00:00:00",
+      "updated": "2023-06-17T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-4D248C"
+      }
+    }
+  },
+  {
+    "id": "3eb978ce-d0e5-40a2-9d33-0a1c54929adb",
+    "key": "QUIDAPP-3F33F1",
+    "fields": {
+      "summary": "Test case for: As a player, I want to update my profile picture",
+      "description": "Test case:\nGiven a logged-in player\nWhen they upload a new picture\nThen the profile is updated",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-02-18T00:00:00",
+      "updated": "2023-10-16T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-37FA6D"
+      }
+    }
+  },
+  {
+    "id": "963f7cd7-9e18-4c37-9ff9-bfeadb713afe",
+    "key": "QUIDAPP-E2FBF5",
+    "fields": {
+      "summary": "Bug: As a player, I want to update my profile picture throws error on save",
+      "description": "An unexpected error occurs during operation.",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-03-07T00:00:00",
+      "updated": "2023-05-19T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-37FA6D"
+      }
+    }
+  },
+  {
+    "id": "682a1d2e-19fb-45cb-97ed-41e12e9c3de2",
+    "key": "QUIDAPP-08665A",
+    "fields": {
+      "summary": "Task: Implement As a player, I want to update my profile picture",
+      "description": "Backend implementation required for feature delivery.",
+      "issuetype": {
+        "name": "Task"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-10-04T00:00:00",
+      "updated": "2023-10-13T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-37FA6D"
+      }
+    }
+  },
+  {
+    "id": "24f89336-da8b-43a1-9e9a-6a15ba79a29a",
+    "key": "QUIDAPP-EEE474",
+    "fields": {
+      "summary": "[Epic] Match Engine",
+      "description": "This epic covers the functionality related to match engine.",
+      "issuetype": {
+        "name": "Epic"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-08-26T00:00:00",
+      "updated": "2023-10-01T00:00:00"
+    }
+  },
+  {
+    "id": "ebd3d83b-eed6-48a8-a19c-4b9f1778d315",
+    "key": "QUIDAPP-EC5984",
+    "fields": {
+      "summary": "As a system, I want to calculate live scores during a match",
+      "description": "As a system, I want to calculate live scores during a match so that fans get real-time updates.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-05-04T00:00:00",
+      "updated": "2023-03-24T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-EEE474"
+      }
+    }
+  },
+  {
+    "id": "6f5dd364-97e7-4380-88d4-669e66b0a1a7",
+    "key": "QUIDAPP-4D732E",
+    "fields": {
+      "summary": "Test case for: As a system, I want to calculate live scores during a match",
+      "description": "Test case:\nGiven a live match\nWhen goals are scored\nThen the scoreboard updates automatically",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-07-19T00:00:00",
+      "updated": "2023-05-22T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-EC5984"
+      }
+    }
+  },
+  {
+    "id": "3d4d2e80-d38f-4133-a291-7021dec6b1a7",
+    "key": "QUIDAPP-B54663",
+    "fields": {
+      "summary": "Bug: As a system, I want to calculate live scores during a match throws error on save",
+      "description": "An unexpected error occurs during operation.",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-07-11T00:00:00",
+      "updated": "2023-07-06T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-EC5984"
+      }
+    }
+  },
+  {
+    "id": "2c328437-cb2b-4f6f-a57e-e41340727ea2",
+    "key": "QUIDAPP-0C70B1",
+    "fields": {
+      "summary": "Task: Implement As a system, I want to calculate live scores during a match",
+      "description": "Backend implementation required for feature delivery.",
+      "issuetype": {
+        "name": "Task"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "hermione.granger"
+      },
+      "created": "2023-11-06T00:00:00",
+      "updated": "2023-11-11T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-EC5984"
+      }
+    }
+  },
+  {
+    "id": "17921d96-d072-4f7b-ba6c-ca0de1b1c3f5",
+    "key": "QUIDAPP-8E26E9",
+    "fields": {
+      "summary": "As a referee, I want to enter penalties during the match",
+      "description": "As a referee, I want to enter penalties during the match so that match records are accurate.",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Frontend"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-07-11T00:00:00",
+      "updated": "2023-10-21T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-EEE474"
+      }
+    }
+  },
+  {
+    "id": "76cb29d9-d603-46e9-a5ac-188d8fae3e1d",
+    "key": "QUIDAPP-855FB7",
+    "fields": {
+      "summary": "Test case for: As a referee, I want to enter penalties during the match",
+      "description": "Test case:\nGiven a foul occurs\nWhen the referee inputs the penalty\nThen it appears in the match log",
+      "issuetype": {
+        "name": "Test"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "QA"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-04-01T00:00:00",
+      "updated": "2023-07-31T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-8E26E9"
+      }
+    }
+  },
+  {
+    "id": "6ef57c47-417b-4e3a-b9c8-ab79cdeadfce",
+    "key": "QUIDAPP-E7846B",
+    "fields": {
+      "summary": "Bug: As a referee, I want to enter penalties during the match throws error on save",
+      "description": "An unexpected error occurs during operation.",
+      "issuetype": {
+        "name": "Bug"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-04-10T00:00:00",
+      "updated": "2023-08-01T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-8E26E9"
+      }
+    }
+  },
+  {
+    "id": "f52f461f-dbb2-418d-a53b-1bb32047930c",
+    "key": "QUIDAPP-553D06",
+    "fields": {
+      "summary": "Task: Implement As a referee, I want to enter penalties during the match",
+      "description": "Backend implementation required for feature delivery.",
+      "issuetype": {
+        "name": "Task"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Backend"
+        }
+      ],
+      "creator": {
+        "name": "ron.weasley"
+      },
+      "created": "2023-02-19T00:00:00",
+      "updated": "2023-03-26T00:00:00",
+      "parent": {
+        "key": "QUIDAPP-8E26E9"
+      }
+    }
+  },
+  {
+    "id": "01afaaeb-7d14-4eb0-ab70-ef76faf95312",
+    "key": "QUIDAPP-REL-1",
+    "fields": {
+      "summary": "Release 1.0",
+      "description": "This is the tracker for release 1.0 of the Quidditch App.",
+      "issuetype": {
+        "name": "Release"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Deployment"
+        }
+      ],
+      "creator": {
+        "name": "draco.malfoy"
+      },
+      "created": "2023-04-02T00:00:00",
+      "updated": "2023-07-23T00:00:00"
+    }
+  },
+  {
+    "id": "a23f598d-8d80-4d4f-bd66-7b4da2bc117b",
+    "key": "QUIDAPP-REL-2",
+    "fields": {
+      "summary": "Release 2.0",
+      "description": "This is the tracker for release 2.0 of the Quidditch App.",
+      "issuetype": {
+        "name": "Release"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Deployment"
+        }
+      ],
+      "creator": {
+        "name": "harry.potter"
+      },
+      "created": "2023-12-21T00:00:00",
+      "updated": "2023-01-26T00:00:00"
+    }
+  },
+  {
+    "id": "a8adfa42-2685-4276-aefc-aa36dab32393",
+    "key": "QUIDAPP-REL-3",
+    "fields": {
+      "summary": "Release 3.0",
+      "description": "This is the tracker for release 3.0 of the Quidditch App.",
+      "issuetype": {
+        "name": "Release"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "QUIDAPP",
+        "name": "Quidditch App",
+        "id": "QUIDAPP-ID"
+      },
+      "components": [
+        {
+          "name": "Deployment"
+        }
+      ],
+      "creator": {
+        "name": "luna.lovegood"
+      },
+      "created": "2023-09-04T00:00:00",
+      "updated": "2023-02-10T00:00:00"
+    }
+  },
+  {
+    "key": "QAPP-201",
+    "summary": "Display schedule of upcoming matches",
+    "description": "As a fan, I want to see a schedule of upcoming matches so I can plan ahead.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-202",
+    "summary": "Enable match reminders",
+    "description": "As a fan, I want to set reminders for specific matches so I don't miss them.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-203",
+    "summary": "Test match reminder notification",
+    "description": "Ensure match reminders trigger notifications X minutes before the game.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Test"
+  },
+  {
+    "key": "QAPP-204",
+    "summary": "View league standings",
+    "description": "As a user, I want to view the current league standings.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-205",
+    "summary": "Coach can see win/loss history per team",
+    "description": "As a coach, I want to see win/loss history per team to assess performance.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-206",
+    "summary": "Test sorting of league table",
+    "description": "Ensure the league table sorts by points and win percentage correctly.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Test"
+  },
+  {
+    "key": "QAPP-207",
+    "summary": "Compare two players",
+    "description": "As a user, I want to compare two players to see their stats side by side.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-208",
+    "summary": "View top scorers in the league",
+    "description": "As a fan, I want to see top scorers in the league to follow their performance.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-209",
+    "summary": "Test leaderboard ranking logic",
+    "description": "Verify the leaderboard ranks players based on goals scored.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Test"
+  },
+  {
+    "key": "QAPP-210",
+    "summary": "Fan chat during matches",
+    "description": "As a user, I want to chat with other fans during matches.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-211",
+    "summary": "Test chat moderation and profanity filter",
+    "description": "Ensure the fan chat includes proper moderation and profanity filtering.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Test"
+  },
+  {
+    "key": "QAPP-212",
+    "summary": "AI-generated match summary",
+    "description": "As a user, I want AI to generate a match summary with score, key events, and MVP.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-213",
+    "summary": "Test AI summary content",
+    "description": "Verify that AI-generated summaries include score, events, and MVP data.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Test"
+  },
+  {
+    "key": "QAPP-214",
+    "summary": "Draft a fantasy quidditch team",
+    "description": "As a user, I want to draft a fantasy quidditch team within a budget.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Story"
+  },
+  {
+    "key": "QAPP-215",
+    "summary": "Test budget and cap validation in fantasy mode",
+    "description": "Ensure budget and squad caps are enforced in fantasy team creation.",
+    "status": "To Do",
+    "project": "Quidditch App",
+    "issue_type": "Test"
+  }
+]

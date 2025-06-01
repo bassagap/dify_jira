@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      target: development
+    volumes:
+      - ..:/workspaces:cached
+      - ~/.gitconfig:/home/vscode/.gitconfig
+      - venv:/opt/venv
+    command: sleep infinity
+    ports:
+      - "3000:3000"
+    user: vscode
+    environment:
+      - PYTHONPATH=/workspaces/dify-jira
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:$PATH
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+
+volumes:
+  venv:

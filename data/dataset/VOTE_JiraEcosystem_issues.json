@@ -1,0 +1,771 @@
+[
+  {
+    "id": "70684",
+    "key": "VOTE-54",
+    "fields": {
+      "summary": "Receiving Null Pointer exception in Advanced JQL query when Voters and Watchers Plugin enabled",
+      "description": "I am seeing the following error when I do an advanced search with the Voters and Watchers plugin enabled. When I disable the plugin I see no issue with the search. On a related note when I reindex I have to disable the Voters and Watchers plugin as well because it seems to cause and issue with the re-index. Any pointers on what the issue is would be appreciated. I only started noticing this issue when we upgraded from Jira 4.4.5 to Jira 5.1.8 at the end of November. An error occurred whilst rendering this message. Please contact the administrators, and inform them of this bug. Details: ------- org.apache.velocity.exception.MethodInvocationException: Invocation of method getHtml in class com.atlassian.jira.issue.fields.layout.column.ColumnLayoutItemImpl threw exception java.lang.NullPointerException at templatesjiraissuetablemacros.vmline 120, column 34 at org.apache.velocity.runtime.parser.node.ASTMethod.handleInvocationException(ASTMethod.java:337) at org.apache.velocity.runtime.parser.node.ASTMethod.execute(ASTMethod.java:284) at org.apache.velocity.runtime.parser.node.ASTReference.execute(ASTReference.java:262) at org.apache.velocity.runtime.parser.node.ASTReference.value(ASTReference.java:507) at org.apache.velocity.runtime.parser.node.ASTExpression.value(ASTExpression.java:71) at org.apache.velocity.runtime.parser.node.ASTSetDirective.render(ASTSetDirective.java:142) at org.apache.velocity.runtime.parser.node.ASTBlock.render(ASTBlock.java:72) at org.apache.velocity.runtime.directive.Foreach.performIteration(Foreach.java:393) at org.apache.velocity.runtime.directive.Foreach.render(Foreach.java:316) at org.apache.velocity.runtime.parser.node.ASTDirective.render(ASTDirective.java:175) at org.apache.velocity.runtime.parser.node.ASTBlock.render(ASTBlock.java:72) at org.apache.velocity.runtime.directive.VelocimacroProxy.render(VelocimacroProxy.java:212) at org.apache.velocity.runtime.directive.RuntimeMacro.render(RuntimeMacro.java:247) at org.apache.velocity.runtime.parser.node.ASTDirective.render(ASTDirective.java:175) at org.apache.velocity.runtime.parser.node.SimpleNode.render(SimpleNode.java:336) at org.apache.velocity.Template.merge(Template.java:328) at org.apache.velocity.Template.merge(Template.java:235) at org.apache.velocity.app.VelocityEngine.mergeTemplate(VelocityEngine.java:381) at com.atlassian.velocity.DefaultVelocityManager.getEncodedBody(DefaultVelocityManager.java:67) at com.atlassian.jira.template.velocity.DefaultVelocityTemplatingEngineDefaultRenderRequest.asHtml(DefaultVelocityTemplatingEngine.java:104) at com.atlassian.jira.web.component.AbstractWebComponent.getHtml(AbstractWebComponent.java:35) at com.atlassian.jira.web.component.IssueTableWebComponent1.write(IssueTableWebComponent.java:149) at com.atlassian.jira.web.component.IssueTableWebComponent.getHtml(IssueTableWebComponent.java:81) at org.apache.jsp.includes.navigator.results_jsp._jspService(results_jsp.java:102) at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70) at javax.servlet.http.HttpServlet.service(HttpServlet.java:717) at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:388) at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:313) at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:260) at javax.servlet.http.HttpServlet.service(HttpServlet.java:717) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:646) at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:551) at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:488) at org.apache.jasper.runtime.JspRuntimeLibrary.include(JspRuntimeLibrary.java:968) at org.apache.jsp.secure.views.navigator.advancedsearch_jsp._jspx_meth_ww_005fif_005f17(advancedsearch_jsp.java:2375) at org.apache.jsp.secure.views.navigator.advancedsearch_jsp._jspService(advancedsearch_jsp.java:362) at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70) at javax.servlet.http.HttpServlet.service(HttpServlet.java:717) at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:388) at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:313) at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:260) at javax.servlet.http.HttpServlet.service(HttpServlet.java:717) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.filters.XContentTypeOptionsNoSniffFilter.doFilter(XContentTypeOptionsNoSniffFilter.java:22) at com.atlassian.core.filters.AbstractHttpFilter.doFilter(AbstractHttpFilter.java:31) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.core.filters.HeaderSanitisingFilter.doFilter(HeaderSanitisingFilter.java:32) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.labs.botkiller.BotKillerFilter.doFilter(BotKillerFilter.java:30) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.applinks.core.rest.context.ContextFilter.doFilter(ContextFilter.java:25) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:59) at com.atlassian.jira.web.filters.SitemeshPageFilter.doFilter(SitemeshPageFilter.java:124) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.seraph.filter.SecurityFilter.doFilter(SecurityFilter.java:82) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.seraph.filter.BaseLoginFilter.doFilter(BaseLoginFilter.java:169) at com.atlassian.jira.web.filters.JiraLoginFilter.doFilter(JiraLoginFilter.java:70) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.oauth.serviceprovider.internal.servlet.OAuthFilter.doFilter(OAuthFilter.java:71) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:646) at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:436) at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:374) at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:302) at com.atlassian.jira.web.dispatcher.JiraWebworkActionDispatcher.dispatchView(JiraWebworkActionDispatcher.java:314) at com.atlassian.jira.web.dispatcher.JiraWebworkActionDispatcher.service(JiraWebworkActionDispatcher.java:205) at javax.servlet.http.HttpServlet.service(HttpServlet.java:717) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.filters.steps.ChainedFilterStepRunner.doFilter(ChainedFilterStepRunner.java:78) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.filters.XContentTypeOptionsNoSniffFilter.doFilter(XContentTypeOptionsNoSniffFilter.java:22) at com.atlassian.core.filters.AbstractHttpFilter.doFilter(AbstractHttpFilter.java:31) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.core.filters.HeaderSanitisingFilter.doFilter(HeaderSanitisingFilter.java:44) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.labs.botkiller.BotKillerFilter.doFilter(BotKillerFilter.java:36) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.jira.tzdetect.IncludeResourcesFilter.doFilter(IncludeResourcesFilter.java:39) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.applinks.core.rest.context.ContextFilter.doFilter(ContextFilter.java:25) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.filters.accesslog.AccessLogFilter.executeRequest(AccessLogFilter.java:103) at com.atlassian.jira.web.filters.accesslog.AccessLogFilter.doFilter(AccessLogFilter.java:87) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.security.xsrf.XsrfTokenAdditionRequestFilter.doFilter(XsrfTokenAdditionRequestFilter.java:54) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.opensymphony.sitemesh.webapp.SiteMeshFilter.obtainContent(SiteMeshFilter.java:129) at com.opensymphony.sitemesh.webapp.SiteMeshFilter.doFilter(SiteMeshFilter.java:77) at com.atlassian.jira.web.filters.SitemeshPageFilter.doFilter(SitemeshPageFilter.java:124) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.labs.remoteapps.modules.permissions.ApiScopingFilter.doFilter(ApiScopingFilter.java:60) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.seraph.filter.SecurityFilter.doFilter(SecurityFilter.java:234) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.security.auth.trustedapps.filter.TrustedApplicationsFilter.doFilter(TrustedApplicationsFilter.java:98) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.seraph.filter.BaseLoginFilter.doFilter(BaseLoginFilter.java:169) at com.atlassian.jira.web.filters.JiraLoginFilter.doFilter(JiraLoginFilter.java:70) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.oauth.serviceprovider.internal.servlet.OAuthFilter.doFilter(OAuthFilter.java:71) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.util.profiling.filters.ProfilingFilter.doFilter(ProfilingFilter.java:99) at com.atlassian.jira.web.filters.JIRAProfilingFilter.doFilter(JIRAProfilingFilter.java:19) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.johnson.filters.AbstractJohnsonFilter.doFilter(AbstractJohnsonFilter.java:71) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at org.tuckey.web.filters.urlrewrite.UrlRewriteFilter.doFilter(UrlRewriteFilter.java:738) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.gzipfilter.GzipFilter.doFilterInternal(GzipFilter.java:80) at com.atlassian.gzipfilter.GzipFilter.doFilter(GzipFilter.java:51) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:46) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.labs.remoteapps.modules.oauth.OAuth2LOFilter.doFilter(OAuth2LOFilter.java:70) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.atlassian.labs.remoteapps.util.http.bigpipe.RequestIdSettingFilter.doFilter(RequestIdSettingFilter.java:22) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter1.doFilter(DelegatingPluginFilter.java:66) at com.sysbliss.jira.plugins.workflow.servlet.JWDSendRedirectFilter.doFilter(JWDSendRedirectFilter.java:25) at com.atlassian.plugin.servlet.filter.DelegatingPluginFilter.doFilter(DelegatingPluginFilter.java:74) at com.atlassian.plugin.servlet.filter.IteratingFilterChain.doFilter(IteratingFilterChain.java:42) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:77) at com.atlassian.plugin.servlet.filter.ServletFilterModuleContainerFilter.doFilter(ServletFilterModuleContainerFilter.java:63) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.filters.steps.ChainedFilterStepRunner.doFilter(ChainedFilterStepRunner.java:78) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.core.filters.cache.AbstractCachingFilter.doFilter(AbstractCachingFilter.java:33) at com.atlassian.core.filters.AbstractHttpFilter.doFilter(AbstractHttpFilter.java:31) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.core.filters.encoding.AbstractEncodingFilter.doFilter(AbstractEncodingFilter.java:41) at com.atlassian.core.filters.AbstractHttpFilter.doFilter(AbstractHttpFilter.java:31) at com.atlassian.jira.web.filters.PathMatchingEncodingFilter.doFilter(PathMatchingEncodingFilter.java:49) at com.atlassian.core.filters.AbstractHttpFilter.doFilter(AbstractHttpFilter.java:31) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.monitor.ActiveRequestsFilterPassToChainFilterFunc.doFilter(ActiveRequestsFilter.java:346) at com.atlassian.jira.web.monitor.ActiveRequestsFilterDebugLogFilterFunc.doFilter(ActiveRequestsFilter.java:463) at com.atlassian.jira.web.monitor.ActiveRequestsFilter.doFilter(ActiveRequestsFilter.java:173) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.startup.JiraStartupChecklistFilter.doFilter(JiraStartupChecklistFilter.java:75) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.multitenant.servlet.MultiTenantServletFilter.doFilter(MultiTenantServletFilter.java:91) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at com.atlassian.jira.web.filters.steps.ChainedFilterStepRunner.doFilter(ChainedFilterStepRunner.java:78) at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235) at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206) at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233) at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191) at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127) at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102) at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109) at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:615) at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293) at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:859) at org.apache.coyote.http11.Http11ProtocolHttp11ConnectionHandler.process(Http11Protocol.java:602) at org.apache.tomcat.util.net.JIoEndpointWorker.run(JIoEndpoint.java:489) at java.lang.Thread.run(Thread.java:662) Caused by: java.lang.NullPointerException",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "2",
+        "name": "Critical",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/critical.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2013-01-07T09:53:04.054-0600",
+      "updated": "2013-10-15T22:47:31.594-0500",
+      "labels": [
+        "maintenance-backlog"
+      ],
+      "components": [
+        {
+          "id": "14693",
+          "name": "Voters",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:fdfa7b6e-3fa1-4d61-b839-9939a1558cde",
+        "displayName": "Dale Miller",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70727",
+    "key": "VOTE-48",
+    "fields": {
+      "summary": "Error on issue if the watcher user is deleted in LDAP or Crowd",
+      "description": "Hi, Steps to reproduce :  Create a custom field for watchers using this plugin and configure it to be present on view issue screen.  Create an issue and add a few watchers to it.  Now delete the watcher user from the LDAP server or Crowd server.  After this, synchronize the directory in JIRA so that the user does not show up on user browser screen.  Now, try to open the issue.  The following error shows up on the screen : noformat 2012-09-05 08:08:55,490 http-8080-12 ERROR XXXX 488x51359x1 g8qdlq 148.87.19.46 browseXXX-101 com.atlassian.velocity.DefaultVelocityManager MethodInvocationException occurred getting message body from Velocity: java.lang.NullPointerException java.lang.NullPointerException at java.net.URLEncoder.encode(URLEncoder.java:188) at com.atlassian.jira.util.JiraVelocityHelper.urlencode(JiraVelocityHelper.java:46) at sun.reflect.GeneratedMethodAccessor10222.invoke(Unknown Source) at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25) at java.lang.reflect.Method.invoke(Method.java:597) at org.apache.velocity.util.introspection.UberspectImplVelMethodImpl.invoke(UberspectImpl.java:234) noformat It seems to be related to : https:jira.atlassian.combrowseJRA-24051 and https:jira.atlassian.combrowseJRA-29202 as JIRA itself is not handling deleted issues nicely. Regards, Ruchi",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2012-09-10T04:44:27.425-0500",
+      "updated": "2012-09-10T04:51:53.059-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557057:b1fdfb7f-6e3f-4d00-9bcb-61cbb14573ef",
+        "displayName": "Ruchi Tandon",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70715",
+    "key": "VOTE-35",
+    "fields": {
+      "summary": "Add autocomplete to voters and watchers custom fields",
+      "description": "User auto complete doesnt occur in the Issue Navigator simple mode for the Voters and Watchers custom fields. Our work around for years has been to add voters and watchers to the list of fields that the user  group picker custom field searcher can work for and then configure the voters and watchers custom fields to use it as their search template. It would be nice if this bug didnt exist so that we could just upgrade and not have to remember to re-apply this work around.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2011-07-26T14:45:51.269-0500",
+      "updated": "2013-10-15T22:47:31.269-0500",
+      "labels": [
+        "maintenance-backlog"
+      ],
+      "components": [
+        {
+          "id": "14693",
+          "name": "Voters",
+          "description": ""
+        },
+        {
+          "id": "14696",
+          "name": "Watchers",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:1bb419ff-e18e-4967-84ed-ea35b37fbcb6",
+        "displayName": "Jeff Kirby",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70712",
+    "key": "VOTE-34",
+    "fields": {
+      "summary": "bulk edit for VotersCFType and WatchersCFType",
+      "description": "Our users get confused that the Voters and Watchers appears in Bulk Edit but with no input box. Either disable it for Bulk Edit or make it bulk editable. Our users would prefer the latter.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2011-07-25T17:43:11.620-0500",
+      "updated": "2011-07-26T14:39:21.858-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14693",
+          "name": "Voters",
+          "description": ""
+        },
+        {
+          "id": "14696",
+          "name": "Watchers",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:1bb419ff-e18e-4967-84ed-ea35b37fbcb6",
+        "displayName": "Jeff Kirby",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70714",
+    "key": "VOTE-33",
+    "fields": {
+      "summary": "Please remove the set of webwork actions under keyvoteAction",
+      "description": "The set of 3 actions that override VoteAction, ViewIssue and ManageWatchers in this plugin arent necessary anymore after Jira 4.1 since those actions all come with Jira. Some re-coding will be necessary in votecftype.js, but I think its trivial.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Task",
+        "description": "A task that needs to be done.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15318?size=medium"
+      },
+      "created": "2011-07-25T13:50:56.311-0500",
+      "updated": "2011-07-25T13:50:56.311-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14694",
+          "name": "Vote",
+          "description": ""
+        },
+        {
+          "id": "14693",
+          "name": "Voters",
+          "description": ""
+        },
+        {
+          "id": "14696",
+          "name": "Watchers",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:1bb419ff-e18e-4967-84ed-ea35b37fbcb6",
+        "displayName": "Jeff Kirby",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70724",
+    "key": "VOTE-24",
+    "fields": {
+      "summary": "vote custom field causes remote API getIssue to fail",
+      "description": "This only affected the one project we had associated with the the vote custom field. It was restricted to the one project and one issue type. As soon as we unassociated it, it works and as soon as we re-associate it it fails. There is nothing in the server log. I was not able to reproduce it on a newly created project. The project with the problem was migrated from a 3.13 install. A query of the custom field value table didnt find any values. The workaround was to remove the custom field association with the project and live with the 4.0 built in action support for now. Any suggestions would be appreciated. If you cant reproduce or dont have suggestions, just close this out. noformat jira --action getIssue --issue REQ-395 java.lang.ClassCastException: java.lang.Boolean cannot be cast to com.opensymphony.user.User at org.apache.axis.message.SOAPFaultBuilder.createFault(SOAPFaultBuilder.java:222) at org.apache.axis.message.SOAPFaultBuilder.endElement(SOAPFaultBuilder.java:129) at org.apache.axis.encoding.DeserializationContext.endElement(DeserializationContext.java:1087) at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.endElement(Unknown Source) at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(Unknown Source) at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImplFragmentContentDriver.next(Unknown Source) at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source) at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source) at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source) at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source) at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source) at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source) at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source) at com.sun.org.apache.xerces.internal.jaxp.SAXParserImplJAXPSAXParser.parse(Unknown Source) at javax.xml.parsers.SAXParser.parse(Unknown Source) at org.apache.axis.encoding.DeserializationContext.parse(DeserializationContext.java:227) at org.apache.axis.SOAPPart.getAsSOAPEnvelope(SOAPPart.java:696) at org.apache.axis.Message.getSOAPEnvelope(Message.java:435) at org.apache.axis.handlers.soap.MustUnderstandChecker.invoke(MustUnderstandChecker.java:62) at org.apache.axis.client.AxisClient.invoke(AxisClient.java:206) at org.apache.axis.client.Call.invokeEngine(Call.java:2784) at org.apache.axis.client.Call.invoke(Call.java:2767) at org.apache.axis.client.Call.invoke(Call.java:2443) at org.apache.axis.client.Call.invoke(Call.java:2366) at org.apache.axis.client.Call.invoke(Call.java:1812) at com.dolby.jira.net.soap.jira.JirasoapserviceV2SoapBindingStub.getIssue(JirasoapserviceV2SoapBindingStub.java:3745) at org.swift.jira.cli.JiraClient.getRemoteIssue(JiraClient.java:1543) at org.swift.jira.cli.JiraClient.getIssue(JiraClient.java:1884) at org.swift.jira.cli.JiraClient.handleRequest(JiraClient.java:324) at org.swift.common.cli.AbstractRemoteClient.process(AbstractRemoteClient.java:107) at org.swift.common.cli.CliClient.doWork(CliClient.java:207) at org.swift.jira.cli.JiraClient.main(JiraClient.java:112) noformat",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2010-01-31T08:48:54.888-0600",
+      "updated": "2013-05-21T16:23:22.325-0500",
+      "labels": [],
+      "components": [
+        {
+          "id": "14694",
+          "name": "Vote",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:c32dbefc-89d7-4b67-9542-f54ac9ae1b36",
+        "displayName": "Bob Swift (Bob Swift Atlassian Apps)",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70725",
+    "key": "VOTE-22",
+    "fields": {
+      "summary": "Voters and Watchers plugin should replace watchedIssues() and votedIssues() JQL functions with fast implementations",
+      "description": "The JQL functions watchedIssues() and votedIssues() are very slow to execute because the built-in implementations rely on data that is not properly indexed and cached. The Voters and Watchers custom field plugin should replace the built-in implementations with a new implementation that instead uses the data in the Watchers field or the Voters field, if they exist. These could be done as separate modules so that users could disable them if they didnt want this behavior.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15311?size=medium"
+      },
+      "created": "2009-11-13T09:52:28.806-0600",
+      "updated": "2009-11-13T09:52:28.806-0600",
+      "labels": [],
+      "components": [
+        {
+          "id": "14693",
+          "name": "Voters",
+          "description": ""
+        },
+        {
+          "id": "14696",
+          "name": "Watchers",
+          "description": ""
+        }
+      ],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:4852792b-dcc3-44cd-b3aa-b6f10ec99b62",
+        "displayName": "G",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70699",
+    "key": "VOTE-12",
+    "fields": {
+      "summary": "Implement a Watch custom field",
+      "description": "This plugin implements a Vote custom field that allows the display of a column to vote or unvote for an issue, but does not do the same for Watchers. Please implement a Watch custom field to allow users to watch or unwatch an issue with a single click.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15311?size=medium"
+      },
+      "created": "2008-07-10T19:16:39.068-0500",
+      "updated": "2009-10-30T17:00:51.466-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:4852792b-dcc3-44cd-b3aa-b6f10ec99b62",
+        "displayName": "G",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70679",
+    "key": "VOTE-11",
+    "fields": {
+      "summary": "Add User Picker and Group Searcher-like functionality",
+      "description": "There is currently a glaring feature omission in Jira in that it is impossible to create a dashboard portlet that shows a user all unresolved tickets that they are watching. The Voters and Watchers Custom Field plugin allows this, but only if each user configures their own custom filter. If the Voters and Watchers custom fields should be based on a User Picker and Group Searcher custom field type instead of the ordinary User Picker it would allow the creation of a shared filter searching on Current User which would make it possible to put a portlet that shows each user their own unresolved watches on the default dashboard.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "2",
+        "name": "Critical",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/critical.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2008-06-06T19:56:18.297-0500",
+      "updated": "2009-11-13T09:49:07.345-0600",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:4852792b-dcc3-44cd-b3aa-b6f10ec99b62",
+        "displayName": "G",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70694",
+    "key": "VOTE-8",
+    "fields": {
+      "summary": "Change display of vote column when own issue",
+      "description": "For issues that you have created, the column shows Cant vote on your own issues. I would prefer to just have blank (nothing displayed) so that the screen looks better and the column takes less space.",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2007-12-02T14:55:34.863-0600",
+      "updated": "2009-10-30T16:59:29.748-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:c32dbefc-89d7-4b67-9542-f54ac9ae1b36",
+        "displayName": "Bob Swift (Bob Swift Atlassian Apps)",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "70698",
+    "key": "VOTE-2",
+    "fields": {
+      "summary": "Allow filtering by Voters field to be context specific",
+      "description": "To have a workaround to http:jira.atlassian.combrowseJRA-5383, it would help to allow filtering using the more common searcher options (e.g. current user, specify user) instead of having to hardcode a specific user. Also fix the typo ALlows  Allows",
+      "status": {
+        "id": "1",
+        "name": "New",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/minor.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Improvement",
+        "description": "An improvement or enhancement to an existing feature or task.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15310?size=medium"
+      },
+      "created": "2006-09-30T14:08:18.521-0500",
+      "updated": "2020-04-20T02:17:59.626-0500",
+      "labels": [],
+      "components": [],
+      "assignee": {},
+      "reporter": {
+        "accountId": "557058:9edf640d-11d8-4762-ace0-4093858fa34e",
+        "displayName": "Neal Applebaum",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10016": {},
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {},
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  }
+]
