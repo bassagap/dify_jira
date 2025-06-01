@@ -10,6 +10,8 @@ import logging
 import traceback
 from datetime import datetime
 import tiktoken
+import re
+import random
 
 logger = logging.getLogger(__name__)
 
@@ -17,12 +19,13 @@ class DifyConfigurationError(Exception):
     pass
 
 class DifyIntegration:
-    def __init__(self, api_key: str = None, base_url: str = None, dataset_id: str = None):
+    def __init__(self, api_key: str = None, base_url: str = None, dataset_id: str = None, advanced_ingestion: bool = False):
         load_dotenv()
         
         self.dataset_api_key = api_key or os.getenv('DIFY_DATASET_API_KEY')
         self.base_url = base_url or os.getenv('DIFY_BASE_URL', 'http://localhost/v1')
         self.dataset_id = dataset_id or os.getenv('DIFY_DATASET_ID')
+        self.advanced_ingestion = advanced_ingestion
         
         if not self.dataset_api_key:
             raise ValueError("Missing Dify API key. Please provide it or set DIFY_DATASET_API_KEY environment variable.")
@@ -32,7 +35,7 @@ class DifyIntegration:
         }
         try:
             if not self.dataset_id or self.dataset_id == "your-dataset-id":
-                self.dataset_id = self.create_dataset(str(uuid.uuid4()))
+                self.dataset_id = self.create_dataset(name=None, advanced_ingestion=self.advanced_ingestion)
                 logger.info(f"[DIFY] Created new dataset with id: {self.dataset_id}")
             else:
                 logger.info(f"[DIFY] Using existing dataset with id: {self.dataset_id}")
@@ -59,7 +62,7 @@ class DifyIntegration:
             overlap = int(default_max * overlap_ratio)
             return default_max, overlap
 
-    def _format_issue_for_text(self, issue: Dict) -> Dict:
+    def _format_issue_for_text(self, issue: Dict, advanced_ingestion: bool = False) -> Dict:
         """Format a Jira issue into a document suitable for Dify ingestion by text"""
         logger.debug(f"[DIFY] Raw issue data: {json.dumps(issue, indent=2)}")
         
@@ -75,18 +78,72 @@ class DifyIntegration:
             summary = self._get_nested_value(issue, ['summary', 'fields.summary'], 'No summary provided')
             description = self._get_nested_value(issue, ['description', 'fields.description'], 'No description provided')
 
-            text = f"""
-Jira Issue: {key}
-Project: {project}
-Type: {issue_type}
-Status: {status}
-Assignee: {assignee}
-Created: {created}
-Updated: {updated}
-\nSummary: {summary}\n\nDescription:\n{description}
-"""
+            # Extract issue number from key (e.g., REST-271 -> 271)
+            match = re.search(r"(\\d+)$", key)
+            issue_number = match.group(1) if match else None
+
+            text_parts = []
+            if advanced_ingestion:
+                # Build aliases list
+                aliases = [key, f"Issue {key}", f"Jira {key}"]
+                if issue_number:
+                    aliases.append(issue_number)
+                    aliases.append(f"Issue {issue_number}")
+                    aliases.append(f"Jira {issue_number}")
+                aliases_line = "Aliases: " + ", ".join(aliases) + "\n"
+                # Build example queries
+                example_queries = [
+                    f"What is {key} about?",
+                    f"How to test {key}?",
+                    f"What does {key} fix?",
+                    f"How was {key} resolved?",
+                    f"Who reported {key}?",
+                    f"Who is assigned to {key}?",
+                    f"What is the status of {key}?",
+                    f"What project is {key} part of?",
+                    f"What is the summary of {key}?",
+                    f"Give a test plan for {key}",
+                    f"What is the acceptance criteria for {key}?",
+                    f"What is the impact of {key}?",
+                    f"What is the root cause of {key}?",
+                    f"What is the fix for {key}?",
+                    f"What is the priority of {key}?",
+                    f"What is the type of {key}?",
+                    f"When was {key} created?",
+                    f"When was {key} updated?",
+                    f"What is the description of {key}?",
+                    f"What is the context for {key}?",
+                    f"How does {key} relate to the product/company/project?"
+                ]
+                if issue_number:
+                    example_queries += [
+                        f"What is issue {issue_number} about?",
+                        f"How to test issue {issue_number}?",
+                        f"Who reported issue {issue_number}?",
+                        f"Who is assigned to issue {issue_number}?",
+                        f"What is the status of issue {issue_number}?",
+                        f"What project is issue {issue_number} part of?",
+                        f"What is the summary of issue {issue_number}?",
+                        f"Give a test plan for issue {issue_number}",
+                        f"What is the acceptance criteria for issue {issue_number}?",
+                        f"What is the impact of issue {issue_number}?",
+                        f"What is the root cause of issue {issue_number}?",
+                        f"What is the fix for issue {issue_number}?",
+                        f"What is the priority of issue {issue_number}?",
+                        f"What is the type of issue {issue_number}?",
+                        f"When was issue {issue_number} created?",
+                        f"When was issue {issue_number} updated?",
+                        f"What is the description of issue {issue_number}?",
+                        f"What is the context of issue {issue_number}?",
+                        f"How does issue {issue_number} relate to the product/company/project?"
+                    ]
+                example_queries_line = "Example queries:\n- " + "\n- ".join(example_queries) + "\n"
+                text_parts.append(aliases_line)
+                text_parts.append(example_queries_line)
+            text_parts.append(f"Summary: {summary}\n\nJira Issue: {key}\nProject: {project}\nType: {issue_type}\nStatus: {status}\nAssignee: {assignee}\nCreated: {created}\nUpdated: {updated}\n\nDescription:\n{description}\n")
+            text = "".join(text_parts)
             # Set your desired chunking config
-            max_tokens, chunk_overlap = self._get_chunk_params(text)
+            max_tokens, chunk_overlap = 2000, 400
             process_rule = {
                 "mode": "custom",
                 "rules": {
@@ -95,7 +152,7 @@ Updated: {updated}
                         {"id": "remove_urls_emails", "enabled": False}
                     ],
                     "segmentation": {
-                        "separator": "###CHUNK###", # This is a custom separator that will be used to split the text into chunks
+                        "separator": "###CHUNK###",
                         "max_tokens": max_tokens,
                         "chunk_overlap": chunk_overlap
                     }
@@ -145,11 +202,12 @@ Updated: {updated}
             logger.error(f"[DIFY] Error creating knowledge metadata: {e}\n{traceback.format_exc()}")
             raise
         
-    def ingest_issues(self, issues: List[Dict]) -> List[Dict]:
+    def ingest_issues(self, issues: List[Dict], advanced_ingestion: bool = False) -> List[Dict]:
         """
         Ingest Jira issues into Dify Knowledge Base (Dataset) as documents
         Args:
             issues: List of JiraIssue objects or dictionaries to ingest
+            advanced_ingestion: Whether to use advanced ingestion (aliases and queries)
         Returns:
             List of responses from Dify API
         """
@@ -164,7 +222,7 @@ Updated: {updated}
                 try:
                     logger.info(f"[DIFY] Processing issue {idx}/{len(issues)}: {issue.key if hasattr(issue, 'key') else issue.get('key', 'unknown')}")
                     url = f"{self.base_url}/datasets/{self.dataset_id}/document/create-by-text"
-                    data = self._format_issue_for_text(issue)
+                    data = self._format_issue_for_text(issue, advanced_ingestion=advanced_ingestion)
                     logger.debug(f"[DIFY] Formatted issue data: {json.dumps(data, indent=2)}")
                     
                     logger.info(f"[DIFY] Creating document: POST {url}")
@@ -196,11 +254,12 @@ Updated: {updated}
             logger.error(f"{error_msg}\n{traceback.format_exc()}")
             raise
 
-    def ingest_json_file(self, json_file_path: str) -> List[Dict]:
+    def ingest_json_file(self, json_file_path: str, advanced_ingestion: bool = False) -> List[Dict]:
         """
         Ingest issues from a JSON file into Dify Knowledge Base
         Args:
             json_file_path: Path to the JSON file containing Jira issues
+            advanced_ingestion: Whether to use advanced ingestion (aliases and queries)
         Returns:
             List of responses from Dify API
         """
@@ -226,14 +285,14 @@ Updated: {updated}
             # Handle different data structures
             if isinstance(data, list):
                 logger.info(f"[DIFY] Processing list of {len(data)} items")
-                return self.ingest_issues(data)
+                return self.ingest_issues(data, advanced_ingestion=advanced_ingestion)
             elif isinstance(data, dict):
                 if 'issues' in data:
                     logger.info(f"[DIFY] Processing issues from 'issues' field")
-                    return self.ingest_issues(data['issues'])
+                    return self.ingest_issues(data['issues'], advanced_ingestion=advanced_ingestion)
                 else:
                     logger.info("[DIFY] Processing single issue document")
-                    return self.ingest_issues([data])
+                    return self.ingest_issues([data], advanced_ingestion=advanced_ingestion)
             else:
                 error_msg = f"Unexpected data type in JSON file: {type(data)}"
                 logger.error(f"[DIFY] {error_msg}")
@@ -387,7 +446,11 @@ Updated: {updated}
             logger.error(f"[DIFY] Error deleting documents: {e}\n{traceback.format_exc()}")
             raise
 
-    def create_dataset(self, name: str, permission: str = "only_me", search_method: str = "hybrid_search") -> str:
+    def create_dataset(self, name: str = None, permission: str = "only_me", search_method: str = "hybrid_search", advanced_ingestion: bool = False) -> str:
+        if name is None:
+            mode = "Advanced" if advanced_ingestion else "Basic"
+            rand_num = random.randint(100000, 999999)
+            name = f"Jira_API_{mode}_{rand_num}"
         url = f"{self.base_url}/datasets"
         data = {
             "name": name,

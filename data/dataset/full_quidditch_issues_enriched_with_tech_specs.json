@@ -1,0 +1,3692 @@
+[
+  {
+    "id": "900001",
+    "key": "QUID-1",
+    "fields": {
+      "summary": "[Epic] User Authentication and Access",
+      "description": "h2. [Epic] User Authentication and Access\n\nMeet never who owner little away bank. Speech find its water article. Art however act relate wind professional truth hand. Develop relationship white whose book coach safe. Change state government office indeed summer line.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Epic",
+        "description": "A epic item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-08-22T00:00:00",
+      "updated": "2023-04-29T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "that"
+        }
+      ],
+      "assignee": {
+        "accountId": "ff36c53d-32c5-43dd-b42c-85fdfe5cb4f2",
+        "displayName": "Ronald Williamson",
+        "emailAddress": "anthony07@bell.biz",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "ae20541b-3cb0-4203-81f4-413d5c1f63a7",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900002",
+    "key": "QUID-2",
+    "fields": {
+      "summary": "As a user, I want to sign up with my email and password",
+      "description": "h2. As a user, I want to sign up with my email and password\n\nPersonal these range police stage if sing. Film assume generation or.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-10-09T00:00:00",
+      "updated": "2023-06-29T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "follow"
+        }
+      ],
+      "assignee": {
+        "accountId": "efc0709a-f422-46e2-9056-26cd064a4d65",
+        "displayName": "Anthony Wilson",
+        "emailAddress": "courtney87@bonilla-thomas.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "b1d78b79-fe67-480f-a20a-e2a4e1a5ccaa",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900003",
+    "key": "QUID-3",
+    "fields": {
+      "summary": "Test case for: As a user, I want to sign up with my email and password",
+      "description": "h2. Test case for: As a user, I want to sign up with my email and password\n\nLast choice bed. Guess some glass modern base. Author risk science among way begin detail. Democratic worry medical paper PM begin. Future attorney citizen general player option.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-17T00:00:00",
+      "updated": "2023-04-15T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "sense"
+        }
+      ],
+      "assignee": {
+        "accountId": "768d027d-9e59-4d02-ba65-282a67e1b453",
+        "displayName": "Christina Butler",
+        "emailAddress": "hbrown@martin.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "c28abd92-6cd2-49b1-ba0f-64866998a3b7",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900004",
+    "key": "QUID-4",
+    "fields": {
+      "summary": "As a user, I want to reset my password",
+      "description": "h2. As a user, I want to reset my password\n\nCoach allow detail number situation. Dinner view at reveal friend wish others. Style minute name beautiful. Level author painting we. Color safe law standard school deal time.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-02T00:00:00",
+      "updated": "2023-04-24T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "value"
+        }
+      ],
+      "assignee": {
+        "accountId": "36b36171-9d98-4b50-8671-c4d31a66bd8c",
+        "displayName": "Alice Alexander",
+        "emailAddress": "thomasmaureen@johnson-burns.biz",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "add0c844-e2a8-40e4-bec4-51bb828cc7dd",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900005",
+    "key": "QUID-5",
+    "fields": {
+      "summary": "Test case for: As a user, I want to reset my password",
+      "description": "h2. Test case for: As a user, I want to reset my password\n\nWhom research although. Debate sea major style. Consider win take upon newspaper behavior my.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-12-23T00:00:00",
+      "updated": "2023-04-12T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "try"
+        }
+      ],
+      "assignee": {
+        "accountId": "e955c3cd-cf2b-4978-9757-faacd97e835c",
+        "displayName": "Steven Powell",
+        "emailAddress": "xrosario@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "468bcef1-6047-4ae6-a7c9-aeb12e4b84ae",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900006",
+    "key": "QUID-6",
+    "fields": {
+      "summary": "[Epic] Live Match Betting System",
+      "description": "h2. [Epic] Live Match Betting System\n\nMother three help note star boy investment. Great light my since part administration against nice. Now break true employee. Financial where author leave. Institution have sing charge a visit.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "Epic",
+        "description": "A epic item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-27T00:00:00",
+      "updated": "2023-02-01T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "toward"
+        }
+      ],
+      "assignee": {
+        "accountId": "bcef8be6-38e2-4f36-8636-a8f018ac93ea",
+        "displayName": "Christopher Petersen",
+        "emailAddress": "megan73@gmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "68ab4ef9-dc5b-451b-95c5-14998a790475",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900007",
+    "key": "QUID-7",
+    "fields": {
+      "summary": "As a user, I want to place a bet on a Quidditch match",
+      "description": "h2. As a user, I want to place a bet on a Quidditch match\n\nDinner what control around check down nation. Head mother power space forward care range. Resource force goal.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-08-24T00:00:00",
+      "updated": "2023-11-30T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "color"
+        }
+      ],
+      "assignee": {
+        "accountId": "26f404bb-a12b-4de2-91ce-d55ca33ab49a",
+        "displayName": "David Hodge",
+        "emailAddress": "deborahzuniga@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "620b69fa-4a32-4e1a-b0ea-7b11b58859d7",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900008",
+    "key": "QUID-8",
+    "fields": {
+      "summary": "Test case for: As a user, I want to place a bet on a Quidditch match",
+      "description": "h2. Test case for: As a user, I want to place a bet on a Quidditch match\n\nExist education old help. Themselves fund none site improve. Plan economic member system.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-01-09T00:00:00",
+      "updated": "2023-07-25T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "maybe"
+        }
+      ],
+      "assignee": {
+        "accountId": "ca3e6c0b-0a62-4690-a031-bb50c8d37c8e",
+        "displayName": "Brianna Cooper",
+        "emailAddress": "bradfordjeffrey@miles.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "21ecaa59-aa23-45f3-90b6-81bf87fa5a37",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900009",
+    "key": "QUID-9",
+    "fields": {
+      "summary": "As a user, I want to view the odds of an upcoming match",
+      "description": "h2. As a user, I want to view the odds of an upcoming match\n\nEntire animal to evening after want. Picture all citizen data in seven newspaper. Example usually total by specific history.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-01-31T00:00:00",
+      "updated": "2023-11-25T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "upon"
+        }
+      ],
+      "assignee": {
+        "accountId": "171304c0-0484-4446-bf44-111c29421ffa",
+        "displayName": "Aaron Colon",
+        "emailAddress": "melissawhitney@sutton.org",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "d394be40-ebcf-473a-8b4a-ef2b5ab3b5c7",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900010",
+    "key": "QUID-10",
+    "fields": {
+      "summary": "Test case for: As a user, I want to view the odds of an upcoming match",
+      "description": "h2. Test case for: As a user, I want to view the odds of an upcoming match\n\nEducation my difficult. Machine deep worry picture parent. Police like small pass color notice. Occur alone even sing.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-03-06T00:00:00",
+      "updated": "2023-09-08T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "care"
+        }
+      ],
+      "assignee": {
+        "accountId": "1dac9916-b7ad-4a9f-92a8-16242210b72e",
+        "displayName": "Faith Mccoy",
+        "emailAddress": "david69@wiggins.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "087d381e-c85f-4a68-ae8a-974714b93774",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900011",
+    "key": "QUID-11",
+    "fields": {
+      "summary": "[Epic] News Feed and Notifications",
+      "description": "h2. [Epic] News Feed and Notifications\n\nOwn can community similar so better series. Do color which glass resource. Investment rule brother carry trade establish stay major. Field true significant specific measure back already. Ground beat like what under even between nature.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Epic",
+        "description": "A epic item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-12T00:00:00",
+      "updated": "2023-04-14T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "indicate"
+        }
+      ],
+      "assignee": {
+        "accountId": "7653ab08-0a51-40c8-919d-7b7c558753c0",
+        "displayName": "Joyce Hart",
+        "emailAddress": "xbrown@dickerson.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "0509bb0f-302c-44b2-b994-bb0d190ed428",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900012",
+    "key": "QUID-12",
+    "fields": {
+      "summary": "As a fan, I want to receive notifications about my favorite team",
+      "description": "h2. As a fan, I want to receive notifications about my favorite team\n\nMan expert someone ago be board check. Same maintain appear example own management.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-15T00:00:00",
+      "updated": "2023-08-25T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "message"
+        }
+      ],
+      "assignee": {
+        "accountId": "e0759713-faad-4ab2-9f96-234647ac5fb0",
+        "displayName": "Carrie Alvarez",
+        "emailAddress": "david55@kelly-cline.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "49bddcd9-b5e7-4c7f-bf99-a0cf63d278f3",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900013",
+    "key": "QUID-13",
+    "fields": {
+      "summary": "Test case for: As a fan, I want to receive notifications about my favorite team",
+      "description": "h2. Test case for: As a fan, I want to receive notifications about my favorite team\n\nThan practice reach buy drug box wish. Reason discussion according list before concern. Phone present require address. Where six bag. Prepare quite heart whom than than.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-04-23T00:00:00",
+      "updated": "2023-03-23T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "account"
+        }
+      ],
+      "assignee": {
+        "accountId": "2f248e96-07fa-47d4-bafd-cc8e74588686",
+        "displayName": "Samuel Valdez",
+        "emailAddress": "cruzsteven@johnson.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "3dc21bdd-1444-4d74-b7d8-163aa4caf2f9",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900014",
+    "key": "QUID-14",
+    "fields": {
+      "summary": "As a user, I want to browse the latest match news",
+      "description": "h2. As a user, I want to browse the latest match news\n\nInternational hold while rate. But black page service fly eight. Light low through manage mind blue.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-04-06T00:00:00",
+      "updated": "2023-06-08T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "usually"
+        }
+      ],
+      "assignee": {
+        "accountId": "e85f013e-69b6-45eb-a71a-f6b5b625e2be",
+        "displayName": "Cheryl Perez",
+        "emailAddress": "transarah@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "3f72dfd5-16fb-4c44-940f-6713a812839c",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900015",
+    "key": "QUID-15",
+    "fields": {
+      "summary": "Test case for: As a user, I want to browse the latest match news",
+      "description": "h2. Test case for: As a user, I want to browse the latest match news\n\nConcern picture benefit to lay service time. Last table edge design yet what. Method protect military such manage.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-11-20T00:00:00",
+      "updated": "2023-07-30T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "west"
+        }
+      ],
+      "assignee": {
+        "accountId": "8d915bb7-1c14-4cde-bfff-e3265cbc0821",
+        "displayName": "Thomas Brown",
+        "emailAddress": "shawzachary@gilmore.org",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "84c5d3f4-0fcb-4cea-92af-5d2ae2ab8cf2",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900016",
+    "key": "QUID-16",
+    "fields": {
+      "summary": "[Epic] Subscription and Payment Integration",
+      "description": "h2. [Epic] Subscription and Payment Integration\n\nEnd worry person you. Employee south blood late. Person speech environment back.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Epic",
+        "description": "A epic item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-10-21T00:00:00",
+      "updated": "2023-09-04T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "adult"
+        }
+      ],
+      "assignee": {
+        "accountId": "db6ff65f-4096-4860-9d03-03350d2d9e65",
+        "displayName": "George Bennett",
+        "emailAddress": "brenda25@hartman.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "95fa180c-1339-499c-9e3c-b9b2206d5b34",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900017",
+    "key": "QUID-17",
+    "fields": {
+      "summary": "As a user, I want to subscribe to premium features",
+      "description": "h2. As a user, I want to subscribe to premium features\n\nWall effort before next increase play growth very. Within can pretty. Radio act thing. Turn central listen.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-10-04T00:00:00",
+      "updated": "2023-01-21T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "claim"
+        }
+      ],
+      "assignee": {
+        "accountId": "377c1ca6-f2f6-4e48-89e1-24058db4924c",
+        "displayName": "Willie Hill",
+        "emailAddress": "rachel68@phillips.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "aa0c64ef-bdc4-4b08-9b35-2cc5d3fe91b1",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900018",
+    "key": "QUID-18",
+    "fields": {
+      "summary": "Test case for: As a user, I want to subscribe to premium features",
+      "description": "h2. Test case for: As a user, I want to subscribe to premium features\n\nCheck back develop growth. Look body ready because owner blue. Old impact final. Imagine build board call should ten week.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-02-02T00:00:00",
+      "updated": "2023-03-06T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "animal"
+        }
+      ],
+      "assignee": {
+        "accountId": "5d82075a-fdb2-40f6-9e5a-93af3127e8fd",
+        "displayName": "Patricia Hughes",
+        "emailAddress": "joelmartinez@fox.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "640c6f7d-24ab-43fc-9644-48f4b01030e7",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900019",
+    "key": "QUID-19",
+    "fields": {
+      "summary": "Bug: As a user, I want to subscribe to premium features throws error on save",
+      "description": "h2. Bug: As a user, I want to subscribe to premium features throws error on save\n\nReveal move else well. Likely world seat seem. Region paper still grow effort prepare. Teacher have performance.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Bug",
+        "description": "A bug item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-08-10T00:00:00",
+      "updated": "2023-06-09T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "appear"
+        }
+      ],
+      "assignee": {
+        "accountId": "af4c0793-cfd5-4d65-bd92-b43d5c389583",
+        "displayName": "George Fritz",
+        "emailAddress": "waterschad@neal.org",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "dbefc9ff-50e7-4888-a35f-042c28baddea",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Reproduce bug scenario",
+          "Verify patch fixes it",
+          "Regression test related features"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900020",
+    "key": "QUID-20",
+    "fields": {
+      "summary": "Task: Implement As a user, I want to subscribe to premium features",
+      "description": "h2. Task: Implement As a user, I want to subscribe to premium features\n\nThat next nor discover. Live deep any unit sometimes. Start blue ask little.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Task",
+        "description": "A task item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-03-12T00:00:00",
+      "updated": "2023-05-31T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "parent"
+        }
+      ],
+      "assignee": {
+        "accountId": "dd8e0d01-69f3-42b3-b108-dff5b7c2dc4a",
+        "displayName": "Christopher Hamilton",
+        "emailAddress": "carolynwood@gmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "b3940670-c01b-4dea-9376-eb10690b981a",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Check acceptance criteria",
+          "Code review",
+          "Ensure CI pipeline passes"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900021",
+    "key": "QUID-21",
+    "fields": {
+      "summary": "As an admin, I want to view all active subscriptions",
+      "description": "h2. As an admin, I want to view all active subscriptions\n\nIncrease war positive bad hair population candidate customer. On though human exactly. Think house raise its chance. Short on why watch into could indeed. General sort film control live.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-30T00:00:00",
+      "updated": "2023-10-19T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "group"
+        }
+      ],
+      "assignee": {
+        "accountId": "39b46e96-e87f-442b-b0cb-523069ba6637",
+        "displayName": "Matthew Morgan",
+        "emailAddress": "rjames@hotmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "29d42082-73f3-49e2-ba1f-463e2726dfbb",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900022",
+    "key": "QUID-22",
+    "fields": {
+      "summary": "Test case for: As an admin, I want to view all active subscriptions",
+      "description": "h2. Test case for: As an admin, I want to view all active subscriptions\n\nPossible computer full together audience new capital represent. Guess fine usually get person just. Raise simple ten pick. Meet treat apply talk while concern. Public build clearly field drop great for.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-12-22T00:00:00",
+      "updated": "2023-12-09T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "view"
+        }
+      ],
+      "assignee": {
+        "accountId": "c97184c9-df4a-4ce4-a531-a425b869480b",
+        "displayName": "Sandra Macdonald",
+        "emailAddress": "vanessakelly@hotmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "e9ab6a4f-7595-48bd-8de1-e1603dde248f",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900023",
+    "key": "QUID-23",
+    "fields": {
+      "summary": "Bug: As an admin, I want to view all active subscriptions throws error on save",
+      "description": "h2. Bug: As an admin, I want to view all active subscriptions throws error on save\n\nSuggest think nature up national south. Point table necessary form various again. Direction research probably partner between. Morning six fish the big here.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A bug item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-14T00:00:00",
+      "updated": "2023-01-16T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "but"
+        }
+      ],
+      "assignee": {
+        "accountId": "d7faefe5-102a-48af-b854-01a608eb1e29",
+        "displayName": "Lauren Ramos",
+        "emailAddress": "haleywhitaker@hotmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "0350c063-3d89-4a6e-9096-90b35e739f9e",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Reproduce bug scenario",
+          "Verify patch fixes it",
+          "Regression test related features"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900024",
+    "key": "QUID-24",
+    "fields": {
+      "summary": "Task: Implement As an admin, I want to view all active subscriptions",
+      "description": "h2. Task: Implement As an admin, I want to view all active subscriptions\n\nBag statement service his kind range. Score religious company understand so. Daughter bar feel third economic traditional color. Upon news time consider. Foreign southern I reach wide address interview.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Task",
+        "description": "A task item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-01-11T00:00:00",
+      "updated": "2023-08-13T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "will"
+        }
+      ],
+      "assignee": {
+        "accountId": "56359b5d-8720-4fc1-b406-96b3156dd993",
+        "displayName": "Paul Kelley",
+        "emailAddress": "jcook@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "976b2e30-3e67-4cd0-9330-a954dab0836c",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Check acceptance criteria",
+          "Code review",
+          "Ensure CI pipeline passes"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900025",
+    "key": "QUID-25",
+    "fields": {
+      "summary": "[Epic] Player Profiles and Scores",
+      "description": "h2. [Epic] Player Profiles and Scores\n\nTrue despite issue far standard much war. Add task age employee produce tend. Actually house change you. Rock reveal over why.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Epic",
+        "description": "A epic item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-12-04T00:00:00",
+      "updated": "2023-07-29T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "hospital"
+        }
+      ],
+      "assignee": {
+        "accountId": "ea8463e6-d71f-4b6c-a099-65bcb13ad515",
+        "displayName": "Heather Bell",
+        "emailAddress": "douglas17@hotmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "62a742c1-73e8-4e50-9617-d95b0826b0a4",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900026",
+    "key": "QUID-26",
+    "fields": {
+      "summary": "As a user, I want to view detailed player statistics",
+      "description": "h2. As a user, I want to view detailed player statistics\n\nFace owner happy art now continue under thus. Tax quite detail nearly kid capital often. Nearly anything drop.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-05-15T00:00:00",
+      "updated": "2023-08-14T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "I"
+        }
+      ],
+      "assignee": {
+        "accountId": "b361c07a-ad99-4242-a53b-4b6e2b0e472a",
+        "displayName": "Peter Bates",
+        "emailAddress": "matthewlewis@hotmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "3418033e-9c72-404f-b68d-7fe36025145c",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900027",
+    "key": "QUID-27",
+    "fields": {
+      "summary": "Test case for: As a user, I want to view detailed player statistics",
+      "description": "h2. Test case for: As a user, I want to view detailed player statistics\n\nSmile forward story mouth decide five section. Drive middle wide future science through. Color do mission first collection between me establish.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-06T00:00:00",
+      "updated": "2023-05-28T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "election"
+        }
+      ],
+      "assignee": {
+        "accountId": "85e42d92-b17a-40e2-ab36-cf9a86348e2b",
+        "displayName": "Kevin Nolan",
+        "emailAddress": "danielle53@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "6e4a3ef9-ffe4-4af5-a1f8-576b2c266f72",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900028",
+    "key": "QUID-28",
+    "fields": {
+      "summary": "Bug: As a user, I want to view detailed player statistics throws error on save",
+      "description": "h2. Bug: As a user, I want to view detailed player statistics throws error on save\n\nFormer discuss than use forget. Chance have when share.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Bug",
+        "description": "A bug item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-08-26T00:00:00",
+      "updated": "2023-10-02T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "current"
+        }
+      ],
+      "assignee": {
+        "accountId": "5068ae8b-3ae3-42b4-95df-9880bad2d769",
+        "displayName": "April Humphrey DVM",
+        "emailAddress": "bbanks@gonzalez.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "0d0627b3-49a0-4704-b3eb-3daa33aa59bb",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Reproduce bug scenario",
+          "Verify patch fixes it",
+          "Regression test related features"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900029",
+    "key": "QUID-29",
+    "fields": {
+      "summary": "Task: Implement As a user, I want to view detailed player statistics",
+      "description": "h2. Task: Implement As a user, I want to view detailed player statistics\n\nRemember bag fill myself single state truth. Determine art floor them that against. Never guy serious economic against lead. Bad course reduce blood physical think edge significant. Per accept school we contain view onto recent.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Task",
+        "description": "A task item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-29T00:00:00",
+      "updated": "2023-10-03T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "quite"
+        }
+      ],
+      "assignee": {
+        "accountId": "46c1fc70-56fa-4f96-b021-afbf1c830f8b",
+        "displayName": "April Roy",
+        "emailAddress": "berrymelissa@gmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "434dc16e-972f-45ca-a9ae-f52ff609444a",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Check acceptance criteria",
+          "Code review",
+          "Ensure CI pipeline passes"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900030",
+    "key": "QUID-30",
+    "fields": {
+      "summary": "As a player, I want to update my profile picture",
+      "description": "h2. As a player, I want to update my profile picture\n\nGlass especially way pretty same but continue song. Establish red difference guy power. Dream understand study billion by family per.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-17T00:00:00",
+      "updated": "2023-06-17T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "anyone"
+        }
+      ],
+      "assignee": {
+        "accountId": "f9018a69-2e26-4b4e-80c5-c00404801bbc",
+        "displayName": "Beth Scott",
+        "emailAddress": "caldwellscott@hotmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "fbfd9b31-fd60-42d9-a6ec-92bd0e175272",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900031",
+    "key": "QUID-31",
+    "fields": {
+      "summary": "Test case for: As a player, I want to update my profile picture",
+      "description": "h2. Test case for: As a player, I want to update my profile picture\n\nChoose parent relate mind forget number traditional certainly. Teacher where region watch keep. Keep with face third reveal family. Friend chair turn.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-02-18T00:00:00",
+      "updated": "2023-10-16T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "argue"
+        }
+      ],
+      "assignee": {
+        "accountId": "f6905a5e-0638-49eb-9736-1745f177ef65",
+        "displayName": "Christopher Odom",
+        "emailAddress": "aaron35@silva-page.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "7c1039fc-fac6-4cac-8b7f-fbc64065862f",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900032",
+    "key": "QUID-32",
+    "fields": {
+      "summary": "Bug: As a player, I want to update my profile picture throws error on save",
+      "description": "h2. Bug: As a player, I want to update my profile picture throws error on save\n\nCatch its office so along. Film worry certainly create nature nature.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Bug",
+        "description": "A bug item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-03-07T00:00:00",
+      "updated": "2023-05-19T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "each"
+        }
+      ],
+      "assignee": {
+        "accountId": "1b561fc2-3b20-474d-8272-699a4a4eb864",
+        "displayName": "Danielle Chandler",
+        "emailAddress": "williamwhite@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "e559f016-92a9-487a-ba4d-bdaa45e961c3",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Reproduce bug scenario",
+          "Verify patch fixes it",
+          "Regression test related features"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900033",
+    "key": "QUID-33",
+    "fields": {
+      "summary": "Task: Implement As a player, I want to update my profile picture",
+      "description": "h2. Task: Implement As a player, I want to update my profile picture\n\nExpert born course oil already Congress. Go bill leave teach or history.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Task",
+        "description": "A task item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-10-04T00:00:00",
+      "updated": "2023-10-13T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "bar"
+        }
+      ],
+      "assignee": {
+        "accountId": "39bdae63-919d-4aa0-9ebc-c01ce379e12a",
+        "displayName": "Mrs. Sharon Adkins",
+        "emailAddress": "anthony91@rivera.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "d398e867-98af-4d55-bf26-10121694ca14",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Check acceptance criteria",
+          "Code review",
+          "Ensure CI pipeline passes"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900034",
+    "key": "QUID-34",
+    "fields": {
+      "summary": "[Epic] Match Engine",
+      "description": "h2. [Epic] Match Engine\n\nMagazine the team dark election. Keep remember reality cause. Treat model modern teach. Red choice since.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Epic",
+        "description": "A epic item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-08-26T00:00:00",
+      "updated": "2023-10-01T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "discussion"
+        }
+      ],
+      "assignee": {
+        "accountId": "4ab05872-ad6a-4ab9-b217-a56cdb44f3fb",
+        "displayName": "Heather Ross",
+        "emailAddress": "petersonangela@jones.net",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "38af4edd-f9fe-415d-95f3-1c526628ec17",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900035",
+    "key": "QUID-35",
+    "fields": {
+      "summary": "As a system, I want to calculate live scores during a match",
+      "description": "h2. As a system, I want to calculate live scores during a match\n\nCatch receive lay couple cost site debate. Time let southern wear raise try decade. Parent model avoid while some.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-05-04T00:00:00",
+      "updated": "2023-03-24T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "pass"
+        }
+      ],
+      "assignee": {
+        "accountId": "a622a57f-aade-495a-a66a-986c96eeb652",
+        "displayName": "Samantha Moss",
+        "emailAddress": "jared68@santos.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "d3a9a6af-abbc-471d-b944-16098f052f82",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900036",
+    "key": "QUID-36",
+    "fields": {
+      "summary": "Test case for: As a system, I want to calculate live scores during a match",
+      "description": "h2. Test case for: As a system, I want to calculate live scores during a match\n\nTonight vote add part parent lay only. Look quickly account not happy catch. Kind reduce thing security bag issue keep. Identify you ability color. Late prove style unit community wait set.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-19T00:00:00",
+      "updated": "2023-05-22T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "order"
+        }
+      ],
+      "assignee": {
+        "accountId": "5b0a83dc-878d-47b3-b1fa-f3ca30f152ba",
+        "displayName": "Desiree Knight",
+        "emailAddress": "jasminejackson@sullivan-reed.biz",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "6814e4f6-7873-4448-8d27-d136b3910f89",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900037",
+    "key": "QUID-37",
+    "fields": {
+      "summary": "Bug: As a system, I want to calculate live scores during a match throws error on save",
+      "description": "h2. Bug: As a system, I want to calculate live scores during a match throws error on save\n\nSeven stand baby director deal. Rock both trade dream long.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Bug",
+        "description": "A bug item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-11T00:00:00",
+      "updated": "2023-07-06T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "hotel"
+        }
+      ],
+      "assignee": {
+        "accountId": "953854a7-f944-4897-8763-ef1a07df2c7c",
+        "displayName": "Elizabeth Bryant",
+        "emailAddress": "kristinfuller@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "604ff036-01f9-4736-9fa9-e0edc35f2146",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Reproduce bug scenario",
+          "Verify patch fixes it",
+          "Regression test related features"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900038",
+    "key": "QUID-38",
+    "fields": {
+      "summary": "Task: Implement As a system, I want to calculate live scores during a match",
+      "description": "h2. Task: Implement As a system, I want to calculate live scores during a match\n\nListen particularly expert score impact listen. Debate by discussion first its. Direction security personal house.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "Task",
+        "description": "A task item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-11-06T00:00:00",
+      "updated": "2023-11-11T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "fight"
+        }
+      ],
+      "assignee": {
+        "accountId": "04f1c32b-7adf-4aed-b8de-a67dfcd1ba35",
+        "displayName": "Kathryn Lewis",
+        "emailAddress": "donald89@gmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "bf5efd03-63d4-425c-968c-3143747dcacc",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Check acceptance criteria",
+          "Code review",
+          "Ensure CI pipeline passes"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900039",
+    "key": "QUID-39",
+    "fields": {
+      "summary": "As a referee, I want to enter penalties during the match",
+      "description": "h2. As a referee, I want to enter penalties during the match\n\nDescribe various so least. Manage mission education strategy tough exist bag. Tough subject rich south add natural computer dog. Success media thousand unit. Method everyone back.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "3",
+        "name": "Story",
+        "description": "A story item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-07-11T00:00:00",
+      "updated": "2023-10-21T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "mother"
+        }
+      ],
+      "assignee": {
+        "accountId": "8b172b81-2d58-42bb-9fe8-f75519b959f7",
+        "displayName": "Heather Wilcox",
+        "emailAddress": "timothyhunter@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "eedee541-4499-4642-ad7b-2159eddc4942",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900040",
+    "key": "QUID-40",
+    "fields": {
+      "summary": "Test case for: As a referee, I want to enter penalties during the match",
+      "description": "h2. Test case for: As a referee, I want to enter penalties during the match\n\nFigure effect good share. Smile court better future.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Test",
+        "description": "A test item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-04-01T00:00:00",
+      "updated": "2023-07-31T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "two"
+        }
+      ],
+      "assignee": {
+        "accountId": "0ab2799a-7fe4-4456-b3ad-db1bc99baf19",
+        "displayName": "Thomas Gonzales",
+        "emailAddress": "maxwellsusan@gmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "8e4440a4-7171-4187-bdf2-0479964fe752",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900041",
+    "key": "QUID-41",
+    "fields": {
+      "summary": "Bug: As a referee, I want to enter penalties during the match throws error on save",
+      "description": "h2. Bug: As a referee, I want to enter penalties during the match throws error on save\n\nNetwork which last pass will or. Pressure cut story. Kid democratic single spend. Officer international American poor member speak history.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "8",
+        "name": "Bug",
+        "description": "A bug item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-04-10T00:00:00",
+      "updated": "2023-08-01T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "amount"
+        }
+      ],
+      "assignee": {
+        "accountId": "be7be235-e386-4ad4-8b0d-e6e0e7ee2a78",
+        "displayName": "Shelly Patel",
+        "emailAddress": "sean53@weber-smith.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "61108e91-d8ac-45d0-b333-ede4b06eacb9",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Reproduce bug scenario",
+          "Verify patch fixes it",
+          "Regression test related features"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900042",
+    "key": "QUID-42",
+    "fields": {
+      "summary": "Task: Implement As a referee, I want to enter penalties during the match",
+      "description": "h2. Task: Implement As a referee, I want to enter penalties during the match\n\nThen technology gun sing modern seven five authority. Research same find statement. Difference former test be manager. Fall choice cause model sing conference.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Task",
+        "description": "A task item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-02-19T00:00:00",
+      "updated": "2023-03-26T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "government"
+        }
+      ],
+      "assignee": {
+        "accountId": "563084f7-7c22-4b05-aded-0c6391e42044",
+        "displayName": "Brianna Mcdonald",
+        "emailAddress": "belljennifer@schaefer-bridges.info",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "b0afb40d-7ddc-4db6-bc61-06276297261e",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Check acceptance criteria",
+          "Code review",
+          "Ensure CI pipeline passes"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900043",
+    "key": "QUID-43",
+    "fields": {
+      "summary": "Release 1.0",
+      "description": "h2. Release 1.0\n\nChange place together music money skill. Official stock mind none nation trial. Whose law back.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "4",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "2",
+        "name": "Release",
+        "description": "A release item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-04-02T00:00:00",
+      "updated": "2023-07-23T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "player"
+        }
+      ],
+      "assignee": {
+        "accountId": "d8683ac6-fc3e-4a7e-a3b3-f52cd7a80002",
+        "displayName": "Drew Gray",
+        "emailAddress": "barreramichelle@yahoo.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "7b2c7eae-3d8f-4cff-8cd5-c947da5b7486",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900044",
+    "key": "QUID-44",
+    "fields": {
+      "summary": "Release 2.0",
+      "description": "h2. Release 2.0\n\nEdge create language establish myself. Girl certainly hit near nice that item mother. Second local itself reach event accept customer. Early suffer American raise.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Major",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "1",
+        "name": "Release",
+        "description": "A release item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-12-21T00:00:00",
+      "updated": "2023-01-26T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "on"
+        }
+      ],
+      "assignee": {
+        "accountId": "547b2073-2b39-47c3-b0b2-b76c26fdf0be",
+        "displayName": "Teresa Cohen",
+        "emailAddress": "gwhitehead@gmail.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "3fdb790d-1724-4e0c-b63f-857541911ed7",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  },
+  {
+    "id": "900045",
+    "key": "QUID-45",
+    "fields": {
+      "summary": "Release 3.0",
+      "description": "h2. Release 3.0\n\nInternational summer for reflect. Join type pretty describe. Learn recognize true.\n\nh3. Technical Specs\n- API Endpoint: `/api/v1/quidditch/...`\n- DB Schema: `match(id, date, team_a, team_b, score_a, score_b)`\n- Auth: OAuth 2.0, token-based\n- Dependencies: `PostgreSQL`, `Redis`, `Kafka`\n- Architecture: Microservices based on Kubernetes with RESTful APIs\n",
+      "status": {
+        "id": "10025",
+        "name": "To Do",
+        "statusCategory": {
+          "id": 2,
+          "name": "To Do"
+        }
+      },
+      "priority": {
+        "id": "3",
+        "name": "Minor",
+        "iconUrl": "https://ecosystem.atlassian.net/images/icons/priorities/major.svg"
+      },
+      "issuetype": {
+        "id": "4",
+        "name": "Release",
+        "description": "A release item.",
+        "iconUrl": "https://ecosystem.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/15303?size=medium"
+      },
+      "created": "2023-09-04T00:00:00",
+      "updated": "2023-02-10T00:00:00",
+      "labels": [],
+      "components": [
+        {
+          "name": "reality"
+        }
+      ],
+      "assignee": {
+        "accountId": "e559bfee-7c05-4bf8-a570-0141142361d7",
+        "displayName": "Paul Newman",
+        "emailAddress": "william18@gill.com",
+        "active": true
+      },
+      "reporter": {
+        "accountId": "873f7d14-7fa7-4676-b0ee-708cf4ad7e45",
+        "displayName": "Testus Patronus",
+        "emailAddress": null,
+        "active": true
+      },
+      "issuelinks": [],
+      "customfield_10014": {},
+      "customfield_10015": {},
+      "customfield_10016": {},
+      "customfield_10017": {},
+      "customfield_10018": {},
+      "customfield_10019": {},
+      "customfield_10020": {},
+      "customfield_10021": {},
+      "customfield_10022": {},
+      "customfield_10023": {},
+      "customfield_10024": {},
+      "customfield_10025": {},
+      "customfield_10026": {},
+      "customfield_10027": {},
+      "customfield_10028": {},
+      "customfield_10029": [],
+      "customfield_10030": [],
+      "customfield_10031": {},
+      "customfield_10032": [],
+      "customfield_10033": [],
+      "customfield_10034": [],
+      "customfield_10035": [],
+      "customfield_10036": {
+        "testScenarios": [
+          "Review requirements",
+          "Implement & validate logic",
+          "Ensure performance is within expected limits"
+        ]
+      },
+      "customfield_10037": {},
+      "customfield_10038": {},
+      "customfield_10039": 0,
+      "customfield_10040": 0,
+      "customfield_10041": 0
+    }
+  }
+]

@@ -27,13 +27,13 @@ def startup_event():
     logger.info("Environment variables loaded.")
 
 @app.post("/ingest/jira")
-def ingest_from_jira(request: IngestJiraRequest):
+def ingest_from_jira(request: IngestJiraRequest, advanced_ingestion: bool = Query(False, description="Enable advanced ingestion (aliases and queries)?")):
     """
     Ingest issues from Jira into Dify. Provide either a JQL query or a project key.
     """
     try:
         jira_client = JiraClient()
-        dify = DifyIntegration()
+        dify = DifyIntegration(advanced_ingestion=advanced_ingestion)
         if request.jql:
             jql_query = request.jql
         elif request.project:
@@ -43,14 +43,14 @@ def ingest_from_jira(request: IngestJiraRequest):
         issues = jira_client.get_issues(jql_query, max_results=request.max_results)
         if not issues:
             return {"success": False, "message": "No issues found for the given query."}
-        dify.ingest_issues(issues)
+        dify.ingest_issues(issues, advanced_ingestion=advanced_ingestion)
         return {"success": True, "message": f"Ingested {len(issues)} issues from Jira."}
     except Exception as e:
         logger.error(f"Error ingesting from Jira: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/ingest/json")
-def ingest_from_json(request: IngestJsonRequest):
+def ingest_from_json(request: IngestJsonRequest, advanced_ingestion: bool = Query(False, description="Enable advanced ingestion (aliases and queries)?")):
     """
     Ingest issues from a list of JSON files in the dataset directory into Dify.
     All documents will be ingested into the same dataset.
@@ -58,7 +58,7 @@ def ingest_from_json(request: IngestJsonRequest):
     results = []
     errors = []
     try:
-        dify = DifyIntegration()  # <-- Create once, before the loop!
+        dify = DifyIntegration(advanced_ingestion=advanced_ingestion)
         dataset_dir = Path(request.dataset_dir)
         for file_name in request.file_names:
             try:
@@ -74,7 +74,7 @@ def ingest_from_json(request: IngestJsonRequest):
 
                 logger.info(f"File found. Attempting to ingest JSON file: {file_path}")
                 try:
-                    result = dify.ingest_json_file(str(file_path))
+                    result = dify.ingest_json_file(str(file_path), advanced_ingestion=advanced_ingestion)
                     logger.info(f"Successfully ingested JSON file. Result: {result}")
                     results.append({"file": file_name, "result": result})
                 except json.JSONDecodeError as e:
