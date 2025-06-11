@@ -1,0 +1,38 @@
+#version: '3.8'
+
+services:
+  jira-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - JIRA_URL=${JIRA_SERVER_URL}
+      - JIRA_EMAIL=${JIRA_EMAIL}
+      - JIRA_API_TOKEN=${JIRA_API_TOKEN}
+    networks:
+      - docker_default
+    volumes:
+      - .:/app
+    command: uvicorn jira_api:app --host 0.0.0.0 --port 8000
+
+  dify:
+    build:
+      context: ./dify
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - JIRA_API_URL=http://jira-api:8000
+    networks:
+      - dify-jira-network
+    depends_on:
+      - jira-api
+
+networks:
+  docker_default:
+    external: true
+  dify-jira-network:
+    external: true
+    name: dify-jira-network 

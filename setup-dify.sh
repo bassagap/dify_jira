@@ -174,6 +174,41 @@ docker compose -f docker-compose.yaml ps
 
 echo -e "${GREEN}Dify setup completed!${NC}"
 
+# Navigate back to the main project directory
+echo -e "${YELLOW}Navigating back to the main project directory...${NC}"
+cd ../../ || {
+    echo -e "${RED}Failed to navigate back to main project directory${NC}"
+    exit 1
+}
+
+# Function to start Jira API container
+start_jira_api() {
+    echo -e "${YELLOW}Starting Jira API Docker container...${NC}"
+    local compose_file="docker-compose.yml"
+
+    # Check if Jira API compose file exists
+    if [ ! -f "$compose_file" ]; then
+        echo -e "${RED}Jira API Docker Compose file not found: $compose_file. Please ensure it exists in the project root.${NC}"
+        return 1
+    fi
+
+    # Use docker compose v2 to start just the jira-api service
+    echo -e "${YELLOW}Using Docker Compose V2 for Jira API...${NC}"
+    docker compose -f "$compose_file" up -d jira-api
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}Jira API container started successfully!${NC}"
+        return 0
+    fi
+
+    echo -e "${RED}Failed to start Jira API container. Please check the error messages above.${NC}"
+    return 1
+}
+
+# Start Jira API container
+if ! start_jira_api; then
+    echo -e "${RED}Setup failed due to Jira API container startup issue.${NC}"
+    exit 1
+fi
 
 # Function to open browser
 open_browser() {
@@ -188,8 +223,6 @@ open_browser() {
         echo -e "${YELLOW}Could not automatically open browser. Please visit: ${GREEN}$url${NC}"
     fi
 }
-
-
 
 url="http://localhost/install"
 

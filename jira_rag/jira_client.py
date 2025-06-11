@@ -75,7 +75,7 @@ class JiraClient:
                 summary=issue.fields.summary,
                 description=issue.fields.description,
                 status=issue.fields.status.name,
-                assignee=issue.fields.assignee.displayName if issue.fields.assignee else "Unassigned",
+                assignee=issue.fields.assignee.displayName if issue.fields.assignee else None,
                 created=issue.fields.created,
                 updated=issue.fields.updated,
                 project=issue.fields.project.name,
@@ -101,7 +101,7 @@ class JiraClient:
             summary=issue.fields.summary,
             description=issue.fields.description,
             status=issue.fields.status.name,
-            assignee=issue.fields.assignee.displayName if issue.fields.assignee else "Unassigned",
+            assignee=issue.fields.assignee.displayName if issue.fields.assignee else None,
             created=issue.fields.created,
             updated=issue.fields.updated,
             project=issue.fields.project.name,
@@ -132,7 +132,7 @@ class JiraClient:
                 "description": "This is a test issue created automatically for testing purposes.",
                 "issuetype": {"id": "10009"},
                 "reporter": {"name": self.email},
-                "assignee": {"name": "Unassigned"}
+                "assignee": None  # Set assignee to null based on Jira API docs
             }
             logger.info(f"issue_dict: {issue_dict}")
             logger.info(f"Creating test issue in {project_key} project...")
@@ -154,7 +154,7 @@ class JiraClient:
         Args:
             inward_key: The inward issue key (e.g., 'PROJ-123')
             outward_key: The outward issue key (e.g., 'PROJ-456')
-            link_type: The type of link (default: 'Tests')
+            link_type: The type of link (default: 'is tested by')
             comment: Optional comment to add to the link
         """
         try:
@@ -232,7 +232,7 @@ class JiraClient:
                 "description": description,
                 "issuetype": {"name": tc.get("test_case_type", "Test")},
                 "priority": {"name": tc.get("priority", "Medium")},
-                "assignee": {"name": "Unassigned"}  # Set default assignee
+                "assignee": None  # Set assignee to null based on Jira API docs
             }
             if labels:
                 issue_dict["labels"] = labels
@@ -289,8 +289,8 @@ class JiraClient:
                 self.link_issues(
                     inward_key=parent_key,
                     outward_key=issue_key,
-                    link_type=link_type,
-                    comment=f"Test case generated for scenario: {summary}"
+                    link_type="is tested by"#link_type,
+                    #comment=f"Test case generated for scenario: {summary}"
                 )
                 results.append({
                     "test_case_key": issue_key,
@@ -339,3 +339,30 @@ class JiraClient:
         except Exception as e:
             logger.error(f"Error retrieving linked issues for {issue_key}: {str(e)}")
             return []
+
+    def delete_issue(self, issue_keys: List[str]) -> Dict[str, str]:
+        """
+        Delete one or more Jira issues by their keys.
+
+        Args:
+            issue_keys: A list of Jira issue keys (e.g., ['PROJ-123', 'PROJ-456']).
+
+        Returns:
+            A dictionary reporting the status of each deletion attempt.
+        """
+        results = {}
+        if not issue_keys:
+            logger.warning("No issue keys provided for deletion.")
+            return results
+            
+        for key in issue_keys:
+            try:
+                logger.info(f"Attempting to delete issue: {key}")
+                issue = self.client.issue(key)
+                issue.delete()
+                logger.info(f"Successfully deleted issue: {key}")
+                results[key] = "Success"
+            except Exception as e:
+                logger.error(f"Error deleting issue {key}: {str(e)}")
+                results[key] = f"Error: {str(e)}"
+        return results

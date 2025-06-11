@@ -111,7 +111,7 @@ async def create_test_case(data: Dict[str, Any]):
         jira_client.link_issues(
             inward_key=data["parent_key"],  # The issue this test case is for
             outward_key=issue.key,          # The newly created test case
-            link_type="depends on",
+            link_type="is tested by",
             #comment="Test case created via Dify integration"
         )
         
@@ -208,6 +208,47 @@ def get_linked_test_cases(issue_key: str, link_type: str = "Tests"):
         return {"success": True, "linked_test_cases": test_cases}
     except Exception as e:
         logger.error(f"Error in get_linked_test_cases: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.delete("/delete_issue/{issue_key}")
+def delete_jira_issue(issue_key: str):
+    """
+    Delete a Jira issue by its key.
+    
+    Args:
+        issue_key: The Jira issue key (e.g., 'PROJ-123')
+    """
+    if not jira_client:
+        raise HTTPException(status_code=503, detail="Jira client not initialized")
+    
+    try:
+        jira_client.delete_issue(issue_key)
+        return {"success": True, "message": f"Issue {issue_key} deleted successfully"}
+    except Exception as e:
+        logger.error(f"Error in delete_jira_issue: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/delete_issues")
+def delete_multiple_jira_issues(data: Dict[str, List[str]]):
+    """
+    Delete multiple Jira issues by their keys.
+    
+    Args:
+        data: A dictionary containing a list of issue keys under the key 'issue_keys'.
+              Example: {"issue_keys": ["PROJ-123", "PROJ-456"]}
+    """
+    if not jira_client:
+        raise HTTPException(status_code=503, detail="Jira client not initialized")
+    
+    issue_keys_to_delete = data.get("issue_keys", [])
+    if not issue_keys_to_delete:
+        raise HTTPException(status_code=400, detail="No issue keys provided in the 'issue_keys' list.")
+
+    try:
+        results = jira_client.delete_issue(issue_keys_to_delete)
+        return {"success": True, "results": results}
+    except Exception as e:
+        logger.error(f"Error in delete_multiple_jira_issues: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":

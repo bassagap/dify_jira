@@ -35,7 +35,8 @@ The development container will be automatically configured with:
    - Initialize git repository if needed
    - Set up the Dify submodule from https://github.com/langgenius/dify.git
    - Configure the environment
-   - Start the Docker containers
+   - Start the Dify Docker containers
+   - Start the jira-api Docker container
    - Open Dify in your browser at http://localhost/install
 
 3. Complete Dify Installation:
@@ -59,14 +60,14 @@ The development container will be automatically configured with:
    ```
 
    To get your credentials:
-   - **Jira API Token**: 
+   - **Jira API Token**(for jira access): 
      1. Go to https://id.atlassian.com/manage-profile/security/api-tokens
      2. Click "Create API token"
      3. Give it a name and copy the token
    
-   - **Dify API Key**:
+   - **Dify dataset API Key**(for data upload):
      1. Log in to your Dify dashboard
-     2. Go to API Keys section
+     2. Go to API Keys section in the Knowledge Base field
      3. Create a new API key or use an existing one
 
 
