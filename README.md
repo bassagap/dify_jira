@@ -1,30 +1,28 @@
-# Jira to Dify RAG Integration
+# Jira RAG Integration
 
-This project provides tools to fetch issues from Jira and ingest them into a Dify RAG (Retrieval-Augmented Generation) system.
+This project provides integration between Jira and Dify RAG (Retrieval-Augmented Generation) system, allowing you to ingest Jira issues and JSON files into a Dify knowledge base.
 
-## Development with GitHub Codespaces
+## Features
 
-This repository is configured for development with GitHub Codespaces. To get started:
+- Ingest issues directly from Jira
+- Ingest issues from JSON files
+- Support for both single JSON file and batch processing
+- Flexible command-line interface
+- Comprehensive logging
 
-1. Click the "Code" button in this repository
-2. Select the "Codespaces" tab
-3. Click "Create codespace on main"
+## Prerequisites
 
-The development container will be automatically configured with:
-- Python 3.9
-- All required dependencies
-- Git
-- Common Python development tools
-- Docker and Docker Compose
+- Python 3.7+
+- Jira account with API access
+- Dify account with API access
 
-## Complete Setup Process
+## Installation
 
-### 1. Initial Setup
-
-1. Make the setup script executable:
-   ```bash
-   chmod +x setup-dify.sh
-   ```
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd <repository-name>
+```
 
 2. Run the Dify setup script:
    ```bash
@@ -35,8 +33,7 @@ The development container will be automatically configured with:
    - Initialize git repository if needed
    - Set up the Dify submodule from https://github.com/langgenius/dify.git
    - Configure the environment
-   - Start the Dify Docker containers
-   - Start the jira-api Docker container
+   - Start the Docker containers
    - Open Dify in your browser at http://localhost/install
 
 3. Complete Dify Installation:
@@ -60,14 +57,14 @@ The development container will be automatically configured with:
    ```
 
    To get your credentials:
-   - **Jira API Token**(for jira access): 
+   - **Jira API Token**: 
      1. Go to https://id.atlassian.com/manage-profile/security/api-tokens
      2. Click "Create API token"
      3. Give it a name and copy the token
    
-   - **Dify dataset API Key**(for data upload):
+   - **Dify API Key**:
      1. Log in to your Dify dashboard
-     2. Go to API Keys section in the Knowledge Base field
+     2. Go to API Keys section
      3. Create a new API key or use an existing one
 
 
@@ -81,13 +78,80 @@ The development container will be automatically configured with:
 
 Run the example script:
 ```bash
-python example.py
+python example.py --json full_quidditch_jira_issues.json
 ```
 
-The script will:
-- Connect to your Jira instance using the provided credentials
-- Fetch issues from the QAREF project
-- Create a new dataset in Dify if one doesn't exist
-- Ingest the Jira issues into Dify's knowledge base
-- Log the progress and any errors that occur
+Additional Options:
+- `--dataset-dir`: Specify a different dataset directory (default: 'jira_rag/dataset')
+
+## JSON File Format
+
+The JSON files should follow this structure:
+```json
+[
+  {
+    "id": "issue-id",
+    "key": "PROJECT-123",
+    "fields": {
+      "summary": "Issue summary",
+      "description": "Issue description",
+      "issuetype": {
+        "name": "Story"
+      },
+      "status": {
+        "name": "To Do"
+      },
+      "project": {
+        "key": "PROJECT",
+        "name": "Project Name"
+      },
+      "created": "2023-01-01T00:00:00",
+      "updated": "2023-01-01T00:00:00"
+    }
+  }
+]
+```
+
+## Project Structure
+
+```
+.
+├── jira_rag/
+│   ├── __init__.py
+│   ├── jira_client.py
+│   └── dify_integration.py
+├── dataset/
+│   └── *.json
+├── example.py
+├── requirements.txt
+└── README.md
+```
+
+## Logging
+
+The script provides detailed logging of its operations. Logs include:
+- Environment variable loading status
+- Jira connection status
+- File ingestion progress
+- Success/failure of operations
+
+## Error Handling
+
+The script includes comprehensive error handling for:
+- Missing environment variables
+- Invalid JSON files
+- Jira connection issues
+- Dify API errors
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+[Your chosen license]
 

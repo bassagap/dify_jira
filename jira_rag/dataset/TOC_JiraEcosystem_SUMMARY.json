@@ -1,0 +1,19 @@
+[
+  {
+    "id": "TOC_SUMMARY",
+    "key": "TOC-SUMMARY",
+    "fields": {
+      "summary": "The TOC (Table of Contents) project in Jira is focused on the Table of Contents Macro Documentation. The main goal of the project is to provide information on how to collapse individual headings in the table of contents. This feature has drawn multiple comments from users, requesting guidance on the collapsing functionality. Two specific examples are referenced in the batch summaries, providing concrete cases. The project is actively addressing these comments and working on incorporating the requested collapsing feature into the macro. The overall status of the project is in progress, with ongoing development and documentation updates to meet user needs.",
+      "contributors": [
+        "Lachlan Dally"
+      ],
+      "assignees": [],
+      "reporters": [
+        "Lachlan Dally"
+      ],
+      "components": [],
+      "issue_count": 2,
+      "type": "project_summary"
+    }
+  }
+]
