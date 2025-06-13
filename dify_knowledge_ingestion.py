@@ -93,8 +93,9 @@ def parse_arguments():
     group.add_argument('--fetch-jira', action='store_true', help='Fetch issues from Jira without Dify integration')
     
     # Optional arguments
-    parser.add_argument('--project', type=str, default='QAREF',
-                      help='Jira project key to fetch issues from (default: QAREF)')
+    parser.add_argument('--project', type=str, 
+                      default=os.getenv('JIRA_PROJECT_KEY', 'QAREF'),  # Use env var or default to QAREF
+                      help='Jira project key to fetch issues from (default: QAREF or JIRA_PROJECT_KEY env var)')
     parser.add_argument('--dataset-dir', type=str, default='jira_rag/dataset',
                       help='Directory containing JSON files (default: jira_rag/dataset)')
     parser.add_argument('--max-results', type=int, default=100,
@@ -175,9 +176,9 @@ def main():
             logger.info(f"Connected to Jira server: {server_info['serverTitle']} (Version: {server_info['version']})")
             
             if args.jira:
-                # Initialize Dify integration for ingestion
+                # Initialize Dify integration for ingestion with project key
                 logger.info("Initializing Dify integration...")
-                dify = DifyIntegration()
+                dify = DifyIntegration(project_key=args.project)
                 ingest_jira_issues(dify, jira_client, args.project)
             elif args.create_test:
                 create_test_issue(jira_client, args.project)
