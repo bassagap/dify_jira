@@ -1,0 +1,159 @@
+version: '3.8'
+
+services:
+  # Jira API Service
+  jira-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.jira
+    ports:
+      - "8000:8000"
+    environment:
+      - JIRA_SERVER_URL=${JIRA_SERVER_URL}
+      - JIRA_EMAIL=${JIRA_EMAIL}
+      - JIRA_API_TOKEN=${JIRA_API_TOKEN}
+    networks:
+      - dify-jira-network
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/test_jira_connection"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Student API Service
+  student-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.student
+    ports:
+      - "8001:8001"
+    environment:
+      - JIRA_SERVER_URL=${JIRA_SERVER_URL}
+      - JIRA_EMAIL=${JIRA_EMAIL}
+      - JIRA_API_TOKEN=${JIRA_API_TOKEN}
+      - DIFY_API_KEY=${DIFY_API_KEY}
+      - DIFY_BASE_URL=${DIFY_BASE_URL}
+    networks:
+      - dify-jira-network
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/test_connection"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # PostgreSQL Database (for Dify)
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: dify
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: difyai123456
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dify-jira-network
+    restart: unless-stopped
+
+  # Redis (for Dify)
+  redis:
+    image: redis:7-alpine
+    command: redis-server --requirepass difyai123456
+    volumes:
+      - redis_data:/data
+    networks:
+      - dify-jira-network
+    restart: unless-stopped
+
+  # Weaviate Vector Database (for Dify)
+  weaviate:
+    image: semitechnologies/weaviate:1.22.4
+    ports:
+      - "8080:8080"
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      ENABLE_MODULES: 'text2vec-openai,text2vec-cohere,text2vec-huggingface,ref2vec-centroid,generative-openai,qna-openai'
+      CLUSTER_HOSTNAME: 'node1'
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    networks:
+      - dify-jira-network
+    restart: unless-stopped
+
+  # Dify API Service
+  dify-api:
+    image: langgenius/dify-api:latest
+    ports:
+      - "5001:5001"
+    environment:
+      - CONSOLE_API_URL=http://localhost:5001
+      - SERVICE_API_URL=http://localhost:5001
+      - APP_API_URL=http://localhost:5001
+      - APP_WEB_URL=http://localhost:3000
+      - FILES_URL=http://localhost:5001
+      - SECRET_KEY=sk-9f73s3ljTXVcMT3Blb3ljTqtsKiGHXVcMT3BlbkFJLK7U
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=difyai123456
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=dify
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=difyai123456
+      - REDIS_DB=0
+      - CELERY_BROKER_URL=redis://:difyai123456@redis:6379/1
+      - VECTOR_STORE=weaviate
+      - WEAVIATE_ENDPOINT=http://weaviate:8080
+      - WEAVIATE_API_KEY=WVF5YThaHlkYwhGUSmCRgsX3tD5ngdN8pkih
+      - STORAGE_TYPE=opendal
+      - OPENDAL_SCHEME=fs
+      - OPENDAL_FS_ROOT=storage
+      - JIRA_API_URL=http://jira-api:8000
+      - STUDENT_API_URL=http://student-api:8001
+    volumes:
+      - dify_storage:/app/storage
+    networks:
+      - dify-jira-network
+    depends_on:
+      - db
+      - redis
+      - weaviate
+      - jira-api
+      - student-api
+    restart: unless-stopped
+
+  # Dify Web Service
+  dify-web:
+    image: langgenius/dify-web:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - CONSOLE_API_URL=http://localhost:5001
+      - SERVICE_API_URL=http://localhost:5001
+      - APP_API_URL=http://localhost:5001
+      - APP_WEB_URL=http://localhost:3000
+      - FILES_URL=http://localhost:5001
+    networks:
+      - dify-jira-network
+    depends_on:
+      - dify-api
+    restart: unless-stopped
+
+networks:
+  dify-jira-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  weaviate_data:
+  dify_storage: 
