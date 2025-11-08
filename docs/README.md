@@ -31,12 +31,12 @@ cd <repository-name>
 
 3. Create a `.env` file in the root directory with the following variables:
 ```env
-# Jira Configuration
+# Jira Configuration, Optional, only if conecting to Jira
 JIRA_SERVER_URL=https://your-jira-server.com
 JIRA_EMAIL=your-email@example.com
 JIRA_API_TOKEN=your-api-token
 
-# Dify Configuration
+# Dify Configuration - Mandatory for Dify course
 DIFY_BASE_URL=http://localhost/v1
 DIFY_DATASET_API_KEY=your-dify-api-key
 DIFY_DATASET_ID=your-dataset-id  # Optional, will be created if not provided
@@ -72,7 +72,18 @@ This is the main API for students to interact with Jira and Dify. It provides th
    - Ingest issues from JSON files
    - Parameters:
      - `file_names`: List of JSON file names to ingest
-     - `dataset_dir`: Directory containing the JSON files (default: "jira_rag/dataset")
+     - `dataset_dir`: Directory containing the JSON files (default: "data/dataset")
+    
+      Sample:
+      ```
+      {
+  "file_names": [
+    "REST_JiraEcosystem_issues.json",
+"REST_JiraEcosystem_SUMMARY.json"
+  ],
+  "dataset_dir": "data/dataset"
+}
+```
 
 3. **Test Connection**
    - **GET** `/test_connection`
